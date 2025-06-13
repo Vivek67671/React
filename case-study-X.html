@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{CASE STUDY TITLE}</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Copy the full <style> block from case-study-1.html here for consistency */
+    /* ...existing code from case-study-1.html <style>... */
+  </style>
+</head>
+<body>
+  <!-- Modern React-style Back Button -->
+  <button class="react-back-btn" type="button" aria-label="Back to Case Studies">
+    <span class="react-back-btn-icon">&#8592;</span>
+    <span>Back</span>
+  </button>
+  <header></header>
+  <main class="case-study-main">
+    <section class="case-study-hero">
+      <h1>{CASE STUDY TITLE}<br /><span class="case-study-highlight">{CASE STUDY SUBTITLE}</span></h1>
+      <div class="case-study-meta">
+        <span class="meta-chip">{META 1}</span>
+        <span class="meta-chip">{META 2}</span>
+        <span class="meta-chip">{META 3}</span>
+        <span class="meta-chip">{META 4}</span>
+      </div>
+      <p class="case-study-lead">
+        {LEAD PARAGRAPH}
+      </p>
+      <div class="case-study-hero-img">
+        <img src="{HERO IMAGE}" alt="{HERO IMAGE ALT}" />
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Project Overview</h2>
+        <p>{PROJECT OVERVIEW}</p>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 1}" alt="{ALT 1}" />
+          <img src="{IMAGE 2}" alt="{ALT 2}" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Gathering Data</h2>
+        <p>{GATHERING DATA PARAGRAPH}</p>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 3}" alt="{ALT 3}" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Understanding Variant Flow & Business Requirements</h2>
+        <p>{VARIANT FLOW PARAGRAPH}</p>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 4}" alt="{ALT 4}" />
+          <img src="{IMAGE 5}" alt="{ALT 5}" />
+          <img src="{IMAGE 6}" alt="{ALT 6}" />
+        </div>
+        <p>{VARIANT FLOW EXTRA}</p>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Defining the Problem</h2>
+        <ul>
+          <li>{PROBLEM 1}</li>
+          <li>{PROBLEM 2}</li>
+          <li>{PROBLEM 3}</li>
+          <li>{PROBLEM 4}</li>
+          <li>{PROBLEM 5}</li>
+        </ul>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Ideating and Brainstorming</h2>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 7}" alt="{ALT 7}" />
+        </div>
+        <p>{IDEATION PARAGRAPH}</p>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 8}" alt="{ALT 8}" />
+        </div>
+        <h3>1. How to up sell higher price variant over other?</h3>
+        <p>{UPSELL PARAGRAPH}</p>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 9}" alt="{ALT 9}" />
+        </div>
+        <h3>2. What information (price, details, quantity, variant selected) to show upfront?</h3>
+        <p>{INFO PARAGRAPH}</p>
+        <div class="case-study-img-row">
+          <img src="{IMAGE 10}" alt="{ALT 10}" />
+          <img src="{IMAGE 11}" alt="{ALT 11}" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Lessons Learned</h2>
+        <ul>
+          <li><b>{LESSON 1 TITLE}</b>
+            <p>{LESSON 1 DETAILS}</p>
+          </li>
+          <li><b>{LESSON 2 TITLE}</b>
+            <p>{LESSON 2 DETAILS}</p>
+          </li>
+          <li><b>{LESSON 3 TITLE}</b>
+            <p>{LESSON 3 DETAILS}</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div class="scroll-to-top-container">
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">
+        ↑ Back to Top
+      </button>
+    </div>
+  </main>
+  <script>
+    document.querySelector('.react-back-btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.history.length > 2) {
+        window.history.back();
+      } else {
+        window.location.href = '/';
+      }
+    });
+  </script>
+</body>
+</html>

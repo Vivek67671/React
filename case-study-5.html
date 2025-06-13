@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Page title -->
+    <title>Sapience Website Redesign|A UI and UX Case Study GRAYS-SCALE</title>
+    <meta name="description" content="Case Study: Mobile Banking App Redesign – Improving Accessibility & Trust. See how GRAYS-SCALE improved user satisfaction and accessibility for a leading fintech startup.">
+
+    <!-- External scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+    <style>
+        /* ...existing code from case-study-1.html <style> ... */
+        body {
+            font-family: "inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #333333;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            text-align: left;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        main {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        button {
+            --hov: 0;
+            display: grid;
+            grid-gap: 0.3em;
+            grid-template-columns: calc(0.375em + var(--hov) * 0.75em) 1fr;
+            align-items: center;
+            place-self: start;
+            border: none;
+            padding: 0.5em 0.75em;
+            border-radius: 1.5em;
+            background: color-mix(in hsl, #333333 calc(var(--hov) * 100%), #333333);
+            color: #ffffff;
+            font: 700 1.2em/1.2 ubuntu, sans-serif;
+            transition: 0.3s ease-out;
+            transition-delay: calc((1 - var(--hov)) * 0.5 * 0.3s), 0s;
+            transition-property: grid-template-columns, background-color;
+            cursor: pointer;
+        }
+        button::before {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 50%;
+            background: #333333;
+            color: hsla(0, 0%, 100%, var(--hov));
+            font-weight: 100;
+            text-indent: calc((var(--hov) - 1) * 0.75em);
+            clip-path: circle(closest-side);
+            transition: inherit;
+            transition-delay: calc(var(--hov) * 0.5 * 0.3s);
+            transition-property: color, text-indent;
+            content: attr(data-ico);
+            display: grid;
+            place-items: center;
+            font-size: 0.8em;
+        }
+        button:is(:hover, :focus) {
+            --hov: 1;
+        }
+        body.dark-mode button {
+            background: color-mix(in hsl, #ffffff calc(var(--hov) * 100%), #ffffff);
+            color: #000;
+        }
+        body.dark-mode button::before {
+            background: #ffffff;
+            color: hsla(0, 0%, 0%, var(--hov));
+        }
+        .container {
+            max-width: 1149px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        h2, h3, h4 {
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        p, li {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        ul, ol {
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            object-fit: contain;
+        }
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .dual-image-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .dual-image-container img {
+            margin: 0;
+            width: 45%;
+        }
+        header {
+            background-color: white;
+            color: black;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            position: relative;
+            min-height: 60px;
+            margin-bottom: 2rem;
+        }
+        nav a {
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 15px;
+            position: relative;
+            font-weight: bold;
+            overflow: hidden;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+        .back-to-home-button {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+            padding: 8px 0;
+            border: none;
+            background: none;
+            color: #333;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .back-to-home-button:hover {
+            transform: scale(1.05);
+        }
+        .back-to-home-button:active {
+            transform: scale(0.95);
+        }
+        body.dark-mode .back-to-home-button {
+            color: #fff;
+        }
+        .scroll-to-top-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+        .scroll-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            background: #444;
+        }
+        body.dark-mode .scroll-to-top {
+            background: #fff;
+            color: #333;
+        }
+        body.dark-mode .scroll-to-top:hover {
+            background: #eee;
+        }
+        @media (max-width: 768px) {
+            header {
+                min-height: 50px;
+                padding: 1rem;
+            }
+            .back-to-home-button {
+                font-size: 14px;
+                left: 15px;
+            }
+            h1 {
+                font-size: 1.8rem;
+                margin-top: 1rem;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+        @media (max-width: 480px) {
+            header {
+                min-height: 45px;
+            }
+            .back-to-home-button {
+                font-size: 13px;
+                left: 12px;
+            }
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 0.5rem;
+            }
+        }
+        /* ...end of copied styles... */
+    </style>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <!-- Back button -->
+        <button class="back-to-home-button" onclick="location.href='index.html';">&lt; Back</button>
+    </header>
+
+    <!-- Main content -->
+    <main class="container">
+        <!-- Case study title -->
+        <h1><b>The Sapience Website Redesign |
+            A UI and UX Case Study</b></h1>
+        <br><br>
+        <div class="image-container">
+            <img src="/images/Case_Studies/Case 5/Home Page.webp" alt="Mobile Banking App Redesign" style="border-radius: 18px;">
+        </div>
+        <h2>About The Sapience </h2>
+        <p>The Sapience is a modern learning and development ecosystem built for children and teenagers aged 3 to 18. It connects families with highly qualified tutors, coaches, and specialists through in-person and virtual sessions tailored to a child’s academic, creative, and personal growth needs.
+
+            With a mission to unlock each child’s potential, The Sapience offers structured services like Unlimited Advantage Tutoring, Holiday Day Camps, and a Future Path Membership—a holistic, quarterly assessment-driven plan for long-term development.
+
+            What sets Sapience apart is its focus on premium quality, trusted educators, and intelligent scheduling, ensuring that every interaction is safe, enriching, and impactful.
+           
+        </p>
+        <h2>Project Overview</h2>
+        <p><b>Client: Sapience
+<p>Role: UX/UI Designer</p>
+<p>Tools: Figma, FigJam, Miro, Adobe Illustrator</p>
+<p>Timeline: 3 Weeks</p>
+<p>Scope: Full redesign of the landing page, plan detail pages, booking flow, and visual system</p></b>
+
+<p><b>Goal:</b> <b>Redesign the Sapience website to reflect its premium positioning, improve conversion, and create a clear, engaging experience for parents exploring tutoring and camp programs for their children.</p></b>
+<ul>
+    <li><b>Accessibility audit and improvements</b></li>
+    <li><b>Streamlined navigation and transaction flows</b></li>
+    <li><b>Enhanced trust signals and security feedback</b></li>
+    <li><b>WCAG-compliant color palette</b></li>
+</ul>
+<div class="image-container">
+    <img src="images\Case_Studies\Case 5\Frame 2147226341.webp" alt="Mobile Banking App Screens">
+</div>
+<h2>The Thinking Behind the Redesign</h2>
+<p>When I first explored the original homepage, I noticed several friction points in the user journey. The platform had a strong offering—but it wasn’t being communicated clearly or engagingly. My goal was to:</p>
+<ul>
+    <li>Make the value proposition crystal clear within seconds.</li>
+    <li>Build instant trust with users through testimonials and comparisons.</li>
+    <li>Structure information in a way that aligns with how users scan and decide online.</li>
+    <li>Improve accessibility for a wider audience, including screen reader compatibility and keyboard navigation.</li>
+    <li>Fix poor color contrast that made important text hard to read, especially for users with visual impairments.</li>
+    <li>Reduce cognitive overload caused by cluttered layouts and too many competing visual elements.</li>
+    <li>Ensure the call-to-action buttons stood out clearly and were placed strategically to guide the user flow.</li>
+    <li>Improve mobile responsiveness, as the original design didn’t scale well on smaller devices.</li>
+    <li>Add visual hierarchy and spacing to reduce scanning fatigue and highlight key information.</li>
+    <li>Incorporate interactive and visual storytelling elements to make the experience more engaging.</li>
+</ul>
+<p>Instead of just giving it a facelift, I wanted the new design to convert, educate, and delight—while being inclusive, accessible, and performance-optimized.</p>
+<h2>Problem Areas in the Original Design</h2>
+<h3>Confusing Content Flow</h3>
+<ul>
+    <li>Key offerings such as pricing, tutor quality, and unique selling points were buried deep or scattered.</li>
+    <li>No clear path or hierarchy to guide the user's eyes through the page.</li>
+    <li>Important CTAs like "Book a Session" or "Explore Plans" weren’t visible above the fold.</li>
+    <li>Overuse of jargon and non-user-friendly language in headers and descriptions.</li>
+</ul>
+<h3>Lack of Visual Appeal & Branding</h3>
+<ul>
+    <li>The visual design felt outdated and didn’t reflect a premium, trustworthy educational platform.</li>
+    <li>Inconsistent iconography, typography, and spacing throughout the page.</li>
+    <li>Poor use of whitespace made the interface feel cramped and overwhelming.</li>
+    <li>Imagery lacked emotional resonance—no real photos of children, tutors, or sessions.</li>    
+</ul>
+
+<h3>Low Conversion Rates</h3>
+<ul>
+    <li>High bounce rates observed in Google Analytics—users left within seconds of landing.</li>
+    <li>Low scroll depth in Hotjar heatmaps indicated disengagement from content below the fold.</li>
+    <li>Weak or confusing CTA buttons (“Learn More” or “Start Now” had unclear context).</li>
+    <li>Very Bad Banner and Urgency Notifications (like free trial, discount, or limited-time offer) to drive action.</li>
+</ul>
+<h3>Poor Accessibility (a11y)</h3>
+<ul>
+<li>Low color contrast between text and background made it unreadable for many.</li>
+<li>Missing alt text for key visuals, making the page inaccessible for screen readers.</li>
+<li>Lack of keyboard navigation or focus indicators for interactive elements.</li>
+<li>Form inputs weren’t labeled properly, violating WCAG accessibility standards.</li>
+</ul>
+<h3>Cognitive Overload</h3>
+<ul>
+    <li>Too many different font sizes, colors, and components competing for attention.</li>
+    <li>Redundant content blocks saying the same thing in different words.</li>
+    <li>No content grouping—benefits, testimonials, pricing, and FAQs were scattered randomly.</li>
+    <li>Excessive text made it difficult to quickly understand the value.</li>
+</ul>
+<h3>Lack of Emotional or Social Proof</h3>
+<ul>
+    <li>No testimonials, no user reviews, no success stories or case studies.</li>
+    <li>No real faces or quotes from tutors, students, or parents—hurting trust and relatability.</li>
+    <li>Absence of trust indicators like accreditations, safety measures, or partnerships.</li>
+    <li>Absence of recognizable brands or partnerships to validate credibility.</li>
+</ul>
+    <img src="\images\Case_Studies\Case 5\image 34.webp" alt="Old Website Design">
+    <p>This image showcases the original design of the Sapience website. As seen here, the layout lacked a clear visual hierarchy, making it difficult for users to navigate and understand the key offerings. The outdated design and poor use of whitespace contributed to a cluttered and unappealing user experience.</p>
+</div>
+<h3>Rigid Branding Constraints from Stakeholders</h3>
+<ul>
+    <li>Stakeholders insisted on a black background, which created significant contrast issues and made the design feel heavy and uninviting.</li>
+    <li>Color codes and text fonts were hardcoded, restricting flexibility and scalability. We couldn’t make adjustments to typography, size, or color without breaking the design. </li>
+    <li>The black background made it challenging to achieve visual balance and contrast, especially when paired with light-colored text, resulting in readability issues for users with visual impairments.</li>
+    <li>No images, characters, animations, or icons could be used, further limiting the visual appeal and the ability to add personality or emotional resonance to the design.</li>
+    <li>These constraints limited the ability to create interactive, engaging experiences or visually compelling storytelling elements that could have elevated the platform’s branding and user connection.</li>
+</li>
+</ul>
+<h3>Resistance to Change Despite Data-Driven Insights</h3>
+<p>We conducted several meetings with stakeholders to discuss the brand guidelines, including the black background, color choices, and text fonts.
+
+Despite presenting data-driven insights from user testing, UX research, and analytics tools (such as Hotjar heatmaps and Google Analytics data) that highlighted poor contrast, low readability, and high bounce rates, the stakeholders were reluctant to make any changes.
+
+Even after clearly demonstrating how the current design affected user engagement and conversion rates, they remained firm on maintaining the original brand color palette and design constraints.
+
+This created a challenging environment where we had to balance user experience optimization with the fixed branding parameters, leading to a more creative but constrained approach in the design solution.
+
+</p>
+<h2>My Design Objectives</h2>
+<ul>
+    <li><b>Clear Communication:</b> Simplify and clarify messaging to immediately highlight the $79/week tutoring offer, ensuring it stands out on the page. The value proposition should be visible within seconds, eliminating any confusion about what the platform offers.</li>
+    <li><b>Build Credibility and Trust:</b> Incorporate authentic testimonials, real photos of tutors and students, and comparison charts to establish credibility and social proof. These elements will foster trust, helping users feel confident in choosing Sapience.</li>
+    <li><b>Improve Visual Appeal:</b> Embrace a modern, minimalistic UI with bold typography and clean card layouts to break away from the outdated, cluttered design. Ensure that the design feels aligned with the premium nature of the brand while adhering to the fixed black background and hardcoded color palette constraints set by stakeholders.</li>
+    <li><b>Enhanced Accessibility and Readability:</b> Address color contrast issues to ensure the text is easily readable for all users, particularly those with visual impairments. Use high-contrast colors within the restricted brand guidelines to improve accessibility without compromising the design integrity.</li>
+    <li><b>Optimized for Conversion:</b> Lead users toward desired actions with clear and actionable CTAs like “Get Started,” “Join Now,” and “Contact Us.” Strategically place CTAs to minimize friction and guide users smoothly through the decision-making process. Focus on key conversion points such as the $79/week offer and easy access to booking.</li>
+    <li><b>User Engagement through Interaction:</b> Incorporate scroll-triggered animations and dynamic content to keep users engaged without overloading them with information. Utilize interactive components, such as hover states and microinteractions, to make the experience feel more engaging while staying within the limitations of no images, animations, or icons.</li>
+    <li><b>Data-Driven Design Decisions:</b> Regularly review analytics data (Hotjar heatmaps, Google Analytics) to refine the design for optimal performance, ensuring that users spend more time engaging with the content and completing actions. Address high bounce rates by improving page flow and ensuring the most relevant content is visible above the fold.</li>
+    <li><b>Mobile-First Design:</b> Ensure the page is fully responsive, optimizing content for smaller screens without sacrificing design integrity. Focus on providing easy navigation, legible text, and clickable CTAs on mobile devices.</li>
+</ul>
+
+
+<div class="scroll-to-top-container">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">
+        ↑ Back to Top
+    </button>
+</div>
+</main>
+
+<!-- Splide JS -->
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script src="script.js"></script>
+<script>
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 1200); // 1.2s minimum
+    });
+</script>
+</body>
+</html>
