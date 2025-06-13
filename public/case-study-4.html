@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Designing a Seamless Budget Management Experience – A UX Case Study</title>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        body {
+            font-family: "Inter", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #000000;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            text-align: left;
+        }
+        .container {
+            max-width: 1149px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        h2, h3, h4 {
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        p, li {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+        ul, ol {
+            margin-bottom: 1.5rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem 0;
+            display: block;
+        }
+        /* Updated Back Button Styles - No Arrow */
+    .back-to-home-button {
+        position: relative; /* Changed from absolute */
+        margin-left: 20px;
+        padding: 8px 0;
+        border: none;
+        background: none;
+        color: #333;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .back-to-home-button:hover {
+        transform: scale(1.05);
+    }
+
+    .back-to-home-button:active {
+        transform: scale(0.95);
+    }
+
+    body.dark-mode .back-to-home-button {
+        color: #fff;
+    }
+        /* Header styles */
+    header {
+        background-color: white;
+        color: black;
+        padding: 1rem 1.5rem;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        min-height: 60px;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        header {
+            min-height: 50px;
+            padding: 1rem;
+        }
+
+        .back-to-home-button {
+            font-size: 14px;
+            margin-left: 15px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-top: 1rem;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header {
+            min-height: 45px;
+        }
+
+        .back-to-home-button {
+            font-size: 13px;
+            margin-left: 12px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+        }
+    }
+        /* Scroll to Top Button Styles */
+    .scroll-to-top-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+    }
+
+    .scroll-to-top {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        background: #333;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .scroll-to-top:hover {
+        transform: translateY(-3px);
+        background: #444;
+    }
+
+    body.dark-mode .scroll-to-top {
+        background: #fff;
+        color: #333;
+    }
+
+    body.dark-mode .scroll-to-top:hover {
+        background: #eee;
+    }
+        @media (max-width: 900px) {
+            .container { padding: 8px; }
+            h1 { font-size: 1.5rem; }
+            .footer-16371 .container p { font-size: 1.2rem !important; }
+            .footer-16371 { padding: 2rem 0; }
+            .back-to-home-button { font-size: 1rem; padding: 0.4em 0.8em; top: 10px; left: 10px; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 4px; }
+            h1 { font-size: 1.1rem; }
+            .footer-16371 .container p { font-size: 1rem !important; }
+            .back-to-home-button { font-size: 0.9rem; padding: 0.3em 0.6em; }
+        }
+        .react-back-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5em;
+          border: none;
+          padding: 0.4em 1.2em;
+          border-radius: 1.5em;
+          background: linear-gradient(90deg, #005fcc 60%, #00a2ff 100%);
+          color: #fff;
+          font-family: "Inter", sans-serif;
+          font-size: 0.95rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          box-shadow: 0 2px 12px 0 rgba(0,95,204,0.10);
+          cursor: pointer;
+          transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+          margin: 1.2rem 0 1rem 1rem;
+          outline: none;
+          position: relative;
+          z-index: 20;
+        }
+        .react-back-btn:hover, .react-back-btn:focus {
+          background: linear-gradient(90deg, #003399 60%, #005fcc 100%);
+          color: #ffd700;
+          transform: translateY(-1px) scale(1.03);
+          box-shadow: 0 4px 16px 0 rgba(0,95,204,0.18);
+        }
+        .react-back-btn-icon {
+          font-size: 1.1em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255,255,255,0.13);
+          border-radius: 50%;
+          width: 1.5em;
+          height: 1.5em;
+          color: #fff;
+          margin-right: 0.1em;
+          transition: background 0.18s;
+        }
+        .react-back-btn:hover .react-back-btn-icon,
+        .react-back-btn:focus .react-back-btn-icon {
+          background: rgba(255,255,255,0.22);
+          color: #ffd700;
+        }
+        .case-study-main {
+          background: #f7fafd;
+          border-radius: 2.5rem;
+          box-shadow: 0 4px 32px 0 rgba(0, 95, 204, 0.07);
+          margin: 2rem auto 3rem auto;
+          padding: 2.5rem 2rem 2rem 2rem;
+          max-width: 1100px;
+        }
+        .case-study-hero {
+          text-align: center;
+          margin-bottom: 2.5rem;
+        }
+        .case-study-hero h1 {
+          font-size: 2.7rem;
+          font-weight: 900;
+          margin-bottom: 0.5rem;
+          color: #005fcc;
+          line-height: 1.1;
+        }
+        .case-study-highlight {
+          color: #00a2ff;
+          font-weight: 900;
+          font-size: 2.1rem;
+          display: block;
+          margin-top: 0.2em;
+        }
+        .case-study-meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.7em;
+          justify-content: center;
+          margin-bottom: 1.2rem;
+        }
+        .meta-chip {
+          background: #e6f0fa;
+          color: #005fcc;
+          border-radius: 1em;
+          padding: 0.3em 1em;
+          font-size: 1em;
+          font-weight: 600;
+          letter-spacing: 0.5px;
+        }
+        .case-study-lead {
+          font-size: 1.2rem;
+          color: #333;
+          margin-bottom: 1.5rem;
+        }
+        .case-study-hero-img img {
+          width: 100%;
+          max-width: 900px;
+          border-radius: 1.5rem;
+          margin: 0 auto 1.5rem auto;
+          box-shadow: 0 2px 16px rgba(0,95,204,0.07);
+          display: block;
+        }
+        .case-study-section {
+          margin: 2.5rem 0;
+          padding: 2.5rem 2rem;
+          background: #fff;
+          border-radius: 1.5rem;
+          box-shadow: 0 2px 12px rgba(0,95,204,0.05);
+        }
+        .case-study-section.alt-bg {
+          background: #e6f0fa;
+        }
+        .case-study-content h2, .case-study-content h3 {
+          color: #005fcc;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          margin-top: 0;
+        }
+        .case-study-content ul {
+          margin-left: 1.5em;
+          margin-bottom: 1.5em;
+        }
+        .case-study-content li {
+          margin-bottom: 0.7em;
+          font-size: 1.1rem;
+        }
+        .case-study-img-row {
+          display: flex;
+          gap: 2.5rem;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 2.5rem 0;
+        }
+        .case-study-img-row img {
+          max-width: 500px;
+          width: 100%;
+          border-radius: 1rem;
+          box-shadow: 0 2px 12px rgba(0,95,204,0.07);
+          background: #fff;
+        }
+        @media (max-width: 900px) {
+          .case-study-main {
+            padding: 1.2rem 0.5rem;
+          }
+          .case-study-section {
+            padding: 1.2rem 0.5rem;
+          }
+          .case-study-img-row {
+            gap: 1rem;
+          }
+          .case-study-img-row img {
+            max-width: 100%;
+          }
+        }
+        @media (max-width: 600px) {
+          .react-back-btn {
+            font-size: 1rem;
+            padding: 0.5em 1em;
+            margin: 1.2rem 0 1rem 0.5rem;
+          }
+          .react-back-btn-icon {
+            font-size: 1.1em;
+            width: 1.5em;
+            height: 1.5em;
+          }
+          .case-study-main {
+            padding: 0.5rem 0.2rem;
+          }
+          .case-study-section {
+            padding: 0.7rem 0.2rem;
+          }
+          .case-study-hero h1 {
+            font-size: 1.4rem;
+          }
+          .case-study-highlight {
+            font-size: 1.1rem;
+          }
+          .meta-chip {
+            font-size: 0.9em;
+          }
+        }
+        body.dark-mode .case-study-main {
+          background: #181c22;
+          color: #e6eaf3;
+        }
+        body.dark-mode .case-study-section {
+          background: #232a36;
+          color: #e6eaf3;
+        }
+        body.dark-mode .case-study-section.alt-bg {
+          background: #181c22;
+        }
+        body.dark-mode .case-study-content h2,
+        body.dark-mode .case-study-content h3 {
+          color: #7ecbff;
+        }
+        body.dark-mode .meta-chip {
+          background: #232a36;
+          color: #7ecbff;
+        }
+        .scroll-to-top-container {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          margin: 40px 0;
+        }
+        .scroll-to-top {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 24px;
+          background: #333;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-family: "Inter", sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          cursor: pointer;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .scroll-to-top:hover {
+          transform: translateY(-3px);
+          background: #444;
+        }
+        body.dark-mode .scroll-to-top {
+          background: #fff;
+          color: #333;
+        }
+        body.dark-mode .scroll-to-top:hover {
+          background: #eee;
+        }
+    </style>
+</head>
+<body>
+  <button class="react-back-btn" type="button" aria-label="Back to Case Studies">
+    <span class="react-back-btn-icon">&#8592;</span>
+    <span>Back</span>
+  </button>
+  <header></header>
+  <main class="case-study-main">
+    <section class="case-study-hero">
+      <h1>Budget Management<br /><span class="case-study-highlight">A UX Case Study</span></h1>
+      <div class="case-study-meta">
+        <span class="meta-chip">Cloud Budget Management</span>
+        <span class="meta-chip">2023</span>
+        <span class="meta-chip">6 weeks</span>
+        <span class="meta-chip">Figma, User Research</span>
+      </div>
+      <p class="case-study-lead">
+        Designing a seamless budget management experience for organizations using multiple cloud providers. This case study focuses on solving the challenges of tracking, allocating, and controlling cloud spend across platforms.
+      </p>
+      <div class="case-study-hero-img">
+        <img src="images\Case Study Sliders  Image Containers\case study 4.webp" alt="Budget Management Hero" />
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Project Overview</h2>
+        <p>
+          Ever since the shift to cloud-based infrastructure, there has been a trend in the industry to rely on multiple cloud providers to either have infrastructure backup or use particular capabilities offered by one provider while maintaining the majority of their infrastructure with another.
+          This calls for a mechanism to set spending limits among these cloud providers as well as an overview of how one’s cloud budget is being allocated across various cloud service providers.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\case study 4.webp" alt="Cloud Budget Management Illustration" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Introduction</h2>
+        <p>
+          With the growing adoption of cloud services, organizations are increasingly using multiple cloud providers for redundancy, cost optimization, and leveraging unique features. However, this multi-cloud approach brings challenges in tracking and managing budgets across providers.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\Frame 2147226341.png" alt="Cloud Budget Management Illustration" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Problem Statement</h2>
+        <p>
+          DevOps Managers play a key role in managing and optimizing cloud expenses. They often rely on projected costs from various cloud providers to make informed decisions.
+          However, these projections are typically based on past spending patterns and fail to consider critical factors like resource scaling, data transfer fees, or evolving business needs. This makes it challenging for managers and tech leaders to accurately forecast and allocate cloud budgets—particularly in multi-cloud environments.
+        </p>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Goal</h2>
+        <p>
+          To design user experience for various technical personas (FinOps/DevOps Managers/CTO) in order to create, track & understand budgets for multiple cloud platforms.
+        </p>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Understanding and Research</h2>
+        <p>
+          In order to create a product that offers value, it is essential to understand customer expectations, which makes user research an extremely crucial part of the process.
+          I conducted interviews with a variety of personas from clients — Purplle, Innovaccer, and Zenoti.
+        </p>
+        <p>
+          I wanted to understand…
+        </p>
+        <ul>
+          <li>How does tech leadership handle budgeting in a multi-cloud environment?</li>
+          <li>What are the expectations to receive alerts when cost exceeds the budget?</li>
+          <li>What are the missing elements in the budgeting tool provided by the primary cloud provider?</li>
+        </ul>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Initial Learning</h2>
+        <ul>
+          <li>There is no clarity on the status of budget health.</li>
+          <li>There is a clear need to set customizable thresholds for forecasted and spend alerts.</li>
+          <li>Having access to trends makes it easier for stakeholders to make informed decisions.</li>
+        </ul>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Ideation Process</h2>
+        <h3>Brainstorming</h3>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_tX12pao68eVlq20zbaNisg.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          As I started developing my user flows, I merged related stories and identified three key user journeys. Mapping out a flow for each path allowed me to pinpoint the necessary screens early on, providing clarity before moving into sketching and deeper ideation.
+        </p>
+        <h3>Identifying Core Features</h3>
+        <p>
+          With the user flows as a guide, I sketched rough layouts for each critical path. Having a clear understanding of the necessary screens and key elements made the sketching process more efficient. This foundation proved invaluable in bringing clarity and focus to the development of high-fidelity wireframes and final designs.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_vgBwTDfT03gTB551ZiZdmg.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          During this process, I recognized the need to split the feature into two main sections to more effectively address user goals and pain points.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_2su1ovxwpnQttL80VQHmvQ.webp" alt="Problem Statement Illustration" />
+        </div>
+        <h3>High fidelity Wireframes</h3>
+        <p>
+          I started by sketching out initial concepts and developing low-fidelity wireframes, guided by the persona’s goals and pain points. Following several collaborative discussions with the team, these evolved into high-fidelity wireframes.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_5ESovhfl87W82iQSZqKpMg.webp" alt="Problem Statement Illustration" />
+          <img src="images\Case_Studies\Case 4\1_l-er87m-1i964HXl9_HUWA.webp" alt="Problem Statement Illustration" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Design Iteration 1</h2>
+        <p>
+          The primary goal of our first sprint was to deliver a dashboard that displays current spending and allows users to create budgets and configure alerts.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_uRsPgBRYt_C4wywL1g3wTg.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          Shows a summary of all the budgets, sorted based on the time of creation by default. Users can quickly assess the health of their budgets as it is in an easy-to-read graph format along with information on pre-set alerts.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_kQFVEHf9SaiF4CJexh09nA.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          Finance leadership needs a comprehensive view of historical data to evaluate the performance of a budget. Alongside, it helps them get a view of the forecasted cost to enhance their business decisions.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_PwGwvUGfvpaqS5naJQOa5A.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          New budgets can be created for teams, features, applications, customers, or products. These require to be set up in finops categories, after which the user can proceed to set the budgets.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_7Eah6a00J0xFgPmqUhIb3g.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          Alerts can be configured by setting thresholds on actual as well as forecasted costs. The recipients can be alerted by E-mail, Slack, or Microsoft Teams.
+        </p>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Design Iteration 2</h2>
+        <p>
+          As I approached the final stages of designing iteration #1, OpsLyft's product infrastructure began transitioning to support multi-cloud functionality within a unified platform.
+          As a result, the updated design incorporates both customer feedback gathered through prototype testing and enhancements to accommodate multi-cloud support.
+          Each design update is clearly numbered and indicated with arrows for clarity.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_uRsPgBRYt_C4wywL1g3wTg.webp" alt="Problem Statement Illustration" />
+        </div>
+        <p>
+          After receiving feedback from several customers that the previous dashboard’s ‘Budget Period’ section displayed the number of days remaining—information they found unhelpful—the new design was updated to instead show the actual start and end dates of the budget period.
+        </p>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_LVg7wxysk-hD5AmgG8JE5A.webp" alt="Problem Statement Illustration" style="width: 100%; height: auto;" />
+        </div>
+        <p>
+          Transitioning from a single cloud platform to a multi-cloud setup required several updates:
+        </p>
+        <ul>
+          <li>Introduced multi-select options to support all five cloud platforms.</li>
+          <li>Made subtle UI enhancements, including keeping the budget period menu expanded by default.</li>
+          <li>Added a dynamic preview section that updates based on the selections made in the left panel.</li>
+          <li>Budgets can now be created directly through this feature and are independent of the FinOps module, which previously required category creation.</li>
+        </ul>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_PmZmtS9hZS6T3tgdv4Wzbg.webp" alt="Problem Statement Illustration" style="width: 100%; height: auto;" />
+        </div>
+        <p>
+          No conceptual changes were made to the alert configuration process, aside from a few visual enhancements:
+        </p>
+        <ul>
+          <li>A summary note was added to clearly display key alert details, including the percentage of the amount spent and the total budgeted amount.</li>
+          <li>The email input field was also visually refined.</li>
+          <li>A dynamic preview was introduced, offering a visual representation that helps users make more informed alerting decisions.</li>
+        </ul>
+        <div class="case-study-img-row">
+          <img src="images\Case_Studies\Case 4\1_BNP7UIBhmiB28zQDAr8Jtw.webp" alt="Problem Statement Illustration" style="width: 100%; height: auto;" />
+        </div>
+      </div>
+    </section>
+    <section class="case-study-section alt-bg">
+      <div class="case-study-content">
+        <h2>Business Impact</h2>
+        <p>
+          The business impact metrics were calculated post-release of iteration 2 and were aided using tools such as Maze.
+        </p>
+        <h3>Monthly Recurring Revenue (MRR)</h3>
+        <p>
+          Following implementation, we observed a moderate increase in MRR of approximately 11–13%, directly linked to this feature. This growth resulted from a combination of onboarding new customers to the OpsLyft platform and engaging additional user personas from existing customer accounts.
+        </p>
+        <h3>Adoption Rate</h3>
+        <p>
+          After the feature was implemented, MRR saw a steady increase of around 11–13%, which can be directly attributed to its impact. This growth was driven by the onboarding of new customers to the OpsLyft platform, along with increased adoption by additional user personas within existing customer accounts.
+        </p>
+        <h3>Task success rate</h3>
+        <p>
+          We utilized Maze’s “Direct Success” metric to measure task success rate (similar to completion or success rate). Forty-five days after the feature launch, it achieved a success rate of 86%—notably higher than the industry benchmark of 78%.
+        </p>
+      </div>
+    </section>
+    <section class="case-study-section">
+      <div class="case-study-content">
+        <h2>Outcomes & Takeaways</h2>
+        <p>
+          In my view, the true key to delivering value lies in seamlessly combining creativity with practicality to meet user needs. Throughout the process of research, iteration, and incorporating feedback, I evolved as a designer and gained several key insights:
+        </p>
+        <!-- ...keep all your original text here... -->
+      </div>
+    </section>
+    <div class="scroll-to-top-container">
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">
+        ↑ Back to Top
+      </button>
+    </div>
+  </main>
+  <script>
+    document.querySelector('.react-back-btn').addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.history.length > 2) {
+        window.history.back();
+      } else {
+        window.location.href = '/';
+      }
+    });
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.body.classList.add('loaded');
+      }, 1200);
+    });
+  </script>
+</body>
+</html>

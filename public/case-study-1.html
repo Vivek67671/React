@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Page title -->
+    <title>Designing for variants a UX case study</title>
+
+    <!-- External scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: "Neue Montreal", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #000000;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            text-align: left;
+            /* Left align all text */
+            font-size: 16px;
+            /* Standardize base font size */
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        /* Fix horizontal scroll */
+        html,
+        body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        main {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Container layout */
+        .container {
+            max-width: 1149px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p,
+        li {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Update image styles to center */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Style for image containers */
+        .image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        /* Style for side-by-side images */
+        .dual-image-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .dual-image-container img {
+            margin: 0;
+            width: 45%;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            color: black;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: left;
+            position: relative;
+            min-height: 60px;
+            /* Ensure minimum height for header */
+            margin-bottom: 2rem;
+            /* Add space below header */
+        }
+
+        nav a {
+            color: black;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-right: 15px;
+            position: relative;
+            font-weight: bold;
+            overflow: hidden;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+        }
+
+        /* Updated Back Button Styles - No Arrow */
+        .back-to-home-button {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+            padding: 8px 0;
+            border: none;
+            background: none;
+            color: #333;
+            font-family: "Inter", sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .back-to-home-button:hover {
+            transform: scale(1.05);
+        }
+
+        .back-to-home-button:active {
+            transform: scale(0.95);
+        }
+
+        body.dark-mode .back-to-home-button {
+            color: #fff;
+        }
+
+        /* Back link styles */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+            margin-top: 2.5rem;
+            /* Add margin from top */
+            margin-left: 20px !important;
+            padding: 0.5em 1em;
+            /* Add padding for better click area */
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            color: #111;
+        }
+
+        .back-arrow {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+        /* Scroll to Top Button Styles */
+        .scroll-to-top-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .scroll-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: "Inter", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            background: #444;
+        }
+
+        body.dark-mode .scroll-to-top {
+            background: #fff;
+            color: #333;
+        }
+
+        body.dark-mode .scroll-to-top:hover {
+            background: #eee;
+        }
+
+        /* Media queries */
+        @media (max-width: 768px) {
+            header {
+                min-height: 50px;
+                padding: 1rem;
+            }
+
+            .back-to-home-button {
+                font-size: 14px;
+                left: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-top: 1rem;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                min-height: 45px;
+            }
+
+            .back-to-home-button {
+                font-size: 13px;
+                left: 12px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .back-btn {
+                font-size: 1.3rem;
+                padding: 0.2em 0.5em 0.2em 0.1em;
+                margin-top: 1.2rem;
+                /* Smaller margin on mobile */
+            }
+
+            .back-btn .back-arrow {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Button styles */
+        button {
+            --hov: 0;
+            display: grid;
+            grid-gap: 0.3em;
+            grid-template-columns: calc(0.375em + var(--hov) * 0.75em) 1fr;
+            align-items: center;
+            place-self: start;
+            border: none;
+            padding: 0.5em 0.75em;
+            border-radius: 1.5em;
+            background: color-mix(in hsl, #333333 calc(var(--hov) * 100%), #333333);
+            color: #ffffff;
+            font: 700 1.2em/1.2 ubuntu, sans-serif;
+            transition: 0.3s ease-out;
+            transition-delay: calc((1 - var(--hov)) * 0.5 * 0.3s), 0s;
+            transition-property: grid-template-columns, background-color;
+            cursor: pointer;
+        }
+
+        button::before {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 50%;
+            background: #333333;
+            color: hsla(0, 0%, 100%, var(--hov));
+            font-weight: 100;
+            text-indent: calc((var(--hov) - 1) * 0.75em);
+            clip-path: circle(closest-side);
+            transition: inherit;
+            transition-delay: calc(var(--hov) * 0.5 * 0.3s);
+            transition-property: color, text-indent;
+            content: attr(data-ico);
+            display: grid;
+            place-items: center;
+            font-size: 0.8em;
+        }
+
+        button:is(:hover, :focus) {
+            --hov: 1;
+        }
+
+        /* Dark Mode Button Styles */
+        body.dark-mode button {
+            background: color-mix(in hsl, #ffffff calc(var(--hov) * 100%), #ffffff);
+            color: #000;
+        }
+
+        body.dark-mode button::before {
+            background: #ffffff;
+            color: hsla(0, 0%, 0%, var(--hov));
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Modern React-style Back Button -->
+    <button class="react-back-btn" type="button" aria-label="Back to Case Studies">
+      <span class="react-back-btn-icon">&#8592;</span>
+      <span>Back</span>
+    </button>
+    <!-- Header with navigation -->
+    <header>
+        <!-- Remove the old back-to-home-button here -->
+    </header>
+    <main class="case-study-main">
+        <section class="case-study-hero">
+            <h1>Designing For Variants<br /><span class="case-study-highlight">A UX Case Study</span></h1>
+            <div class="case-study-meta">
+                <span class="meta-chip">Home Services App</span>
+                <span class="meta-chip">2023</span>
+                <span class="meta-chip">2 weeks</span>
+                <span class="meta-chip">Sketch, Zeplin, Marvel</span>
+            </div>
+            <p class="case-study-lead">
+                Designed with intuitive navigation and smart categorization, the app ensures users can book home services in just a few taps.
+            </p>
+            <div class="case-study-hero-img">
+                <img src="images/Case_Studies/image 10.png" alt="Handee Project Thumbnail" />
+            </div>
+        </section>
+        <section class="case-study-section">
+            <div class="case-study-content">
+                <h2>Project Overview</h2>
+                <p>
+                    The problem involved designing the flow for the user to buy multiple variants of a product which has staggered pricing and at the same time ensuring that she is making a good deal (<b>Value for money</b>).
+                </p>
+                <p>
+                    I followed the Double Diamond approach for the project. We started by gathering data from PMs and business teams and did a competitive study to better understand the problem. Then we narrowed down the data to some of the key problems/constraints we needed to address while designing. After that, we explored multiple solutions for solving these problems, and finally, we narrowed down to a final solution.
+                </p>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 8.png" alt="Handee Project Thumbnail" />
+                    <img src="images/Case_Studies/image 9.png" alt="Handee Project Thumbnail" />
+                </div>
+            </div>
+        </section>
+        <section class="case-study-section alt-bg">
+            <div class="case-study-content">
+                <h2>Gathering Data</h2>
+                <p><b>Variants and Staggered Pricing</b></p>
+                <p>
+                    Before starting with the design process, it was necessary to understand the variants and their pricing model.
+                    If service price(Sp) is dependent on time(t) and material used(m), then for different value of t and m, S would have different values.
+                    This is called a staggered pricing model and each value of the price(S) is called a variant.
+                </p>
+                <p>
+                    In our case, We wanted to solve for the Massage category and Massage was available for two durations: 60 and 90 min.
+                    For these two time values, the service price was not a linear function of time. The price(y) for 90 min massage was lesser than what it would be for a linear pricing model (y&lt;1.5x; x=price for 60 min massage). Thus, A higher variant type was available for a discounted price which makes it a value for money deal for the user. Through our design, we wanted to entice her into buying <b>this high price variant.</b>
+                </p>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 11.png" alt="Variant Flow" />
+                </div>
+            </div>
+        </section>
+        <section class="case-study-section">
+            <div class="case-study-content">
+                <h2>Understanding Variant Flow & Business Requirements</h2>
+                <p>
+                    For understanding the variant flow, I first looked at how UrbanClap app was dealing with the problem of variants earlier. I found out that there were separate SKUs (Stock Keeping Unit) for each variant type which was increasing the scroll length of the page. Thus, we wanted to eliminate the need of having separate SKUs.
+                </p>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 12.png" alt="Variant Flow" />
+                    <img src="images/Case_Studies/image 13.png" alt="Variant Flow" />
+                    <img src="images/Case_Studies/image 14.png" alt="Variant Flow" />
+                </div>
+                <p>
+                    Also, the goal of this project was to scale the variant flow to other categories too. For this, I talked with different category heads to understand the various requirements. e.g. for some of the variant types, the only short heading wouldn’t suffice and we needed some description of the variant along with the heading while for some other cases, we needed pictures also.
+                </p>
+                <p>
+                    There was also a limit to the number of items a user could buy for a variant type. For some cases, we needed to give the ability to the user to buy multiple quantities of a variant type while for some cases, she could buy only one.
+                </p>
+            </div>
+        </section>
+        <section class="case-study-section alt-bg">
+            <div class="case-study-content">
+                <h2>Defining the Problem</h2>
+                <ul>
+                    <li>How might we up-sell the higher variant to the user and at the same time ensure that she is making a good deal?</li>
+                    <li>How might we give an ability to the user to view all variants associated with the product/SKU and add them to the cart without going into the details page?</li>
+                    <li>How might we make it scalable so that the same design can be extended to other categories?</li>
+                    <li>How might we give the user the ability to buy multiple quantities of A type and B type of same variants in one go?</li>
+                    <li>How might we inform the user that she has already selected multiple variants of an SKU without going further into the flow?</li>
+                </ul>
+            </div>
+        </section>
+        <section class="case-study-section">
+            <div class="case-study-content">
+                <h2>Ideating and Brainstorming</h2>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 16.png" alt="Ideating and Brainstorming" />
+                </div>
+                <p>
+                    We started sketching the various solution possible for variant flow and tried to figure out how the SKU card could inform the user that multiple variants were available for the product.
+                </p>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 17.png" alt="Variant Flow" />
+                </div>
+                <h3>1. How to up sell higher price variant over other?</h3>
+                <p>
+                    Since the pricing was not linear, We thought of showing a table for price comparison of all the variants on the card itself and showing the benefits of buying higher value variant by showing the savings on that variant. This solution was good for a service where only 2 variants were available but increasing the variants would increase the length of the card and thus have increased the scrolling length. To avoid this, we thought of making the list items horizontally scrollable on the card. But this would hide the best price available for the service and it would become difficult to show description along with each variant.
+                </p>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 18.png" alt="Variant Selection" />
+                </div>
+                <h3>2. What information (price, details, quantity, variant selected) to show upfront?</h3>
+                <p>
+                    <b>Details</b> - Since we were selling a service, only title and image wouldn’t suffice the information needed to sell the service. Therefore we added some pointers (e.g. benefits, pressure points, oils used for massage, etc.) to help the user to make the decision easier without going into the Details page.<br />
+                    <b>Price</b> - Deciding what price to be shown upfront was the most difficult challenge. e.g. We thought of showing price range as Amazon does it for variants. But the price range was not a clear indicator of the price for an item as for some category (like Bathroom cleaning) where bulk purchase model (the more you buy, the more discount you get) is followed, the price of a single item may be less than what is shown by the minimum of the range.<br />
+                    <b>Quantity, Variants, and Variant Selected</b> - The card should inform user that multiple variants be purchased for a better deal and placed it closer to the variant selection button.
+                </p>
+                <div class="case-study-img-row">
+                    <img src="images/Case_Studies/image 20.png" alt="Solution 1" />
+                    <img src="images/Case_Studies/image 21.png" alt="Solution 2" />
+                </div>
+            </div>
+        </section>
+        <section class="case-study-section alt-bg">
+            <div class="case-study-content">
+                <h2>Lessons Learned</h2>
+                <ul>
+                    <li><b>Design to meet both business and user needs.</b>
+                        <p>
+                            While designing, business goals should be considered as important as the user goals. A business goal needs to be considered as another constraint while solving the design problem. e.g. I thought of showing only the standard price on the card and then writing the different variants available in the plain text. Then my VP told me that we needed to highlight the offer associated with variant informing that the user could make a better deal by spending some extra bucks on a higher variant. The highlighted offer would catch user attention and she might think of buying it. Thus our business goal of up-selling would be met.
+                        </p>
+                    </li>
+                    <li><b>Break the objective into a set of small constraints and keep them in mind while designing.</b>
+                        <p>
+                            To solve a problem easily, we can simplify/break it down further into a set of smaller problems or constraints. The best solution should take care of all the constraints. Noting down all the constraints at one place will also prevent us from overlooking any edge cases in the design.
+                        </p>
+                    </li>
+                    <li><b>Treat edge cases as edge cases only.</b>
+                        <p>
+                            Your design should be such that it is optimized for all edge cases. While solving for edge cases, it should be kept in mind that the users will encounter them rarely. They should not be optimized more than the cases which are encountered quite often. e.g. in the process of solving for edge case of buying multiple quantities of multiple combinations of variant type, I proposed a solution wherein the flow for edge case had better UX than the case of buying 2 different variants of a single type which was encountered most often.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <div class="scroll-to-top-container">
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="scroll-to-top">
+                ↑ Back to Top
+            </button>
+        </div>
+    </main>
+
+    <!-- Splide JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.body.classList.add('loaded');
+            }, 1200); // 1.2s minimum
+        });
+    </script>
+    <style>
+      .react-back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5em;
+        border: none;
+        padding: 0.4em 1.2em;
+        border-radius: 1.5em;
+        background: linear-gradient(90deg, #005fcc 60%, #00a2ff 100%);
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 12px 0 rgba(0,95,204,0.10);
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.18s;
+        margin: 1.2rem 0 1rem 1rem;
+        outline: none;
+        position: relative;
+        z-index: 20;
+      }
+      .react-back-btn:hover, .react-back-btn:focus {
+        background: linear-gradient(90deg, #003399 60%, #005fcc 100%);
+        color: #ffd700;
+        transform: translateY(-1px) scale(1.03);
+        box-shadow: 0 4px 16px 0 rgba(0,95,204,0.18);
+      }
+      .react-back-btn-icon {
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.13);
+        border-radius: 50%;
+        width: 1.5em;
+        height: 1.5em;
+        color: #fff;
+        margin-right: 0.1em;
+        transition: background 0.18s;
+      }
+      .react-back-btn:hover .react-back-btn-icon,
+      .react-back-btn:focus .react-back-btn-icon {
+        background: rgba(255,255,255,0.22);
+        color: #ffd700;
+      }
+      .case-study-main {
+        background: #f7fafd;
+        border-radius: 2.5rem;
+        box-shadow: 0 4px 32px 0 rgba(0, 95, 204, 0.07);
+        margin: 2rem auto 3rem auto;
+        padding: 2.5rem 2rem 2rem 2rem;
+        max-width: 1100px;
+      }
+      .case-study-hero {
+        text-align: center;
+        margin-bottom: 2.5rem;
+      }
+      .case-study-hero h1 {
+        font-size: 2.7rem;
+        font-weight: 900;
+        margin-bottom: 0.5rem;
+        color: #005fcc;
+        line-height: 1.1;
+      }
+      .case-study-highlight {
+        color: #00a2ff;
+        font-weight: 900;
+        font-size: 2.1rem;
+        display: block;
+        margin-top: 0.2em;
+      }
+      .case-study-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7em;
+        justify-content: center;
+        margin-bottom: 1.2rem;
+      }
+      .meta-chip {
+        background: #e6f0fa;
+        color: #005fcc;
+        border-radius: 1em;
+        padding: 0.3em 1em;
+        font-size: 1em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      .case-study-lead {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 1.5rem;
+      }
+      .case-study-hero-img img {
+        width: 100%;
+        max-width: 900px;
+        border-radius: 1.5rem;
+        margin: 0 auto 1.5rem auto;
+        box-shadow: 0 2px 16px rgba(0,95,204,0.07);
+        display: block;
+      }
+      .case-study-section {
+        margin: 2.5rem 0;
+        padding: 2.5rem 2rem;
+        background: #fff;
+        border-radius: 1.5rem;
+        box-shadow: 0 2px 12px rgba(0,95,204,0.05);
+      }
+      .case-study-section.alt-bg {
+        background: #e6f0fa;
+      }
+      .case-study-content h2, .case-study-content h3 {
+        color: #005fcc;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        margin-top: 0;
+      }
+      .case-study-content ul {
+        margin-left: 1.5em;
+        margin-bottom: 1.5em;
+      }
+      .case-study-content li {
+        margin-bottom: 0.7em;
+        font-size: 1.1rem;
+      }
+      .case-study-img-row {
+        display: flex;
+        gap: 2.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2.5rem 0;
+      }
+      .case-study-img-row img {
+        max-width: 500px;
+        width: 100%;
+        border-radius: 1rem;
+        box-shadow: 0 2px 12px rgba(0,95,204,0.07);
+        background: #fff;
+      }
+      @media (max-width: 900px) {
+        .case-study-main {
+          padding: 1.2rem 0.5rem;
+        }
+        .case-study-section {
+          padding: 1.2rem 0.5rem;
+        }
+        .case-study-img-row {
+          gap: 0.7rem;
+        }
+        .case-study-img-row img {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .react-back-btn {
+          font-size: 1rem;
+          padding: 0.5em 1em;
+          margin: 1.2rem 0 1rem 0.5rem;
+        }
+        .react-back-btn-icon {
+          font-size: 1.1em;
+          width: 1.5em;
+          height: 1.5em;
+        }
+        .case-study-main {
+          padding: 0.5rem 0.2rem;
+        }
+        .case-study-section {
+          padding: 0.7rem 0.2rem;
+        }
+        .case-study-hero h1 {
+          font-size: 1.4rem;
+        }
+        .case-study-highlight {
+          font-size: 1.1rem;
+        }
+        .meta-chip {
+          font-size: 0.9em;
+        }
+      }
+      body.dark-mode .case-study-main {
+        background: #181c22;
+        color: #e6eaf3;
+      }
+      body.dark-mode .case-study-section {
+        background: #232a36;
+        color: #e6eaf3;
+      }
+      body.dark-mode .case-study-section.alt-bg {
+        background: #181c22;
+      }
+      body.dark-mode .case-study-content h2,
+      body.dark-mode .case-study-content h3 {
+        color: #7ecbff;
+      }
+      body.dark-mode .meta-chip {
+        background: #232a36;
+        color: #7ecbff;
+      }
+    </style>
+    <script>
+      document.querySelector('.react-back-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        if (window.history.length > 2) {
+          window.history.back();
+        } else {
+          window.location.href = '/';
+        }
+      });
+    </script>
+</body>
+
+</html>
