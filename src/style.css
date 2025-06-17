@@ -362,14 +362,12 @@ body.dark-mode #logo {
 .hero-title h1 {
   font-size: clamp(0.5rem, 10vw, 11rem); /* Adjusted for better responsiveness */
   white-space: nowrap;
-  font-family: "Unbounded", sans-serif;
+  font-family: "Unbounded", sans-serif; /* Ensure the correct font is applied */
+  font-weight: 900; /* Explicitly set to bold */
   margin-top: 10px;
-  font-weight: 900;
   line-height: 1;
   text-align: center;
-  /* Removed: width: 100vw; */
-  /* Removed: box-sizing: border-box; */
-  /* Removed: overflow: hidden; */
+  color: black; /* Ensure the color is visible */
 }
 
 .hero-title a {
@@ -1926,182 +1924,10 @@ body.dark-mode .logo-animation .logo-text {
   }
 }
 
-/* ===== Gallery Section Styles ===== */
-#gallery.gallery-section {
-    margin: 100px 0 120px 0; /* similar spacing as other sections */
-    padding: 0 20px;
-    text-align: left;
-}
-#gallery-heading {
-    font-size: clamp(2rem, 7vw, 4rem); /* match h2 style */
-    font-weight: 900;
-    margin-bottom: 70px; /* consistent with other section headings */
-    text-transform: uppercase;
-}
-.gallery-description {
-    font-size: 1.6rem; /* matching global paragraph style */
-    line-height: 1.6;
-    margin-bottom: 50px !important; /* consistent spacing */
-
-}
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-    width: 100%;
-}
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    background: #f7f7f7;
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
 
 
-.gallery-item:hover img {
-    filter: grayscale(0%) brightness(1.04); /* Transition to color on hover */
-}
 
-.gallery-item img {
-  width: 100%;
-  height: 260px; /* Fixed height */
-  object-fit: cover; /* Ensure images cover the area */
-  object-position: top; /* Show the top part of the image */
-  display: block;
-  filter: grayscale(100%);
-  transition: transform 0.3s ease, filter 0.3s ease; /* Reduced durations for smoother effect */
-}
 
-/* NEW: Style for grid items to display images in a row */
-.gallery-item {
-    display: block; /* Ensure block display for proper layout */
-    flex-direction: row;
-    justify-content: flex-start; /* Align images to the start */
-    align-items: center;
-    gap: 10px; /* Add some space between images */
-    padding: 5px;
-}
-
-.gallery-item img {
-    width: 50%; /* Each image takes up half the width */
-    height: auto;
-    box-sizing: border-box; /* Include padding/border in width */
-    margin: 0; /* Reset default margins */
-    display: block; /* Remove extra bottom spacing */
-}
-
-/* Hide the second image by default */
-.gallery-item .second-image {
-    display: none;
-}
-
-/* Update Gallery Item styles */
-.gallery-item .second-image {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.preview-modal.open .second-image {
-    opacity: 1;
-}
-
-/* ===== Preview Modal Styles ===== */
-.preview-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-    z-index: 3000;
-    overflow-y: auto; /* enable vertical scroll if content exceeds viewport */
-}
-.preview-modal.open {
-    display: flex;
-}
-.preview-modal-img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 8px;
-}
-.preview-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 3rem;
-    color: #fff;
-    cursor: pointer;
-    z-index: 3100;
-}
-
-/* Premium Gallery Page Styles */
-.gallery-page .page-heading {
-  font-size: 3.5rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: 900;
-}
-
-.gallery-page .page-subheading {
-  font-size: 1.8rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #777;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3rem;
-  padding: 0 20px;
-}
-
-.gallery-item.premium-card {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 18px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-item.premium-card:hover {
-  transform: translateY(-8px);
-  animation: subtleShadow 0.3s forwards; /* Apply subtle shadow animation */
-}
-
-.item-actions {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #eee;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.like-btn {
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  color: #e44d26;
-  cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease; /* Add transform transition */
-}
-
-.like-btn:hover {
-  color: #c63917;
-}
-
-.like-btn:focus {
-  outline: none; /* Remove focus outline for cleaner look */
-}
-
-.like-btn.liked {
-  animation: heartBeat 0.7s; /* Apply heart beat animation */
-}
 
 /* Certifications Section Styles - Makeover */
 #certifications.certifications-section {
@@ -2506,6 +2332,8 @@ body.dark-mode .cert-link:focus {
 @keyframes scanLine {
     0% { left: -100%; }
     50% { left: 100%; }
+    0% { left: -100%; }
+    50% { left: 100%; }
     100% { left: 100%; }
 }
 
@@ -2548,5 +2376,15 @@ body.dark-mode .custom-note .highlight {
   filter: grayscale(100%) brightness(0.98);
   transition: transform 0.18s, filter 0.18s;
   will-change: transform, filter;
+}
+
+/* ...existing code... */
+.small-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif; /* Ensure the correct font is applied */
+  color: #333;
+  text-rendering: optimizeLegibility; /* Optimize text rendering */
 }
 

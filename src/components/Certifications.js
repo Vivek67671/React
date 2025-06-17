@@ -10,9 +10,15 @@ const Certifications = () => (
       </p>
       <div className="certifications-grid">
         <div className="certification-card">
-          <img src="images/Certifications/Google_2015_logo.svg.webp"
+          <img 
+            src="images/Certifications/Google_2015_logo.svg.webp"
             alt="Google Logo - Google UX Design Professional Certification"
-            aria-label="Google UX Design Professional Certificate" />
+            aria-label="Google UX Design Professional Certificate"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="cert-details">
             <h4>Google UX Design Professional Certificate</h4>
             <div className="cert-meta">
@@ -24,9 +30,15 @@ const Certifications = () => (
           </div>
         </div>
         <div className="certification-card">
-          <img src="images/Certifications/5094051dac77593d0f0978bdcbabaf79e5bb855c-1080x1080.webp"
+          <img 
+            src="images/Certifications/5094051dac77593d0f0978bdcbabaf79e5bb855c-1080x1080.webp"
             alt="Google Logo - UX Design Process Certificate"
-            aria-label="Google UX Design Process Certificate" />
+            aria-label="Google UX Design Process Certificate"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="cert-details">
             <h4>Start the UX Design Process: Empathize, Define, and Ideate</h4>
             <div className="cert-meta">
@@ -38,7 +50,15 @@ const Certifications = () => (
           </div>
         </div>
         <div className="certification-card">
-          <img src="images/Certifications/images.webp" alt="California Institute of the Arts Professional Certificate logo" aria-label="California Institute of the Arts Professional Certificate logo" />
+          <img 
+            src="images/Certifications/images.webp" 
+            alt="California Institute of the Arts Professional Certificate logo" 
+            aria-label="California Institute of the Arts Professional Certificate logo"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="cert-details">
             <h4>Visual Elements of User Interface Design</h4>
             <div className="cert-meta">
@@ -50,7 +70,15 @@ const Certifications = () => (
           </div>
         </div>
         <div className="certification-card">
-          <img src="images/Certifications/images (1).webp" alt="ADVANCED C++ " aria-label="ADVANCED C++ certificate logo" />
+          <img 
+            src="images/Certifications/images (1).webp" 
+            alt="ADVANCED C++ " 
+            aria-label="ADVANCED C++ certificate logo"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="cert-details">
             <h4>ADVANCED C++ </h4>
             <div className="cert-meta">
@@ -62,7 +90,15 @@ const Certifications = () => (
           </div>
         </div>
         <div className="certification-card">
-          <img src="images/Certifications/coursera-rebrand-logo-square.webp" alt="Human-Computer Interaction" aria-label="Coursera Project Network logo" />
+          <img 
+            src="images/Certifications/coursera-rebrand-logo-square.webp" 
+            alt="Human-Computer Interaction" 
+            aria-label="Coursera Project Network logo"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="cert-details">
             <h4>Work with Components in Figma</h4>
             <div className="cert-meta">
@@ -74,7 +110,15 @@ const Certifications = () => (
           </div>
         </div>
         <div className="certification-card">
-          <img src="images/Certifications/2313123.png" alt="Human-Computer Interaction" aria-label="Data Analysis by Microsoft and LinkedIn" />
+          <img 
+            src="images/Certifications/2313123.png" 
+            alt="Human-Computer Interaction" 
+            aria-label="Data Analysis by Microsoft and LinkedIn"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
           <div className="cert-details">
             <h4>Data Analysis by Microsoft </h4>
             <div className="cert-meta">

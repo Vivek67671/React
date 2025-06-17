@@ -4,37 +4,37 @@ import { useTranslation } from 'react-i18next';
 
 const servicesData = [
 	{
-		img: 'images/what-we-do/1.jpg',
+		img: 'images/What-we-do/1.jpg',
 		alt: 'Research and Discovery Service',
 		title: 'Research & Discovery',
 		desc: 'Understanding your business, users, and goals is the foundation of great design. We conduct: User Research, Competitive Analysis, Stakeholder Workshops.',
 	},
 	{
-		img: 'images/what-we-do/2.jpg',
+		img: 'images/What-we-do/2.jpg',
 		alt: 'Strategy and Information Architecture Service',
 		title: 'Strategy & Information Architecture',
 		desc: 'We define a clear roadmap for an intuitive and scalable digital product by: Creating User Personas, Developing User Journeys, Structuring Sitemaps.',
 	},
 	{
-		img: 'images/what-we-do/3.jpg',
+		img: 'images/What-we-do/3.jpg',
 		alt: 'Wireframing and Prototyping Service',
 		title: 'Wireframing & Prototyping',
 		desc: 'Before designing high-fidelity screens, we create: Low-Fidelity Wireframes, Interactive Prototypes, Usability Testing.',
 	},
 	{
-		img: 'images/what-we-do/4.jpg',
+		img: 'images/What-we-do/4.jpg',
 		alt: 'Visual Design and Branding Service',
 		title: 'Visual Design & Branding',
 		desc: 'Once the foundation is set, we craft visually compelling and interactive designs: UI Design, Design Systems, Motion & Micro-Interactions.',
 	},
 	{
-		img: 'images/what-we-do/5.jpg',
+		img: 'images/What-we-do/5.jpg',
 		alt: 'Development Handoff & Collaboration Service',
 		title: 'Development Handoff & Collaboration',
 		desc: 'We work closely with developers to ensure seamless implementation: Design Handoff, Front-End Development Support, Collaboration with Engineers.',
 	},
 	{
-		img: 'images/what-we-do/6.jpg',
+		img: 'images/What-we-do/6.jpg',
 		alt: 'Testing, Feedback & Iteration Service',
 		title: 'Testing, Feedback & Iteration',
 		desc: 'Design is an ongoing process, and we refine products based on real-world usage: A/B Testing & Heatmaps, User Testing Sessions, Post-Launch Optimization.',

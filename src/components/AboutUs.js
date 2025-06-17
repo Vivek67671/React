@@ -44,10 +44,11 @@ const AboutUs = () => {
           </motion.p>
           <motion.p
             className="small-text"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            style={{ fontDisplay: 'swap' }} // Ensure font is visible even before fully loaded
+            initial={{ opacity: 0, y: 10 }} // Reduce animation distance
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.2, delay: 0.1 }} // Reduce animation delay
           >
             {t("I design with people at the center, creating intuitive, seamless, and accessible experiences. Every detail follows WCAG standards and best practices from Apple, Microsoft, and Google. My goal is to build inclusive, trustworthy digital products for everyone.")}
           </motion.p>

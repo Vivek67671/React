@@ -24,9 +24,9 @@ function App() {
         <AboutUs />
         <Certifications />
         <TrustedBrands />
-        <Services />
         <LatestProjects />
         <Gallery />
+        <Services />
         <Testimonials />
         <Contact />
         <Footer />

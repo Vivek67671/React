@@ -60,7 +60,17 @@ const TrustedBrands = () => {
         <div className="marquee-container" ref={marqueeRef} style={{ marginTop: '3rem' }}>
           <div className="marquee">
             {marqueeLogos.map((logo, index) => (
-              <img key={index} src={logo} alt={`Client ${index + 1}`} aria-label={`Logo of Client ${index + 1}`} style={{ minWidth: '150px' }} />
+              <img
+                key={index}
+                src={logo}
+                alt={`Client ${index + 1}`}
+                width="150"
+                height="75"
+                loading="lazy"
+                decoding="async"
+                className="brand-logo"
+                style={{ minWidth: '150px' }}
+              />
             ))}
           </div>
         </div>
