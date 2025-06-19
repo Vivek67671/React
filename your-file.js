@@ -4,5 +4,29 @@ const project = {
     title: 'Tinker Project',
     desc: 'website is likely dedicated to mental wellness, therapy, and personal development. Its primary goal seems to be to provide support, resources, and services to individuals navigating life\'s challenges.',
     thumbnail: 'images/Gallery/Tinker.webp',	
-    type: 'landing page'
+    type: 'landing page',
+    additionalImages: [
+        'images/Gallery/trinker/0.webp',
+        'images/Gallery/trinker/1.webp',
+        'images/Gallery/trinker/2.webp',
+        'images/Gallery/trinker/3.webp',
+        'images/Gallery/trinker/4.webp',
+        'images/Gallery/trinker/5.webp',
+        'images/Gallery/trinker/6.webp',
+        'images/Gallery/trinker/7.webp',
+        'images/Gallery/trinker/8.webp',
+        'images/Gallery/trinker/9.webp',
+        'images/Gallery/trinker/10.webp',
+        'images/Gallery/trinker/11.webp',
+        'images/Gallery/trinker/12.webp',
+        'images/Gallery/trinker/13.webp',
+        'images/Gallery/trinker/14.webp',
+        'images/Gallery/trinker/15.webp',
+        'images/Gallery/trinker/100.webp',
+        'images/Gallery/trinker/101.webp',
+        'images/Gallery/trinker/102.webp',
+        'images/Gallery/trinker/103.webp',
+        'images/Gallery/trinker/104.webp',
+        'images/Gallery/trinker/105.webp'
+    ]
 };
