@@ -6,11 +6,11 @@ import { FiX, FiChevronLeft, FiChevronRight, FiMaximize } from 'react-icons/fi';
 const galleryItems = [
 	{
 		img: 'images/Gallery/44.webp',
-		alt: 'E-commerce Platform - Modern shopping experience with intuitive navigation',
-		title: 'E-commerce Platform Design',
-		desc: 'A modern e-commerce platform with intuitive navigation, streamlined checkout, and responsive design for optimal UX.',
+		alt: 'Park X App - Smart parking solution for Mumbai and Pune',
+		title: 'Park X App – Parking in Mumbai & Pune',
+		desc: 'Park X is a mobile app designed to simplify parking in Mumbai and Pune. It offers real-time spot availability, digital payments, and seamless navigation to parking locations, making urban parking hassle-free.',
 		thumbnail: 'images/Gallery/4.webp',
-		  type: 'design', // Add this line
+		type: 'design',
 		additionalImages: [
 			'/images/Gallery/px-conversions (1)/1.webp',
 			'/images/Gallery/px-conversions (1)/2.webp',
@@ -65,38 +65,76 @@ const galleryItems = [
 	{
 		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
 		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
-    title: 'Real Estate Landing Page',
-    desc: 'A clean, intuitive real estate landing page prioritizing high-quality visuals and clear CTAs for maximum engagement and lead generation.',
-    thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp', // Thumbnail path
-      type: 'landing-page', // Add this line
-  },
+		title: 'Real Estate Landing Page',
+		desc: 'A website for a client where users can upload their properties and sell, buy, or rent them. The platform features a modern property listing interface with search functionality, making real estate transactions seamless and user-friendly.',
+		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		type: 'landing-page',
+	},
 	{
 		img: 'images/Gallery/33.webp',
 		alt: 'Cryptocurrency Dashboard - Advanced trading interface with real-time analytics',
 		title: 'Crypto Wallet App Design',
 		desc: 'A comprehensive dashboard for traders, featuring real-time price tracking, portfolio management, and advanced trading tools.',
-		thumbnail: 'images\\Gallery\\33_1_optimized-transformed.png' // Thumbnail path
+		thumbnail: 'images\\Gallery\\33_1_optimized-transformed.png'
 	},
 	{
 		img: 'images/Gallery/Dashboard Analytic.webp',
 		alt: 'Financial Analytics Dashboard - Enterprise data visualization platform',
 		title: 'Finance Dashboard',
 		desc: 'Enterprise-level analytics dashboard with comprehensive data visualization, reporting tools, and real-time monitoring.',
-		thumbnail: 'images\\Gallery\\Dashboard Analytic.webp' // Thumbnail path
+		thumbnail: 'images\\Gallery\\Dashboard Analytic.webp'
 	},
 	{
 		img: 'images\\Gallery\\Desktop (1).webp',
 		alt: 'SaaS Platform Landing Page - Cloud service management interface',
 		title: 'SaaS Website Landing Page',
 		desc: 'Conversion-focused SaaS landing page with clear value proposition, intuitive navigation, and optimized CTAs.',
-		thumbnail: 'images\\Gallery\\Desktop (1).webp' // Thumbnail path
+		thumbnail: 'images\\Gallery\\Desktop (1).webp'
 	},
 	{
 		img: 'images/Gallery/07-Mobile App.webp',
 		alt: 'Portfolio Website - Personal portfolio homepage with animated hero section.',
 		title: 'Portfolio Website',
 		desc: 'Personal portfolio homepage with animated hero section and modern, clean layout.',
-		thumbnail: 'images\\Gallery\\07-Mobile App (1) (1) 1.webp' // Thumbnail path
+		thumbnail: 'images\\Gallery\\07-Mobile App (1) (1) 1.webp'
+	},
+	{
+		img: 'images/Gallery/px-conversions (3)/8.webp',
+		alt: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
+		title: 'Control "The Modern MVP Manager"',
+		desc: 'A comprehensive tool for managing MVP development, offering features like task tracking, team collaboration, and progress visualization.',
+		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
+		type: 'design',
+		additionalImages: [
+		
+			'/images/Gallery/px-conversions (3)/2.webp',
+			'/images/Gallery/px-conversions (3)/3.webp',
+			'/images/Gallery/px-conversions (3)/4.webp',
+			'/images/Gallery/px-conversions (3)/5.webp',
+			'/images/Gallery/px-conversions (3)/6.webp',
+			'/images/Gallery/px-conversions (3)/7.webp',
+			'/images/Gallery/px-conversions (3)/8.webp',
+			'/images/Gallery/px-conversions (3)/9.webp',
+			'/images/Gallery/px-conversions (3)/10.webp',
+			'/images/Gallery/px-conversions (3)/11.webp',
+			'/images/Gallery/px-conversions (3)/12.webp',
+		],
+	},
+	{
+     img: 'images/Gallery/Tinker.webp',
+		alt: 'Tinker Project - UI/UX design for Tinker application',
+		title: 'Tinker Project',
+		desc: 'website is likely dedicated to mental wellness, therapy, and personal development. Its primary goal seems to be to provide support, resources, and services to individuals navigating life\'s challenges.',
+		thumbnail: 'images/Gallery/Tinker.webp',	
+		type: 'landing-page',
+	},
+	{
+		img: 'images/Gallery/marketing-landing.webp',
+		alt: 'Marketing Landing Page - Conversion-focused campaign',
+		title: 'Marketing Landing Page',
+		desc: 'A high-converting marketing landing page designed for campaign launches, featuring bold CTAs and persuasive copy.',
+		thumbnail: 'images/Gallery/marketing-landing-thumb.webp',
+		type: 'landing-page',
 	},
 ];
 
@@ -326,14 +364,6 @@ const Gallery = () => {
                 </a>
               </div>
               
-              <div className="preview-info">
-                <h3>{modalTitle}</h3>
-                <p>{modalDesc}</p>
-                <div className="image-counter">
-                  {currentImageIndex + 1} / {modalImages.length}
-                </div>
-              </div>
-              
               <div className="preview-thumbnails">
                 {modalImages.map((img, idx) => (
                   <motion.div
@@ -415,10 +445,22 @@ const Gallery = () => {
           transition: opacity 0.3s ease;
           padding: 1rem;
           text-align: center;
+          pointer-events: none; /* REMOVE this line if present */
         }
-        
         .gallery-item-clean:hover .gallery-overlay {
           opacity: 1;
+          pointer-events: auto; /* REMOVE this line if present */
+        }
+        .gallery-title-clean,
+        .gallery-desc-clean {
+          text-align: center;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          color: white;
+          /* Remove pointer-events: none if present */
         }
         
         .gallery-title-clean {
@@ -426,11 +468,17 @@ const Gallery = () => {
           font-weight: 600;
           margin-bottom: 0.2rem;
           color: white;
+		  text align: center;
         }
         
         .gallery-desc-clean {
+		text-align: center;
           font-size: 0.9rem;
           line-height: 1.4;
+          padding-left: 2rem;
+          padding-right: 2rem;
+          word-break: break-word;
+          box-sizing: border-box;
         }
         
         /* Preview Modal Styles */
@@ -590,7 +638,7 @@ const Gallery = () => {
         
         .preview-info {
           color: white;
-          max-width: 800px;
+          max-width: 100%;
           margin: 0 auto;
           text-align: center;
         }
