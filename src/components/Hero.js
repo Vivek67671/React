@@ -28,7 +28,7 @@ const Hero = () => (
       transition={{ duration: 0.5, delay: 0.15 }}
     >
       <video autoPlay loop muted playsInline aria-label="Promotional video">
-        <source src="your-video.mp4" type="video/mp4" />
+        <source src="/your-video.webm" type="video/webm" />
         {/* Replace with your video */}
         Your browser does not support the video tag.
       </video>

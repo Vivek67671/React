@@ -23,7 +23,7 @@ const projects = [
     ],
     description: "The problem involved designing the flow for the user to buy multiple variants of a product which has staggered pricing and at the same time ensuring that she is making a good deal (i.e. Value for money).",
     link: "/case-study-1.html",
-    image: "images/Case Study Sliders  Image Containers/Download File.png"
+    image: "images/Case Study Sliders  Image Containers/Download File.webp"
   },
   {
     title: "Designing a better checkout experience",
@@ -34,7 +34,7 @@ const projects = [
     ],
     description: "Designing a better checkout experience — a UX/UI case study. This case study focuses on improving the checkout process for an e-commerce website. The goal was to reduce cart abandonment rates by simplifying the checkout process and making it more intuitive for users. We conducted extensive user research and usability testing to identify pain points and areas for improvement. The final design incorporated a streamlined checkout flow, clear and concise instructions, and a variety of payment options to cater to different user preferences.",
     link: "/case-study-2.html",
-    image: "images\\Case Study Sliders  Image Containers\\case 2.png"
+    image: "images\\Case Study Sliders  Image Containers\\case 2.webp"
   },
   {
     title: "UI/UX Case Study SaaS Website Redesign",
@@ -45,7 +45,7 @@ const projects = [
     ],
     description: "A strong digital presence is key in our highly competitive environment and this story is about a 2-month journey we took as designers to reimagine a 3-year-old website for a fresh, new, updated one. This project was driven by the need to align our online presence, with the changing B2B SaaS market and the limitations found in our current website.",
     link: "/case-study-3.html",
-    image: "images/Case Study Sliders  Image Containers/case 3.png"
+    image: "images/Case Study Sliders  Image Containers/case 3.webp"
   }
 ];
 
@@ -111,6 +111,7 @@ const LatestProjects = () => (
       </div>
     </div>
     <style>{`
+      
       .metrics-container {
         display: flex;
         gap: 2rem;
@@ -150,8 +151,33 @@ const LatestProjects = () => (
         color: #7ecbff;
       }
       body.dark-mode .metric-label {
-        color: #b0b8c6;
+        color:rgb(225, 228, 235);
       }
+      /* New rules: Force background for left-side data container */
+      .latest-projects-list .card .inner {
+        background:rgb(238, 251, 255) !important;
+        position: relative;
+        z-index: 2;
+        padding: 1.5em !important;
+      }
+      body.dark-mode .latest-projects-list .card .inner {
+        background: #222 !important;
+      }
+      /* Update image container to fit image properly */
+      .latest-projects-list .card .image-container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+      }
+      .latest-projects-list .card .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Changed to show full image */
+        transition: transform 0.3s;
+      }
+
       @media (max-width: 768px) {
         .metrics-container {
           gap: 1rem;
@@ -165,9 +191,13 @@ const LatestProjects = () => (
         .metric-label {
           font-size: 0.8rem;
         }
+        .section-heading {
+          font-size: 1.2rem;
+        }
       }
     `}</style>
   </section>
 );
 
 export default LatestProjects;
+

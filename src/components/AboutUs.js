@@ -43,7 +43,7 @@ const AboutUs = () => {
             {t("Hey, I’m Vivek Kumar — a Product Designer passionate about creating intuitive, user-centered digital experiences that solve real problems and drive business outcomes.")}
           </motion.p>
           <motion.p
-            className="small-text"
+            className="text-base md:text-lg text-gray-600 dark:text-white"
             style={{ fontDisplay: 'swap' }} // Ensure font is visible even before fully loaded
             initial={{ opacity: 0, y: 10 }} // Reduce animation distance
             whileInView={{ opacity: 1, y: 0 }}

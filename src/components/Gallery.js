@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FiX, FiChevronLeft, FiChevronRight, FiMaximize } from 'react-icons/fi';
+
 
 const galleryItems = [
 	{
@@ -8,6 +10,7 @@ const galleryItems = [
 		title: 'E-commerce Platform Design',
 		desc: 'A modern e-commerce platform with intuitive navigation, streamlined checkout, and responsive design for optimal UX.',
 		thumbnail: 'images/Gallery/4.webp',
+		  type: 'design', // Add this line
 		additionalImages: [
 			'/images/Gallery/px-conversions (1)/1.webp',
 			'/images/Gallery/px-conversions (1)/2.webp',
@@ -62,10 +65,11 @@ const galleryItems = [
 	{
 		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
 		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
-		title: 'Real Estate Landing Page',
-		desc: 'A clean, intuitive real estate landing page prioritizing high-quality visuals and clear CTAs for maximum engagement and lead generation.',
-		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp' // Thumbnail path
-	},
+    title: 'Real Estate Landing Page',
+    desc: 'A clean, intuitive real estate landing page prioritizing high-quality visuals and clear CTAs for maximum engagement and lead generation.',
+    thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp', // Thumbnail path
+      type: 'landing-page', // Add this line
+  },
 	{
 		img: 'images/Gallery/33.webp',
 		alt: 'Cryptocurrency Dashboard - Advanced trading interface with real-time analytics',
@@ -97,172 +101,264 @@ const galleryItems = [
 ];
 
 const Gallery = () => {
-	const [modalOpen, setModalOpen] = useState(false);
-	const [modalImages, setModalImages] = useState([]);
-	const [modalTitle, setModalTitle] = useState('');
-	const [currentImageIndex, setCurrentImageIndex] = useState(0);
-	const observerRef = useRef();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImages, setModalImages] = useState([]);
+  const [modalTitle, setModalTitle] = useState('');
+  const [modalDesc, setModalDesc] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const observerRef = useRef();
+  const modalRef = useRef();
 
-	const openModal = (item) => {
-		const mainImg = item.img.replace(/\\/g, '/');
-		let allImages = [mainImg];
-		if (item.additionalImages && item.additionalImages.length > 0) {
-			allImages = [mainImg, ...item.additionalImages];
-		}
-		setModalImages(allImages);
-		setModalTitle(item.title);
-		setCurrentImageIndex(0);
-		setModalOpen(true);
-		document.body.style.overflow = 'hidden';
-	};
+  const openModal = (item, index = 0) => {
+    const mainImg = item.img.replace(/\\/g, '/');
+    let allImages = [mainImg];
+    if (item.additionalImages && item.additionalImages.length > 0) {
+      allImages = [mainImg, ...item.additionalImages];
+    }
+    setModalImages(allImages);
+    setModalTitle(item.title);
+    setModalDesc(item.desc);
+    setCurrentImageIndex(index);
+    setModalOpen(true);
+    document.body.style.overflow = 'hidden';
+    setIsLoading(true);
+  };
 
-	const closeModal = () => {
-		setModalOpen(false);
-		document.body.style.overflow = '';
-		setCurrentImageIndex(0);
-	};
+  const closeModal = () => {
+    setModalOpen(false);
+    document.body.style.overflow = '';
+  };
 
-	const nextImage = (e) => {
-		e.stopPropagation();
-		setCurrentImageIndex((prev) => 
-			prev === modalImages.length - 1 ? 0 : prev + 1
-		);
-	};
+  const navigateImage = (direction) => {
+    setIsLoading(true);
+    if (direction === 'prev') {
+      setCurrentImageIndex(prev => 
+        prev === 0 ? modalImages.length - 1 : prev - 1
+      );
+    } else {
+      setCurrentImageIndex(prev => 
+        prev === modalImages.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
 
-	const prevImage = (e) => {
-		e.stopPropagation();
-		setCurrentImageIndex((prev) => 
-			prev === 0 ? modalImages.length - 1 : prev - 1
-		);
-	};
+  const handleKeyPress = useCallback((e) => {
+    if (!modalOpen) return;
+    
+    if (e.key === 'Escape') {
+      closeModal();
+    } else if (e.key === 'ArrowLeft') {
+      navigateImage('prev');
+    } else if (e.key === 'ArrowRight') {
+      navigateImage('next');
+    }
+  }, [modalOpen, navigateImage]);
 
-	const handleKeyPress = useCallback((e) => {
-		if (!modalOpen) return;
-		if (e.key === 'Escape') closeModal();
-		if (e.key === 'ArrowRight') setCurrentImageIndex(prev => prev === modalImages.length - 1 ? 0 : prev + 1);
-		if (e.key === 'ArrowLeft') setCurrentImageIndex(prev => prev === 0 ? modalImages.length - 1 : prev - 1);
-	}, [modalOpen, modalImages.length]);
+  const handleClickOutside = useCallback((e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      closeModal();
+    }
+  }, []);
 
-	useEffect(() => {
-		observerRef.current = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					const img = entry.target;
-					img.src = img.dataset.src;
-					img.classList.remove('lazy');
-					observerRef.current.unobserve(img);
-				}
-			});
-		}, {
-			rootMargin: '50px 0px'
-		});
+  // Preload images when modal opens
+  useEffect(() => {
+    if (modalOpen) {
+      modalImages.forEach(img => {
+        const image = new Image();
+        image.src = img;
+      });
+    }
+  }, [modalOpen, modalImages]);
 
-		document.querySelectorAll('.gallery-image-clean').forEach(img => {
-			observerRef.current.observe(img);
-		});
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.classList.remove('lazy');
+          observerRef.current.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px'
+    });
 
-		return () => observerRef.current?.disconnect();
-	}, []);
+    document.querySelectorAll('.gallery-image-clean').forEach(img => {
+      observerRef.current.observe(img);
+    });
 
-	useEffect(() => {
-		window.addEventListener('keydown', handleKeyPress);
-		return () => window.removeEventListener('keydown', handleKeyPress);
-	}, [handleKeyPress]);
+    return () => observerRef.current?.disconnect();
+  }, []);
 
-	return (
-		<section id="gallery" className="gallery-section" aria-labelledby="gallery-heading">
-			<div className="container">
-				<h2
-					id="gallery-heading"
-					className="fade-in-up"
-					style={{
-						fontWeight: 900,
-						fontSize: 'clamp(2rem, 7vw, 4rem)',
-						marginBottom: '0.5em',
-						letterSpacing: '2px'
-					}}
-				>
-					GALLERY
-				</h2>
-				<p className="gallery-description fade-in-up" style={{ marginBottom: '2.5em' }}>
-					A curated showcase of my UI/UX design work — from concept to polished product. Explore visually engaging,
-					user-centered solutions crafted with precision and purpose.
-				</p>
-				<div className="gallery-grid-clean">
-					{galleryItems.map((item, idx) => (
-						<div
-							className="gallery-item-clean"
-							key={item.title}
-							onClick={() => openModal(item)}
-						>
-							<div className="gallery-image-wrapper">
-								<img
-									data-src={item.thumbnail.replace(/\\/g, '/')}
-									className="gallery-image-clean lazy"
-									alt={item.alt}
-									width="400"
-									height="300"
-									loading="lazy"
-									decoding="async"
-								/>
-							</div>
-							<div className="gallery-overlay">
-								<h4 className="gallery-title-clean">{item.title}</h4>
-								<p className="gallery-desc-clean">{item.desc}</p>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-			<AnimatePresence>
-				{modalOpen && (
-					<motion.div
-						className="modal-overlay"
-						onClick={closeModal}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-						transition={{ duration: 0.2 }}
-					>
-						<div className="modal-content" onClick={e => e.stopPropagation()}>
-							<button 
-                className="modal-close" 
-                onClick={closeModal}
-                aria-label="Close modal"
-              >×</button>
-							<div className="modal-image-container">
-								<button 
-                  className="modal-nav prev" 
-                  onClick={prevImage}
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress);
+    if (modalOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [handleKeyPress, handleClickOutside, modalOpen]);
+
+  const isLandingPage = useCallback((imagePath) => {
+    const item = galleryItems.find(item =>
+      item.img.replace(/\\/g, '/') === imagePath ||
+      (item.additionalImages && item.additionalImages.includes(imagePath))
+    );
+    return item?.type === 'landing-page';
+  }, []);
+
+  return (
+    <section id="gallery" className="gallery-section" aria-labelledby="gallery-heading">
+      <div className="container">
+        <h2
+          id="gallery-heading"
+          className="fade-in-up"
+          style={{
+            fontWeight: 900,
+            fontSize: 'clamp(2rem, 7vw, 4rem)',
+            marginBottom: '0.5em',
+            letterSpacing: '2px'
+          }}
+        >
+          GALLERY
+        </h2>
+        <p className="gallery-description fade-in-up" style={{ marginBottom: '2.5em' }}>
+          A curated showcase of my UI/UX design work — from concept to polished product. Explore visually engaging,
+          user-centered solutions crafted with precision and purpose.
+        </p>
+        <div className="gallery-grid-clean">
+          {galleryItems.map((item, idx) => (
+            <motion.div
+              className="gallery-item-clean"
+              key={`${item.title}-${idx}`}
+              onClick={() => openModal(item)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: idx * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <div className="gallery-image-wrapper">
+                <img
+                  data-src={item.thumbnail.replace(/\\/g, '/')}
+                  className="gallery-image-clean lazy"
+                  alt={item.alt}
+                  width="400"
+                  height="300"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="gallery-overlay">
+                <h4 className="gallery-title-clean">{item.title}</h4>
+                <p className="gallery-desc-clean">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {modalOpen && (
+          <motion.div
+            className="preview-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="preview-modal-content" ref={modalRef}>
+              <button className="preview-close" onClick={closeModal}>
+                <FiX size={24} />
+              </button>
+              
+              <div className={`preview-main-image ${isLandingPage(modalImages[currentImageIndex]) ? 'landing-page' : ''}`}>
+                {isLoading && (
+                  <div className="image-loading">
+                    <div className="loading-spinner"></div>
+                  </div>
+                )}
+                <motion.img
+                  key={currentImageIndex}
+                  src={modalImages[currentImageIndex]}
+                  alt={`${modalTitle} - ${currentImageIndex + 1} of ${modalImages.length}`}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: isLoading ? 0 : 1 }}
+                  transition={{ duration: 0.3 }}
+                  onLoad={() => setIsLoading(false)}
+                  onError={() => setIsLoading(false)}
+                  style={{
+                    width: isLandingPage(modalImages[currentImageIndex]) ? '100%' : 'auto',
+                    height: isLandingPage(modalImages[currentImageIndex]) ? 'auto' : '100%'
+                  }}
+                />
+                
+                <button 
+                  className="nav-btn prev-btn"
+                  onClick={() => navigateImage('prev')}
                   aria-label="Previous image"
-                >‹</button>
-								<img
-									src={modalImages[currentImageIndex]}
-									alt={modalTitle}
-									className="modal-image"
-								/>
-								<button 
-                  className="modal-nav next" 
-                  onClick={nextImage}
+                >
+                  <FiChevronLeft size={32} />
+                </button>
+                
+                <button 
+                  className="nav-btn next-btn"
+                  onClick={() => navigateImage('next')}
                   aria-label="Next image"
-                >›</button>
-							</div>
-							<div className="modal-thumbnails">
-								{modalImages.map((img, idx) => (
-									<img
-										key={idx}
-										src={img}
-										alt={`Thumbnail ${idx + 1}`}
-										className={`modal-thumbnail ${idx === currentImageIndex ? 'active' : ''}`}
-										onClick={() => setCurrentImageIndex(idx)}
-									/>
-								))}
-							</div>
-						</div>
-					</motion.div>
-				)}
-			</AnimatePresence>
-			<style jsx>{`
+                >
+                  <FiChevronRight size={32} />
+                </button>
+                
+                <a
+                  href={modalImages[currentImageIndex]}
+                  className="fullscreen-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open image in full screen"
+                >
+                  <FiMaximize size={20} />
+                </a>
+              </div>
+              
+              <div className="preview-info">
+                <h3>{modalTitle}</h3>
+                <p>{modalDesc}</p>
+                <div className="image-counter">
+                  {currentImageIndex + 1} / {modalImages.length}
+                </div>
+              </div>
+              
+              <div className="preview-thumbnails">
+                {modalImages.map((img, idx) => (
+                  <motion.div
+                    key={idx}
+                    className={`thumbnail ${idx === currentImageIndex ? 'active' : ''}`}
+                    onClick={() => {
+                      setCurrentImageIndex(idx);
+                      setIsLoading(true);
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    <img
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      loading="lazy"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <style jsx>{`
         .gallery-grid-clean {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -270,6 +366,7 @@ const Gallery = () => {
           justify-content: center;
           margin-top: 2rem;
         }
+        
         .gallery-item-clean {
           position: relative;
           overflow: hidden;
@@ -277,15 +374,16 @@ const Gallery = () => {
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
           cursor: pointer;
           transition: box-shadow 0.3s ease;
+          will-change: transform;
         }
-        .gallery-item-clean:hover {
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
+        
         .gallery-image-wrapper {
           overflow: hidden;
           position: relative;
           padding-bottom: 75%;
+          background: #f5f5f5;
         }
+        
         .gallery-image-clean {
           position: absolute;
           top: 0;
@@ -294,18 +392,20 @@ const Gallery = () => {
           height: 100%;
           object-fit: cover;
           object-position: top left;
-          transition: transform 0.3s ease;
+          transition: transform 0.5s ease;
         }
+        
         .gallery-item-clean:hover .gallery-image-clean {
-          transform: scale(1.1);
+          transform: scale(1.05);
         }
+        
         .gallery-overlay {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.6);
+          background: rgba(0, 0, 0, 0.7);
           color: white;
           display: flex;
           flex-direction: column;
@@ -313,22 +413,28 @@ const Gallery = () => {
           align-items: center;
           opacity: 0;
           transition: opacity 0.3s ease;
+          padding: 1rem;
+          text-align: center;
         }
+        
         .gallery-item-clean:hover .gallery-overlay {
           opacity: 1;
         }
+        
         .gallery-title-clean {
           font-size: 1.2rem;
           font-weight: 600;
-          margin-bottom: 0.5rem;
+          margin-bottom: 0.2rem;
           color: white;
         }
+        
         .gallery-desc-clean {
-          font-size: 1rem;
-          text-align: center;
-          padding: 0 1rem;
+          font-size: 0.9rem;
+          line-height: 1.4;
         }
-        .modal-overlay {
+        
+        /* Preview Modal Styles */
+        .preview-modal {
           position: fixed;
           top: 0;
           left: 0;
@@ -338,188 +444,267 @@ const Gallery = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          z-index: 3000;
+          z-index: 1000;
+          overflow-y: auto;
+     
         }
-
-        .modal-content {
-          width: 90%;
+        
+        .preview-modal-content {
+          width: 100%;
           max-width: 1200px;
-          height: 90vh;
+          position: relative;
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 1.5rem;
         }
-
-        .modal-close {
+        
+        .preview-close {
           position: absolute;
-          top: 20px;
-          right: 20px;
-          background: none;
+          top: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.1);
           border: none;
-          color: white;
-          font-size: 3rem;
-          line-height: 1;
-          cursor: pointer;
-          z-index: 3001;
-          padding: 0;
           width: 40px;
           height: 40px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-          transition: transform 0.2s;
-          outline: none;
+          color: white;
+          cursor: pointer;
+          z-index: 10;
+          transition: background 0.2s;
         }
-
-        .modal-close:hover {
-          transform: scale(1.1);
+        
+        .preview-close:hover {
+          background: rgba(255, 255, 255, 0.2);
         }
-
-        .modal-image-container {
+        
+        .preview-main-image {
           position: relative;
-          flex: 1;
+          width: 100%;
+          max-height: 70vh;
           display: flex;
           justify-content: center;
           align-items: center;
+          overflow: hidden;
+          border-radius: 8px;
+          background: #111;
         }
-
-        .modal-image {
+        .preview-main-image.landing-page {
+          align-items: flex-start;
+          background: #fff;
           max-height: 70vh;
-          max-width: 100%;
-          object-fit: contain;
+          overflow-y: auto; /* Enable vertical scroll for tall landing page images */
         }
-
-        .modal-nav {
+        .preview-main-image img {
+          max-width: 100vw;
+          max-height: 70vh;
+          object-fit: contain;
+          display: block;
+        }
+        .preview-main-image.landing-page img {
+          width: 100%;
+          height: auto;
+          max-height: none;
+          display: block;
+        }
+        
+        .image-loading {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .loading-spinner {
+          width: 40px;
+          height: 40px;
+          border: 4px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          border-top: 4px solid white;
+          animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        .nav-btn {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background: none;
+          background: rgba(0, 0, 0, 0.5);
           border: none;
-          color: white;
-          font-size: 4rem;
-          line-height: 1;
-          padding: 0;
-          cursor: pointer;
           width: 50px;
-          height: 80px;
+          height: 50px;
+          border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-          transition: transform 0.2s;
-          outline: none;
+          color: white;
+          cursor: pointer;
+          z-index: 2;
+          transition: background 0.2s;
         }
-
-        .modal-nav:hover {
-          transform: translateY(-50%) scale(1.1);
+        
+        .nav-btn:hover {
+          background: rgba(0, 0, 0, 0.8);
         }
-
-        .modal-nav.prev {
-          left: 10px;
+        
+        .prev-btn {
+          left: 20px;
         }
-
-        .modal-nav.next {
-          right: 10px;
+        
+        .next-btn {
+          right: 20px;
         }
-
-        .modal-thumbnails {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-          gap: 10px;
-          padding: 10px;
+        
+        .fullscreen-btn {
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
           background: rgba(0, 0, 0, 0.5);
-          max-height: 120px;
-          overflow-y: auto;
+          border: none;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          cursor: pointer;
+          z-index: 2;
+          transition: background 0.2s;
         }
-
-        .modal-thumbnail {
+        
+        .fullscreen-btn:hover {
+          background: rgba(0, 0, 0, 0.8);
+        }
+        
+        .preview-info {
+          color: white;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        
+        .preview-info h3 {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .preview-info p {
+          color: rgba(255, 255, 255, 0.8);
+          line-height: 1.6;
+        }
+        
+        .image-counter {
+          margin-top: 1rem;
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 0.9rem;
+        }
+        
+        .preview-thumbnails {
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+          padding: 10px 0;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255,255,255,0.2) transparent;
+        }
+        
+        .preview-thumbnails::-webkit-scrollbar {
+          height: 6px;
+        }
+        
+        .preview-thumbnails::-webkit-scrollbar-thumb {
+          background-color: rgba(255,255,255,0.2);
+          border-radius: 3px;
+        }
+        
+        .thumbnail {
           width: 80px;
           height: 60px;
-          object-fit: cover;
+          flex-shrink: 0;
+          border-radius: 4px;
+          overflow: hidden;
           cursor: pointer;
-          opacity: 0.6;
-          transition: opacity 0.3s;
+          opacity: 0.7;
+          transition: opacity 0.2s;
+          border: 2px solid transparent;
         }
-
-        .modal-thumbnail:hover,
-        .modal-thumbnail.active {
+        
+        .thumbnail:hover {
           opacity: 1;
         }
-
-        @media (max-width: 600px) {
-          .preview-slider {
-			max-width: 100vw;
-			max-height: 70vh;
-		  }
-		  .modal-image-gallery .image-gallery-slide img {
-			max-height: 50vh;
-		  }
-		}
-
-		.custom-splide-arrow {
-		  font-size: 2rem;
-		  opacity: 1;
-		  transition: background 0.2s;
-		}
-		.custom-splide-arrow:hover {
-		  background: #005fcc;
-		  color: #fff;
-		}
-		.custom-splide-arrow-prev {
-		  left: 10px;
-		}
-		.custom-splide-arrow-next {
-		  right: 10px;
-		}
-		.splide__arrows {
-		  display: flex;
-		  pointer-events: auto;
-		  z-index: 1101;
-		}
-		.splide__arrow {
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		  background: rgba(0,0,0,0.7);
-		  color: #fff;
-		  border: none;
-		  width: 48px;
-		  height: 48px;
-		  font-size: 2rem;
-		  opacity: 1;
-		  transition: background 0.2s;
-		  z-index: 1102;
-		}
-		.splide__arrow--prev {
-		  left: 10px;
-		}
-		.splide__arrow--next {
-		  right: 10px;
-		}
-		.splide__arrow:hover {
-		  background: #005fcc;
-		  color: #fff;
-		}
-		@media (max-width: 600px) {
-		  .custom-splide-arrow {
-			width: 36px;
-			height: 36px;
-			font-size: 1.3rem;
-		  }
-		  .custom-splide-arrow-prev { left: 2px; }
-		  .custom-splide-arrow-next { right: 2px; }
-		  .splide__arrow {
-			width: 36px;
-			height: 36px;
-			font-size: 1.3rem;
-		  }
-		  .splide__arrow--prev { left: 2px; }
-		  .splide__arrow--next { right: 2px; }
-		}
-	  `}</style>
-		</section>
-	);
+        
+        .thumbnail.active {
+          opacity: 1;
+          border-color: white;
+        }
+        
+        .thumbnail img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+          .gallery-grid-clean {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+          }
+          
+          .preview-main-image {
+            max-height: 60vh;
+          }
+          
+          .nav-btn {
+            width: 40px;
+            height: 40px;
+          }
+          
+          .prev-btn {
+            left: 10px;
+          }
+          
+          .next-btn {
+            right: 10px;
+          }
+          
+          .thumbnail {
+            width: 60px;
+            height: 45px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .gallery-grid-clean {
+            grid-template-columns: 1fr;
+          }
+          
+          .preview-main-image {
+            max-height: 50vh;
+          }
+          
+          .preview-info h3 {
+            font-size: 1.2rem;
+          }
+          
+          .preview-info p {
+            font-size: 0.9rem;
+          }
+        }
+      `}</style>
+    </section>
+  );
 };
 
 export default Gallery;

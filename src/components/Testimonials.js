@@ -4,31 +4,31 @@ import { motion, useAnimation } from 'framer-motion';
 const testimonials = [
   {
     quote: "Working with Vivek was an absolute game-changer for our project. His attention to detail and user-centric approach resulted in a product our customers love.",
-    img: "images/Testimonials/images.jpg",
+    img: "images/Testimonials/images.webp",
     author: "Yamini Sharma",
     role: "Product Manager, PixelCraft"
   },
   {
     quote: "GRAYS-SCALE isn’t just another design studio—it’s a place where ideas become beautiful, functional realities. Highly recommended!",
-    img: "images/Testimonials/download (3).jpg",
+    img: "images/Testimonials/download (3).webp",
     author: "Rahul Goyal",
     role: "Founder, BrandSphere"
   },
   {
     quote: "The collaboration with Vivek was a breath of fresh air. He brought clarity and creativity to every step of the process.",
-    img: "images/Testimonials/download (2).jpg",
+    img: "images/Testimonials/download (2).webp",
     author: "Nizam Majumder",
     role: "CEO, TechWave"
   },
   {
     quote: "Vivek brought our vision to life with his exceptional design skills. The end result exceeded our expectations.",
-    img: "images/Testimonials/download (1).jpg",
+    img: "images/Testimonials/download (1).webp",
     author: "Ratan Dhamani",
     role: "Marketing Director, InnovateX"
   },
   {
     quote: "Hiring Vivek for our project was one of the best decisions we made. The UI/UX is world-class.",
-    img: "images/Testimonials/download.jpg",
+    img: "images/Testimonials/download.webp",
     author: "Saito Yerscer",
     role: "CEO, Digital Horizons UK"
   }

@@ -143,20 +143,6 @@ const Services = () => {
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           }
         }
-
-        body.dark-mode .service-card-modern {
-          background: #181c22;
-          box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.18);
-          color: #e6eaf3;
-        }
-
-        body.dark-mode .service-title {
-          color: #7ecbff;
-        }
-
-        body.dark-mode .service-desc {
-          color: #b0b8c6;
-        }
       `}</style>
 		</section>
 	);
