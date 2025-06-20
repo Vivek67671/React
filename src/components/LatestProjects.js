@@ -49,36 +49,55 @@ const projects = [
   }
 ];
 
-const Metric = ({ value, unit, label }) => (
-  <motion.div
-    className="metric"
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-  >
-    <motion.div 
-      className="metric-value"
-      initial={{ scale: 0.5 }}
-      whileInView={{ scale: 1 }}
-      transition={{ type: "spring", stiffness: 100 }}
+const Metric = ({ value, unit, label }) => {
+  // Defensive: fallback to plain value if CountUp fails
+  const numValue = Number(value);
+  const [fallback, setFallback] = React.useState(false);
+
+  // On mount, check if IntersectionObserver is available (CountUp uses it for scrollSpy)
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && !("IntersectionObserver" in window)) {
+      setFallback(true);
+    }
+  }, []);
+
+  return (
+    <motion.div
+      className="metric"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
     >
-      <CountUp
-        end={parseInt(value)}
-        duration={2.5}
-        separator=", "
-        delay={0.3}
-        suffix={unit}
-        enableScrollSpy
-        scrollSpyOnce
+      <motion.div
+        className="metric-value"
+        initial={{ scale: 0.5 }}
+        whileInView={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 100 }}
       >
-        {({ countUpRef }) => (
-          <span ref={countUpRef} />
-        )}
-      </CountUp>
+        <span className="metric-countup">
+          {isNaN(numValue) || fallback ? (
+            <span>{value}{unit}</span>
+          ) : (
+            <CountUp
+              end={numValue}
+              duration={2.5}
+              delay={0.3}
+              suffix={unit}
+              enableScrollSpy={true}
+              scrollSpyOnce={true}
+              redraw={true}
+            >
+              {({ countUpRef }) => (
+                <span ref={countUpRef}>{numValue}{unit}</span>
+              )}
+            </CountUp>
+          )}
+        </span>
+      </motion.div>
+      <div className="metric-label">{label}</div>
     </motion.div>
-    <div className="metric-label">{label}</div>
-  </motion.div>
-);
+  );
+};
 
 const LatestProjects = () => (
   <section id="latest-projects" className="latest-projects-section" aria-labelledby="latest-projects-heading">
@@ -90,7 +109,14 @@ const LatestProjects = () => (
       </p>
       <div className="latest-projects-list">
         {projects.map((proj, idx) => (
-          <a href={proj.link} className="card" key={idx} role="article" aria-describedby={`case-study-${idx + 1}-description`} target="_blank" rel="noopener noreferrer">
+          <a
+            href={proj.link}
+            className="card"
+            key={idx}
+            aria-describedby={`case-study-${idx + 1}-description`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className="inner">
               <h3 className="title">{proj.title}</h3>
               <time className="subtitle">{proj.subtitle}</time>

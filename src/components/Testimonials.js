@@ -57,21 +57,36 @@ const Testimonials = () => {
   const [width, setWidth] = useState(0);
   const controls = useAnimation();
 
+  // Use ResizeObserver for dynamic width (responsive, avoids lag)
   useEffect(() => {
-    if (marqueeRef.current) {
-      setWidth(marqueeRef.current.scrollWidth / 2); // Only half, since duplicated
+    const updateWidth = () => {
+      if (marqueeRef.current) {
+        setWidth(marqueeRef.current.scrollWidth / 2);
+      }
+    };
+    updateWidth();
+    let resizeObserver;
+    if (window.ResizeObserver) {
+      resizeObserver = new ResizeObserver(updateWidth);
+      if (marqueeRef.current) resizeObserver.observe(marqueeRef.current);
+    } else {
+      window.addEventListener('resize', updateWidth);
     }
+    return () => {
+      if (resizeObserver && marqueeRef.current) resizeObserver.unobserve(marqueeRef.current);
+      window.removeEventListener('resize', updateWidth);
+    };
   }, []);
 
   useEffect(() => {
     if (width > 0) {
       controls.start({
-        x: [-0, -width],
+        x: [0, -width],
         transition: {
           x: {
             repeat: Infinity,
             repeatType: 'loop',
-            duration: 30, // Faster: was 60, now 30 (lower = faster)
+            duration: 40, // Slightly slower for smoother animation
             ease: 'linear'
           }
         }
@@ -93,7 +108,10 @@ const Testimonials = () => {
             className="testimonial-marquee-inner"
             ref={marqueeRef}
             animate={controls}
-            style={{ willChange: 'transform' }}
+            style={{
+              // Remove transform, font-smoothing, etc. for best clarity
+              // Only let framer-motion handle transform
+            }}
           >
             {marqueeTestimonials.map((t, idx) => (
               <TestimonialCard key={idx + t.author} {...t} />
@@ -104,7 +122,7 @@ const Testimonials = () => {
       <style>{`
         .testimonial-marquee-outer {
           overflow: hidden;
-          width: 100vw; /* Full viewport width */
+          width: 100vw;
           position: relative;
           background: none;
           margin-bottom: 2rem;

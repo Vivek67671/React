@@ -58,7 +58,7 @@ const LoadMoreButton = ({ onClick, disabled }) => (
             color: #fff;
           }
           .marquee-arrow {
-            animation: marquee-arrow-down 1.2s linear infinite;
+            animation: marquee-arrow-down 1.5s linear infinite;
             transition: stroke 0.2s;
           }
           @keyframes marquee-arrow-down {

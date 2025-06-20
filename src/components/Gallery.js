@@ -334,13 +334,14 @@ const Gallery = () => {
           A curated showcase of my UI/UX design work — from concept to polished product. Explore visually engaging,
           user-centered solutions crafted with precision and purpose.
         </p>
-        <div className="gallery-grid-clean">
+        <div className="gallery-grid-clean" role="list">
           {galleryItems.slice(0, visibleCount).map((item, idx) => (
             <GalleryCard
               key={`${item.title}-${idx}`}
               item={item}
               onClick={() => openModal(item)}
               idx={idx}
+              // No ARIA role needed on GalleryCard root, unless it's a <li>
             />
           ))}
         </div>

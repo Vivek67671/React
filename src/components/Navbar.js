@@ -33,3 +33,6 @@ const Navbar = () => {
 
 export default Navbar;
 
+// This file can be deleted if not used anywhere.
+// ...existing code...
+

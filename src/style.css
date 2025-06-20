@@ -29,6 +29,10 @@ html, body {
 
 html {
   scroll-behavior: smooth;
+  /* Enable smooth scrolling for all browsers */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  scroll-padding-top: 80px; /* Prevents header overlap on anchor scroll */
 }
 
 body {
@@ -43,6 +47,13 @@ body {
   text-rendering: optimizeLegibility;
   overflow-x: hidden; /* Prevents horizontal scrolling */
   transition: background-color 2s ease, color 2s ease;
+  scroll-behavior: smooth;
+  /* Enable hardware-accelerated scrolling for smoother experience */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent scroll chaining for a more controlled feel */
+  overscroll-behavior: none;
+  /* Optional: Reduce scroll "jank" on some browsers */
+  scroll-snap-type: y proximity;
 }
 
 .container {

@@ -50,7 +50,7 @@ const Header = () => {
       <button
         ref={toggleRef}
         className="nav-toggle"
-        aria-label="Open navigation"
+        aria-label="Open navigation menu"
         aria-controls="main-nav"
         aria-expanded={navOpen}
         onClick={handleNavToggle}
@@ -59,6 +59,10 @@ const Header = () => {
           <span className="hamburger-bar"></span>
           <span className="hamburger-bar"></span>
           <span className="hamburger-bar"></span>
+        </span>
+        {/* Add visually hidden text for screen readers */}
+        <span style={{ position: 'absolute', width: 1, height: 1, padding: 0, margin: -1, overflow: 'hidden', clip: 'rect(0,0,0,0)', border: 0 }}>
+          Open navigation menu
         </span>
       </button>
 
