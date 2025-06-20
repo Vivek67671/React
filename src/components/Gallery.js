@@ -65,41 +65,22 @@ const galleryItems = [
 		],
 	},
 	{
-		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
-		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
-		title: 'Real Estate Landing Page',
-		desc: 'A website for a client where users can upload their properties and sell, buy, or rent them. The platform features a modern property listing interface with search functionality, making real estate transactions seamless and user-friendly.',
-		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		img:'images/Gallery/Sales NAlytics/Circle_Overview.webp',
+		alt: 'Sales Analytics Panel for Circle - Personal finance management dashboard',
+		title: 'Sales Analytics Panel for Circle',		
+		desc: 'The Sales Analytics Panel for Circle is a robust dashboard designed to empower sales teams and managers with actionable insights. It features real-time performance tracking, comprehensive fund and product listings, candidate management, and intuitive visualizations. With streamlined navigation and a modern UI.',
+		thumbnail: 'images/Gallery/Sales NAlytics/Circle_Overview.webp',
 		type: 'landing-page',
-	},
-	{
-		img: 'images/Gallery/33.webp',
-		alt: 'Cryptocurrency Dashboard - Advanced trading interface with real-time analytics',
-		title: 'Crypto Wallet App Design',
-		desc: 'A comprehensive dashboard for traders, featuring real-time price tracking, portfolio management, and advanced trading tools.',
-		thumbnail: 'images\\Gallery\\33_1_optimized-transformed.png'
-	},
-	{
-		img: 'images/Gallery/Dashboard Analytic.webp',
-		alt: 'Financial Analytics Dashboard - Enterprise data visualization platform',
-		title: 'Finance Dashboard',
-		desc: 'Enterprise-level analytics dashboard with comprehensive data visualization, reporting tools, and real-time monitoring.',
-		thumbnail: 'images\\Gallery\\Dashboard Analytic.webp'
-	},
-	{
-		img: 'images\\Gallery\\Desktop (1).png',
-		alt: 'SaaS Platform Landing Page - Cloud service management interface',
-		title: 'SaaS Website Landing Page',
-		desc: 'Conversion-focused SaaS landing page with clear value proposition, intuitive navigation, and optimized CTAs.',
-    thumbnail: 'images\\Gallery\\Desktop (1).webp',
-    type: 'landing-page',
-	},
-	{
-		img: 'images/Gallery/07-Mobile App.webp',
-		alt: 'Portfolio Website - Personal portfolio homepage with animated hero section.',
-		title: 'Portfolio Website',
-		desc: 'Personal portfolio homepage with animated hero section and modern, clean layout.',
-		thumbnail: 'images\\Gallery\\07-Mobile App (1) (1) 1.webp'
+		additionalImages: [
+			'images/Gallery/Sales NAlytics/Circle_Company.webp',
+			'images/Gallery/Sales NAlytics/Circle_Funds Listing.webp',
+			'images/Gallery/Sales NAlytics/Circle_Messages.webp',
+			'images/Gallery/Sales NAlytics/Circle_Overview.webp',
+			'images/Gallery/Sales NAlytics/Circle_Performance.webp',
+			'images/Gallery/Sales NAlytics/Circle_Product List.webp',
+			'images/Gallery/Sales NAlytics/Circle_Administration.webp',
+			'images/Gallery/Sales NAlytics/Circle_Candidates.webp'
+		]
 	},
 	{
 		img: 'images/Gallery/px-conversions (3)/8.webp',
@@ -109,7 +90,6 @@ const galleryItems = [
 		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
 		type: 'landing-page',
 		additionalImages: [
-		
 			'/images/Gallery/px-conversions (3)/2.webp',
 			'/images/Gallery/px-conversions (3)/3.webp',
 			'/images/Gallery/px-conversions (3)/4.webp',
@@ -122,14 +102,6 @@ const galleryItems = [
 			'/images/Gallery/px-conversions (3)/11.webp',
 			'/images/Gallery/px-conversions (3)/12.webp',
 		],
-	},
-	{
-     img: 'images/Gallery/Tinker.webp',
-		alt: 'Tinker Project - UI/UX design for Tinker application',
-		title: 'Tinker Project',
-		desc: 'website is likely dedicated to mental wellness, therapy, and personal development. Its primary goal seems to be to provide support, resources, and services to individuals navigating life\'s challenges.',
-		thumbnail: 'images/Gallery/Tinker.webp',	
-		type: 'landing-page',
 	},
 	{
 		img: 'images/Gallery/trinker/8.webp',
@@ -164,20 +136,79 @@ const galleryItems = [
 		]
 	},
 	{
-		img: 'images/Gallery/marketing-landing.webp',
-		alt: 'Marketing Landing Page - Conversion-focused campaign',
-		title: 'Marketing Landing Page',
-		desc: 'A high-converting marketing landing page designed for campaign launches, featuring bold CTAs and persuasive copy.',
-		thumbnail: 'images/Gallery/marketing-landing-thumb.webp',
-		type: 'landing-page'
+		img: 'images\\Gallery\\Desktop (1).png',
+		alt: 'SaaS Platform Landing Page - Cloud service management interface',
+		title: 'SaaS Website Landing Page',
+		desc: 'Conversion-focused SaaS landing page with clear value proposition, intuitive navigation, and optimized CTAs.',
+		thumbnail: 'images\\Gallery\\Desktop (1).webp',
+		type: 'landing-page',
 	},
 	{
-		img: 'images/Gallery/finance-app.webp',
-		alt: 'Finance App - Personal finance management dashboard',
-		title: 'Finance App Dashboard',
-		desc: 'A modern dashboard for managing personal finances, tracking expenses, and visualizing spending habits.',
-		thumbnail: 'images/Gallery/finance-app-thumb.webp',
-		type: 'design'
+		img: 'images/Gallery/Design Systems/1.webp',
+		alt: 'Design Systems - Comprehensive design system for consistent UI/UX across platforms',
+		title: 'Design Systems',
+		desc: 'A list of comprehensive design systems for consistent UI/UX across platforms, including components, guidelines, and best practices.',
+		thumbnail: "images/Gallery/Design Systems/66027bee045be7df083e39c0_6528c58fab8f44dc6a3cd132_benefits_of_a_good_design_system.jpeg",
+		type: 'landing-page',
+		additionalImages: [
+			'images/Gallery/Design Systems/2.webp',
+			'images/Gallery/Design Systems/3.webp',
+			'images/Gallery/Design Systems/4.webp',
+			'images/Gallery/Design Systems/5.webp',
+			'images/Gallery/Design Systems/6.webp'
+		]
+	},
+	{
+		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
+		title: 'Real Estate Landing Page',
+		desc: 'A website for a client where users can upload their properties and sell, buy, or rent them. The platform features a modern property listing interface with search functionality, making real estate transactions seamless and user-friendly.',
+		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		type: 'landing-page',
+	},
+	{
+		img: 'images/Gallery/px-conversions (3)/8.webp',
+		alt: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
+		title: 'Control "The Modern MVP Manager"',
+		desc: 'A comprehensive tool for managing MVP development, offering features like task tracking, team collaboration, and progress visualization.',
+		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
+		type: 'landing-page',
+		additionalImages: [
+			'/images/Gallery/px-conversions (3)/2.webp',
+			'/images/Gallery/px-conversions (3)/3.webp',
+			'/images/Gallery/px-conversions (3)/4.webp',
+			'/images/Gallery/px-conversions (3)/5.webp',
+			'/images/Gallery/px-conversions (3)/6.webp',
+			'/images/Gallery/px-conversions (3)/7.webp',
+			'/images/Gallery/px-conversions (3)/8.webp',
+			'/images/Gallery/px-conversions (3)/9.webp',
+			'/images/Gallery/px-conversions (3)/10.webp',
+			'/images/Gallery/px-conversions (3)/11.webp',
+			'/images/Gallery/px-conversions (3)/12.webp',
+		],
+	},
+	{
+		img: 'images/Gallery/Tinker.webp',
+		alt: 'Tinker Project - UI/UX design for Tinker application',
+		title: 'Tinker Project',
+		desc: 'website is likely dedicated to mental wellness, therapy, and personal development. Its primary goal seems to be to provide support, resources, and services to individuals navigating life\'s challenges.',
+		thumbnail: 'images/Gallery/Tinker.webp',	
+		type: 'landing-page',
+	},
+	{
+		img: 'images/Gallery/Dashboard Analytic.webp',
+		alt: 'Financial Analytics Dashboard - Enterprise data visualization platform',
+		title: 'Finance Dashboard',
+		desc: 'Enterprise-level analytics dashboard with comprehensive data visualization, reporting tools, and real-time monitoring.',
+		thumbnail: 'images\\Gallery\\Dashboard Analytic.webp'
+	},
+	{
+		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
+		title: 'Real Estate Landing Page',
+		desc: 'A website for a client where users can upload their properties and sell, buy, or rent them. The platform features a modern property listing interface with search functionality, making real estate transactions seamless and user-friendly.',
+		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		type: 'landing-page',
 	},
 	{
 		img: 'images/Gallery/ecommerce.webp',

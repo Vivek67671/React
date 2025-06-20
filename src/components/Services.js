@@ -47,7 +47,7 @@ const Services = () => {
 	return (
 		<section id="services" className="services-section" aria-labelledby="services-heading">
 			<div className="container">
-				<h2 id="services-heading">{t('OUR SERVICES & PROCESS')}</h2>
+				<h2 id="services-heading">{t('MY SERVICES & PROCESS')}</h2>
 				<p>
 					{t(
 						'I design intuitive, user-focused digital products that drive engagement and usability. From research to prototyping, I create clean, functional designs for web and mobile that ensure smooth navigation and a great user experience.'
