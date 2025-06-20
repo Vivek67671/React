@@ -429,60 +429,6 @@ body.dark-mode #logo {
   text-align: left;
 }
 
-/* Button Styles (used in About Us, Contact) */
-button {
-  --hov: 0;
-  display: grid;
-  grid-gap: 0.0em;
-  grid-template-columns: calc(0.375em + var(--hov) * 0.75em) 1fr;
-  align-items: center;
-  place-self: start;
-  border: none;
-  padding: 0.9em 0.99em;
-  border-radius: 1.9em;
-  background: color-mix(in hsl, #333333 calc(var(--hov) * 100%), #333333);
-  color: #ffffff;
-  font: 700 1em/1 "Inter", sans-serif;
-
- transition: 0.3s ease-out;
-  transition-delay: calc((1 - var(--hov)) * 0.5 * 0.3s), 0s;
-  transition-property: grid-template-columns, background-color;
-  cursor: pointer;
-  justify-content: center; /* Center the text horizontally */
-}
-
-button::before {
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #333333;
-  color: hsla(0, 0%, 100%, var(--hov));
-  font-weight: 100;
-  text-indent: calc((var(--hov) - 1) * 0.75em);
-  clip-path: circle(closest-side);
-  transition: inherit;
-  transition-delay: calc(var(--hov) * 0.5 * 0.3s);
-  transition-property: color, text-indent;
-  content: attr(data-ico);
-  display: grid;
-  place-items: center;
-  font-size: 0.8em;
-}
-
-button:is(:hover, :focus) {
-  --hov: 1;
-}
-
-/* Dark Mode Button Styles */
-body.dark-mode button {
-  background: color-mix(in hsl, #ffffff calc(var(--hov) * 100%), #ffffff);
-  color: #333333;
-}
-
-body.dark-mode button::before {
-  background: #ffffff;
-  color: hsla(0, 0%, 0%, var(--hov));
-}
 
 
 /* 6. Latest Projects Section Styles */
@@ -1952,12 +1898,7 @@ body.dark-mode .logo-animation .logo-text {
     text-align: left;
     animation: fadeInUp 1s ease forwards;
   }
-#certifications .certifications-description {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    margin-bottom: 3em;
-    animation: fadeInUp 1s ease forwards;
-}
+
 .certifications-grid {
     display: flex;
     flex-wrap: wrap;
@@ -2160,130 +2101,8 @@ body.dark-mode .cert-link:focus {
     box-shadow: 0 4px 18px 0 rgba(255, 255, 255, 0.18);
 }
 
-/* Gallery Section: Optimize hover performance for gallery items */
-.gallery-item img {
-  width: 100%;
-  height: 260px; /* Fixed height */
-  object-fit: cover; /* Ensure images cover the area */
-  object-position: top; /* Show the top part of the image */
-  display: block;
-  filter: grayscale(100%);
-  transition: transform 0.3s ease, filter 0.3s ease; /* Reduced durations for smoother effect */
-}
 
-/* Update Preview Modal Styles for full screen image preview */
-.preview-slider {
-    width: 100vw;      /* full viewport width */
-    max-height: 100vh; /* do not exceed viewport height */
-    height: auto;      /* allow natural height */
-    margin: 0;
-}
-.preview-slider .splide__slide {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* align to top for scrolling */
-}
-.preview-slider .splide__slide img {
-    width: 100%;
-    height: auto; /* let image height adjust */
-    object-fit: contain; /* preserve aspect ratio */
-}
 
-/* Update Preview Modal to allow vertical scrolling */
-.preview-modal {
-    /* ...existing styles... */
-    overflow-y: auto; /* enable vertical scroll if content exceeds viewport */
-}
-
-@media (max-width: 600px) {
-    /* Adjust Browse Gallery button responsiveness */
-    .connect-now-btn {
-         font-size: 1rem !important;
-         padding: 0.5em 1em !important;
-         margin-top: 1em; /* Increase spacing if needed */
-    }
-}
-
-@media (max-width: 600px) {
-    /* Adjust Certifications Section text responsiveness */
-    #certifications h2 {
-        font-size: 1.2rem !important;
-        margin-bottom: 30px !important;
-    }
-    #certifications .certifications-description {
-        font-size: 1rem !important;
-        margin-bottom: 20px !important;
-    }
-    /* Adjust Gallery Section text responsiveness */
-    #gallery-heading {
-        font-size: 1.8rem !important;
-        margin-bottom: 20px !important;
-    }
-    .gallery-description {
-        font-size: 1rem !important;
-        margin-bottom: 20px !important;
-    }
-}
-
-/* Custom Message Styles */
-.custom-message {
-    text-align: center;
-    padding: rem 0;
-    font-size: 1.2rem;
-    font-family: 'Montserrat', sans-serif;
-    color: #555;
-    animation: fadeInUp 2s ease;
-    margin-top: 2rem;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Preview Caption Styles */
-.preview-caption {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    background: rgba(0,0,0,0.72);
-    color: #fff;
-    padding: 2rem 2.5vw 2.5rem 2.5vw;
-    box-sizing: border-box;
-    z-index: 3200;
-    pointer-events: none;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    transition: opacity 0.3s;
-}
-.preview-caption .preview-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin: 0 0 0.5rem 0;
-    pointer-events: auto;
-    color: #e6f0ff; /* Lighter color for light mode */
-}
-.preview-caption .preview-desc {
-    font-size: 1rem;
-    margin: 0;
-    pointer-events: auto;
-}
-@media (max-width: 600px) {
-    .preview-caption {
-        font-size: 0.95rem;
-        padding: 1.2rem 1vw 1.5rem 1vw;
-    }
-    .preview-caption .preview-title {
-        font-size: 1.1rem;
-    }
-}
 
 /* Custom Note Styles */
 .custom-note {
@@ -2305,7 +2124,7 @@ body.dark-mode .cert-link:focus {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, #00a2ff, transparent);
-    animation: scanLine 3s linear infinite;
+    animation: scanLine 2s linear infinite;
 }
 
 .custom-note p {
@@ -2319,7 +2138,7 @@ body.dark-mode .cert-link:focus {
 }
 
 .custom-note p:nth-child(2) {
-    animation-delay: 0.2s;
+    animation-delay: 0.0s;
 }
 
 .custom-note .highlight {
@@ -2327,7 +2146,7 @@ body.dark-mode .cert-link:focus {
     font-weight: 600;
     position: relative;
     display: inline-block;
-    animation: glowPulse 2s ease-in-out infinite;
+    animation: glowPulse 6s ease-in-out infinite;
 }
 
 @keyframes scanLine {
@@ -2338,60 +2157,9 @@ body.dark-mode .cert-link:focus {
     100% { left: 100%; }
 }
 
-@keyframes glowPulse {
-    0%, 100% { text-shadow: 0 0 5px rgba(0,0,0, 0.2); }
-    50% { text-shadow: 0 0 15px rgba(0,0,0, 0.6); }
-}
-
-/* Dark mode adjustments for the animations */
-body.dark-mode .custom-note::before {
-    background: linear-gradient(90deg, transparent, #005fcc, transparent);
-}
-
-body.dark-mode .custom-note .highlight {
-    animation: glowPulseDark 2s ease-in-out infinite;
-}
-
-@keyframes glowPulseDark {
-    0%, 100% { text-shadow: 0 0 5px rgba(0, 95, 204, 0.2); }
-    50% { text-shadow: 0 0 15px rgba(0, 95, 204, 0.6); }
-}
 
 
-/* Fix inside the Splide modal preview */
-#preview-modal .splide__slide img {
-  max-width: 100%;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
 
-/* Additional styles for gallery card images */
-.gallery-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top; /* Ensure images fit from the top */
-  border-radius: 14px;
-  filter: grayscale(100%) brightness(0.98);
-  transition: transform 0.18s, filter 0.18s;
-  will-change: transform, filter;
-}
 
-/* ...existing code... */
-.small-text {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  font-weight: 400;
-  font-family: "Roboto", sans-serif; /* Ensure the correct font is applied */
-  color: #333;
-  text-rendering: optimizeLegibility; /* Optimize text rendering */
-}
 
-body.dark .small-text,
-[data-theme="dark"] .small-text,
-.dark .small-text {
-  color: #fff !important;
-}
 

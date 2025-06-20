@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiX, FiChevronLeft, FiChevronRight, FiMaximize } from 'react-icons/fi';
+import LoadMoreButton from './LoadMoreButton';
+import GalleryCard from './GalleryCard';
 
 
 const galleryItems = [
@@ -105,7 +107,7 @@ const galleryItems = [
 		title: 'Control "The Modern MVP Manager"',
 		desc: 'A comprehensive tool for managing MVP development, offering features like task tracking, team collaboration, and progress visualization.',
 		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
-		type: 'design',
+		type: 'landing-page',
 		additionalImages: [
 		
 			'/images/Gallery/px-conversions (3)/2.webp',
@@ -131,10 +133,10 @@ const galleryItems = [
 	},
 	{
 		img: 'images/Gallery/trinker/8.webp',
-		alt: 'Marketing Landing Page - Conversion-focused campaign',
-		title: 'Marketing Landing Page',
-		desc: 'A high-converting marketing landing page designed for campaign launches, featuring bold CTAs and persuasive copy.',
-		thumbnail: 'images/Gallery/trinker/8.webp',
+		alt: 'Saas',
+		title: 'Control Mobile App for Managing Projects and Teams',
+		desc: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
+		thumbnail: 'images/Gallery/trinker/101.webp',
 		type: 'design',
 		additionalImages: [
 			'images/Gallery/trinker/0.webp',
@@ -161,6 +163,38 @@ const galleryItems = [
 			'images/Gallery/trinker/105.webp'
 		]
 	},
+	{
+		img: 'images/Gallery/marketing-landing.webp',
+		alt: 'Marketing Landing Page - Conversion-focused campaign',
+		title: 'Marketing Landing Page',
+		desc: 'A high-converting marketing landing page designed for campaign launches, featuring bold CTAs and persuasive copy.',
+		thumbnail: 'images/Gallery/marketing-landing-thumb.webp',
+		type: 'landing-page'
+	},
+	{
+		img: 'images/Gallery/finance-app.webp',
+		alt: 'Finance App - Personal finance management dashboard',
+		title: 'Finance App Dashboard',
+		desc: 'A modern dashboard for managing personal finances, tracking expenses, and visualizing spending habits.',
+		thumbnail: 'images/Gallery/finance-app-thumb.webp',
+		type: 'design'
+	},
+	{
+		img: 'images/Gallery/ecommerce.webp',
+		alt: 'E-commerce Platform - Product listing and checkout flow',
+		title: 'E-commerce Platform UI',
+		desc: 'A seamless e-commerce experience with intuitive product listing, filtering, and a streamlined checkout process.',
+		thumbnail: 'images/Gallery/ecommerce-thumb.webp',
+		type: 'design'
+	},
+	{
+		img: 'images/Gallery/education-app.webp',
+		alt: 'Education App - Online learning platform interface',
+		title: 'Education App UI',
+		desc: 'An engaging online learning platform UI with course browsing, progress tracking, and interactive lessons.',
+		thumbnail: 'images/Gallery/education-app-thumb.webp',
+		type: 'design'
+	},
 ];
 
 const Gallery = () => {
@@ -170,6 +204,7 @@ const Gallery = () => {
   const [modalDesc, setModalDesc] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [visibleCount, setVisibleCount] = useState(9);
   const observerRef = useRef();
   const modalRef = useRef();
 
@@ -277,6 +312,9 @@ const Gallery = () => {
     return item?.type === 'landing-page';
   }, []);
 
+  // Always show the button, but disable it if all cards are visible
+  const allVisible = visibleCount >= galleryItems.length;
+
   return (
     <section id="gallery" className="gallery-section" aria-labelledby="gallery-heading">
       <div className="container">
@@ -297,34 +335,19 @@ const Gallery = () => {
           user-centered solutions crafted with precision and purpose.
         </p>
         <div className="gallery-grid-clean">
-          {galleryItems.map((item, idx) => (
-            <motion.div
-              className="gallery-item-clean"
+          {galleryItems.slice(0, visibleCount).map((item, idx) => (
+            <GalleryCard
               key={`${item.title}-${idx}`}
+              item={item}
               onClick={() => openModal(item)}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: idx * 0.1 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <div className="gallery-image-wrapper">
-                <img
-                  data-src={item.thumbnail.replace(/\\/g, '/')}
-                  className="gallery-image-clean lazy"
-                  alt={item.alt}
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="gallery-overlay">
-                <h4 className="gallery-title-clean">{item.title}</h4>
-                <p className="gallery-desc-clean">{item.desc}</p>
-              </div>
-            </motion.div>
+              idx={idx}
+            />
           ))}
         </div>
+        <LoadMoreButton
+          onClick={() => setVisibleCount(v => Math.min(v + 3, galleryItems.length))}
+          disabled={allVisible}
+        />
       </div>
 
       <AnimatePresence>
