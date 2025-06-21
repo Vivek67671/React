@@ -336,6 +336,21 @@ const Gallery = () => {
     return item?.type === 'landing-page';
   }, []);
 
+  // Add a property to each image to control fit mode (example: fitWidth: true)
+  // You can add fitWidth: true to any gallery item or additionalImages as needed.
+  // For demonstration, let's use fitWidth for landing-page types:
+  const getFitMode = (imgPath) => {
+    // Force fit-width for SaaS Website Landing Page and all landing-page types
+    const item = galleryItems.find(
+      item =>
+        item.img.replace(/\\/g, '/') === imgPath ||
+        (item.additionalImages && item.additionalImages.includes(imgPath))
+    );
+    // Force fit-width for SaaS Website Landing Page
+    if (item?.title === 'SaaS Website Landing Page') return 'fit-width';
+    return item?.type === 'landing-page' ? 'fit-width' : 'normal';
+  };
+
   // Always show the button, but disable it if all cards are visible
   const allVisible = visibleCount >= galleryItems.length;
 
@@ -378,89 +393,97 @@ const Gallery = () => {
       <AnimatePresence>
         {modalOpen && (
           <motion.div
-            className="preview-modal"
+            className="preview-modal preview-modal-fullscreen"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="preview-modal-content" ref={modalRef}>
-              <button className="preview-close" onClick={closeModal}>
-                <FiX size={24} />
+            <div className="preview-modal-content preview-modal-content-fullscreen" ref={modalRef}>
+              <button
+                className="preview-close preview-close-fullscreen"
+                onClick={closeModal}
+                aria-label="Close image viewer"
+              >
+                <FiX size={32} />
               </button>
-              
-              <div className={`preview-main-image ${isLandingPage(modalImages[currentImageIndex]) ? 'landing-page' : ''}`}>
-                {isLoading && (
-                  <div className="image-loading">
-                    <div className="loading-spinner"></div>
-                  </div>
-                )}
-                <motion.img
-                  key={currentImageIndex}
+              <button
+                className="nav-btn prev-btn preview-nav-btn"
+                onClick={() => {
+                  setCurrentImageIndex(prev =>
+                    prev === 0 ? modalImages.length - 1 : prev - 1
+                  );
+                  // Scroll to top when image changes
+                  document.querySelector('.preview-image-outer')?.scrollTo({ top: 0, behavior: 'auto' });
+                }}
+                aria-label="Previous image"
+              >
+                <FiChevronLeft size={40} />
+              </button>
+              <div className="preview-image-outer">
+                <img
+                  className={
+                    getFitMode(modalImages[currentImageIndex]) === 'fit-width'
+                      ? 'preview-image-fit-width'
+                      : 'preview-image-normal'
+                  }
                   src={modalImages[currentImageIndex]}
-                  alt={`${modalTitle} - ${currentImageIndex + 1} of ${modalImages.length}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isLoading ? 0 : 1 }}
-                  transition={{ duration: 0.3 }}
-                  onLoad={() => setIsLoading(false)}
-                  onError={() => setIsLoading(false)}
+                  alt={`Gallery image ${currentImageIndex + 1} of ${modalImages.length}`}
                   style={{
-                    width: isLandingPage(modalImages[currentImageIndex]) ? '100%' : 'auto',
-                    height: isLandingPage(modalImages[currentImageIndex]) ? 'auto' : '100%'
+                    display: 'block',
+                    margin: '0 auto',
+                    objectPosition: 'top'
+                  }}
+                  onLoad={() => {
+                    // Always scroll to top when image loads
+                    document.querySelector('.preview-image-outer')?.scrollTo({ top: 0, behavior: 'auto' });
                   }}
                 />
-                
-                <button 
-                  className="nav-btn prev-btn"
-                  onClick={() => navigateImage('prev')}
-                  aria-label="Previous image"
-                >
-                  <FiChevronLeft size={32} />
-                </button>
-                
-                <button 
-                  className="nav-btn next-btn"
-                  onClick={() => navigateImage('next')}
-                  aria-label="Next image"
-                >
-                  <FiChevronRight size={32} />
-                </button>
-                
-                <a
-                  href={modalImages[currentImageIndex]}
-                  className="fullscreen-btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open image in full screen"
-                >
-                  <FiMaximize size={20} />
-                </a>
-              </div>
-              
-              <div className="preview-thumbnails">
-                {modalImages.map((img, idx) => (
-                  <motion.div
-                    key={idx}
-                    className={`thumbnail ${idx === currentImageIndex ? 'active' : ''}`}
-                    onClick={() => {
-                      setCurrentImageIndex(idx);
-                      setIsLoading(true);
+                {/* Vertical slider */}
+                {/* Remove the vertical slider input completely */}
+                {/* <div className="vertical-slider">
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    className="vertical-range"
+                    style={{
+                      writingMode: 'vertical-lr',
+                      direction: 'rtl',
                     }}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    <img
-                      src={img}
-                      alt={`Thumbnail ${idx + 1}`}
-                      loading="lazy"
-                    />
-                  </motion.div>
-                ))}
+                    value={(() => {
+                      const el = document.querySelector('.preview-image-outer');
+                      if (!el) return 0;
+                      return Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100) || 0;
+                    })()}
+                    onChange={e => {
+                      const el = document.querySelector('.preview-image-outer');
+                      if (el) {
+                        const percent = Number(e.target.value) / 100;
+                        el.scrollTop = percent * (el.scrollHeight - el.clientHeight);
+                      }
+                    }}
+                  />
+                </div> */}
               </div>
+              <button
+                className="nav-btn next-btn preview-nav-btn"
+                onClick={() => {
+                  setCurrentImageIndex(prev =>
+                    prev === modalImages.length - 1 ? 0 : prev + 1
+                  );
+                  // Scroll to top when image changes
+                  document.querySelector('.preview-image-outer')?.scrollTo({ top: 0, behavior: 'auto' });
+                }}
+                aria-label="Next image"
+              >
+                <FiChevronRight size={40} />
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-
       <style jsx>{`
         .gallery-grid-clean {
           display: grid;
@@ -572,7 +595,7 @@ const Gallery = () => {
         
         .preview-modal-content {
           width: 100%;
-          max-width: 1200px;
+          max-width: 100%;
           position: relative;
           display: flex;
           flex-direction: column;
@@ -823,6 +846,126 @@ const Gallery = () => {
             font-size: 0.9rem;
           }
         }
+
+        .preview-modal-fullscreen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: #000;
+          z-index: 2000;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden; /* Prevent horizontal scroll */
+        }
+        .preview-modal-content-fullscreen {
+          width: 100vw;
+          height: 100vh;
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          padding: 0;
+          overflow: hidden; /* Prevent horizontal scroll */
+        }
+        .preview-image-outer {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          overflow-y: auto;
+          overflow-x: hidden;
+          position: relative;
+          scroll-behavior: smooth;
+        }
+        .preview-image-fit-width,
+        .preview-image-normal {
+          width: 100vw !important;
+          min-width: 100vw !important;
+          max-width: 100vw !important;
+          height: auto !important;
+          min-height: unset !important;
+          max-height: unset !important;
+          object-fit: fill !important;
+          display: block;
+          object-position: top !important;
+        }
+        .vertical-slider {
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 24px;
+          display: flex;
+          align-items: stretch;
+          justify-content: flex-end;
+          z-index: 100;
+          pointer-events: none;
+        }
+        .vertical-range {
+          /* Remove -webkit-appearance: slider-vertical; */
+          writing-mode: vertical-lr;
+          direction: rtl;
+          width: 24px;
+          height: 100%;
+          margin: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          pointer-events: auto;
+          background: transparent;
+        }
+        .vertical-range::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          background: #fff;
+          border: 2px solid #005fcc;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+        }
+        .vertical-range::-webkit-slider-runnable-track {
+          background: #005fcc;
+          border-radius: 8px;
+          width: 6px;
+          height: 100%;
+        }
+        .vertical-range::-moz-range-thumb {
+          background: #fff;
+          border: 2px solid #005fcc;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+        }
+        .vertical-range::-moz-range-track {
+          background: #005fcc;
+          border-radius: 8px;
+          width: 6px;
+          height: 100%;
+        }
+        .vertical-range::-ms-thumb {
+          background: #fff;
+          border: 2px solid #005fcc;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          cursor: pointer;
+        }
+        .vertical-range::-ms-fill-lower,
+        .vertical-range::-ms-fill-upper {
+          background: #005fcc;
+          border-radius: 8px;
+        }
+        .vertical-range:focus {
+          outline: none;
+        }
+        // ...existing code...
       `}</style>
     </section>
   );
