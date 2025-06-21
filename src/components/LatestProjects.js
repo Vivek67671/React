@@ -15,7 +15,7 @@ const projects = [
     image: "images/Case Study Sliders  Image Containers/case study 4.webp"
   },
   {
-    title: "Designing for Variants a UX case study",
+    title: "Designed and Solved UX Problems in Services App",
     subtitle: "Online Services App",
     metrics: [
       { value: "28", unit: "%", label: "Higher Purchase Rate" },
@@ -26,7 +26,7 @@ const projects = [
     image: "images/Case Study Sliders  Image Containers/Download File.webp"
   },
   {
-    title: "Designing a better checkout experience",
+    title: "Redesigned the Checkout Flow for Food Delivering Platform",
     subtitle: "UX/UI case study",
     metrics: [
       { value: "25", unit: "%", label: "Conversion Rate Increase" },
