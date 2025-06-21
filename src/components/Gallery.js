@@ -159,12 +159,19 @@ const galleryItems = [
 		]
 	},
 	{
-		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
-		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
-		title: 'Real Estate Landing Page',
-		desc: 'A website for a client where users can upload their properties and sell, buy, or rent them. The platform features a modern property listing interface with search functionality, making real estate transactions seamless and user-friendly.',
-		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		img: 'images/Gallery/Edtech/5.webp',
+		alt: 'Education App - Online learning platform interface',
+		title: 'L-Earn Learn while Earning',
+		desc: 'An engaging online learning platform UI with course browsing, progress tracking, and interactive lessons.',
+		thumbnail: 'images/Gallery/Edtech/5.webp',
 		type: 'landing-page',
+		additionalImages: [
+			'images/Gallery/Edtech/1.webp',
+			'images/Gallery/Edtech/2.webp',
+			'images/Gallery/Edtech/3.webp',
+			'images/Gallery/Edtech/4.webp',
+			'images/Gallery/Edtech/5.webp'
+		]
 	},
 	{
 		img: 'images/Gallery/px-conversions (3)/8.webp',
@@ -202,6 +209,7 @@ const galleryItems = [
 		desc: 'Enterprise-level analytics dashboard with comprehensive data visualization, reporting tools, and real-time monitoring.',
 		thumbnail: 'images\\Gallery\\Dashboard Analytic.webp'
 	},
+	
 	{
 		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
 		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
@@ -210,22 +218,7 @@ const galleryItems = [
 		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
 		type: 'landing-page',
 	},
-	{
-		img: 'images/Gallery/ecommerce.webp',
-		alt: 'E-commerce Platform - Product listing and checkout flow',
-		title: 'E-commerce Platform UI',
-		desc: 'A seamless e-commerce experience with intuitive product listing, filtering, and a streamlined checkout process.',
-		thumbnail: 'images/Gallery/ecommerce-thumb.webp',
-		type: 'design'
-	},
-	{
-		img: 'images/Gallery/education-app.webp',
-		alt: 'Education App - Online learning platform interface',
-		title: 'Education App UI',
-		desc: 'An engaging online learning platform UI with course browsing, progress tracking, and interactive lessons.',
-		thumbnail: 'images/Gallery/education-app-thumb.webp',
-		type: 'design'
-	},
+
 ];
 
 const Gallery = () => {
