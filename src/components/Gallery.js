@@ -7,12 +7,13 @@ import GalleryCard from './GalleryCard';
 
 const galleryItems = [
 	{
-		img: 'images/Gallery/44.webp',
+		img: "images/Gallery/Desktop - 1.webp",
 		alt: 'Park X App - Smart parking solution for Mumbai and Pune',
 		title: 'Park X App – Parking in Mumbai & Pune',
 		desc: 'Park X is a mobile app designed to simplify parking in Mumbai and Pune. It offers real-time spot availability, digital payments, and seamless navigation to parking locations, making urban parking hassle-free.',
-		thumbnail: 'images/Gallery/4.webp',
+		thumbnail: "images/Gallery/4.webp",
 		type: 'design',
+		// Example: not scrollable (default)
 		additionalImages: [
 			'/images/Gallery/px-conversions (1)/1.webp',
 			'/images/Gallery/px-conversions (1)/2.webp',
@@ -65,137 +66,137 @@ const galleryItems = [
 		],
 	},
 	{
-		img:'images/Gallery/Sales NAlytics/Circle_Overview.webp',
+		img:'images/Gallery/Sales NAlytics/Circle_Overview.webp',scrollable: true,
 		alt: 'Sales Analytics Panel for Circle - Personal finance management dashboard',
 		title: 'Sales Analytics Panel for Circle',		
 		desc: 'The Sales Analytics Panel for Circle is a robust dashboard designed to empower sales teams and managers with actionable insights. It features real-time performance tracking, comprehensive fund and product listings, candidate management, and intuitive visualizations. With streamlined navigation and a modern UI.',
 		thumbnail: 'images/Gallery/Sales NAlytics/Circle_Overview.webp',
 		type: 'landing-page',
 		additionalImages: [
-			'images/Gallery/Sales NAlytics/Circle_Company.webp',
-			'images/Gallery/Sales NAlytics/Circle_Funds Listing.webp',
-			'images/Gallery/Sales NAlytics/Circle_Messages.webp',
-			'images/Gallery/Sales NAlytics/Circle_Overview.webp',
-			'images/Gallery/Sales NAlytics/Circle_Performance.webp',
-			'images/Gallery/Sales NAlytics/Circle_Product List.webp',
-			'images/Gallery/Sales NAlytics/Circle_Administration.webp',
-			'images/Gallery/Sales NAlytics/Circle_Candidates.webp'
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Company.webp', scrollable: true }, // scrollable
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Funds Listing.webp', scrollable: true },
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Messages.webp', scrollable: true },
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Overview.webp', scrollable: true },
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Performance.webp', scrollable: true },
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Product List.webp', scrollable: true },
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Administration.webp', scrollable: true },
+			{ path: 'images/Gallery/Sales NAlytics/Circle_Candidates.webp', scrollable: true }
 		]
 	},
 	{
-		img: 'images/Gallery/px-conversions (3)/8.webp',
+		img: 'images/Gallery/px-conversions (3)/8.webp',scrollable: true,
 		alt: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
 		title: 'Control "The Modern MVP Manager"',
 		desc: 'A comprehensive tool for managing MVP development, offering features like task tracking, team collaboration, and progress visualization.',
 		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
 		type: 'landing-page',
-		additionalImages: [
-			'/images/Gallery/px-conversions (3)/2.webp',
-			'/images/Gallery/px-conversions (3)/3.webp',
-			'/images/Gallery/px-conversions (3)/4.webp',
-			'/images/Gallery/px-conversions (3)/5.webp',
-			'/images/Gallery/px-conversions (3)/6.webp',
-			'/images/Gallery/px-conversions (3)/7.webp',
-			'/images/Gallery/px-conversions (3)/8.webp',
-			'/images/Gallery/px-conversions (3)/9.webp',
-			'/images/Gallery/px-conversions (3)/10.webp',
-			'/images/Gallery/px-conversions (3)/11.webp',
-			'/images/Gallery/px-conversions (3)/12.webp',
-		],
+    additionalImages: [
+      { path: '/images/Gallery/px-conversions (3)/2.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/3.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/4.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/5.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/6.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/7.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/8.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/9.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/10.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/11.webp', scrollable: true },
+      { path: '/images/Gallery/px-conversions (3)/12.webp', scrollable: true },
+    ],
 	},
 	{
-		img: 'images/Gallery/trinker/8.webp',
+		img: 'images/Gallery/trinker/8.webp',scrollable: true,
 		alt: 'Saas',
 		title: 'Control Mobile App for Managing Projects and Teams',
 		desc: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
 		thumbnail: 'images/Gallery/trinker/101.webp',
 		type: 'design',
 		additionalImages: [
-			'images/Gallery/trinker/0.webp',
-			'images/Gallery/trinker/1.webp',
-			'images/Gallery/trinker/2.webp',
-			'images/Gallery/trinker/3.webp',
-			'images/Gallery/trinker/4.webp',
-			'images/Gallery/trinker/5.webp',
-			'images/Gallery/trinker/6.webp',
-			'images/Gallery/trinker/7.webp',
-			'images/Gallery/trinker/8.webp',
-			'images/Gallery/trinker/9.webp',
-			'images/Gallery/trinker/10.webp',
-			'images/Gallery/trinker/11.webp',
-			'images/Gallery/trinker/12.webp',
-			'images/Gallery/trinker/13.webp',
-			'images/Gallery/trinker/14.webp',
-			'images/Gallery/trinker/15.webp',
-			'images/Gallery/trinker/100.webp',
-			'images/Gallery/trinker/101.webp',
-			'images/Gallery/trinker/102.webp',
-			'images/Gallery/trinker/103.webp',
-			'images/Gallery/trinker/104.webp',
-			'images/Gallery/trinker/105.webp'
+			{ path: 'images/Gallery/trinker/0.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/1.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/2.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/3.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/4.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/5.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/6.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/7.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/8.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/9.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/10.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/11.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/12.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/13.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/14.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/15.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/100.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/101.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/102.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/103.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/104.webp', scrollable: true },
+			{ path: 'images/Gallery/trinker/105.webp', scrollable: true }
 		]
 	},
 	{
-		img: 'images\\Gallery\\Desktop (1).png',
+		img: 'images\\Gallery\\Desktop (1).png',scrollable: true,
 		alt: 'SaaS Platform Landing Page - Cloud service management interface',
 		title: 'SaaS Website Landing Page',
 		desc: 'Conversion-focused SaaS landing page with clear value proposition, intuitive navigation, and optimized CTAs.',
-		thumbnail: 'images\\Gallery\\Desktop (1).webp',
+		thumbnail: "images/Gallery/Desktop1.webp",
 		type: 'landing-page',
 	},
 	{
-		img: 'images/Gallery/Design Systems/1.webp',
+		img: 'images/Gallery/Design Systems/1.webp',scrollable: true,
 		alt: 'Design Systems - Comprehensive design system for consistent UI/UX across platforms',
 		title: 'Design Systems',
 		desc: 'A list of comprehensive design systems for consistent UI/UX across platforms, including components, guidelines, and best practices.',
 		thumbnail: "images/Gallery/Design Systems/66027bee045be7df083e39c0_6528c58fab8f44dc6a3cd132_benefits_of_a_good_design_system.jpeg",
 		type: 'landing-page',
 		additionalImages: [
-			'images/Gallery/Design Systems/2.webp',
-			'images/Gallery/Design Systems/3.webp',
-			'images/Gallery/Design Systems/4.webp',
-			'images/Gallery/Design Systems/5.webp',
-			'images/Gallery/Design Systems/6.webp'
+			{ path: 'images/Gallery/Design Systems/2.webp', scrollable: true },
+			{ path: 'images/Gallery/Design Systems/3.webp', scrollable: true },
+			{ path: 'images/Gallery/Design Systems/4.webp', scrollable: true },
+			{ path: 'images/Gallery/Design Systems/5.webp', scrollable: true },
+			{ path: 'images/Gallery/Design Systems/6.webp', scrollable: true }
 		]
 	},
 	{
-		img: 'images/Gallery/Edtech/5.webp',
+		img: 'images/Gallery/Edtech/5.webp',scrollable: true,
 		alt: 'Education App - Online learning platform interface',
 		title: 'L-Earn Learn while Earning',
 		desc: 'An engaging online learning platform UI with course browsing, progress tracking, and interactive lessons.',
 		thumbnail: 'images/Gallery/Edtech/5.webp',
 		type: 'landing-page',
 		additionalImages: [
-			'images/Gallery/Edtech/1.webp',
-			'images/Gallery/Edtech/2.webp',
-			'images/Gallery/Edtech/3.webp',
-			'images/Gallery/Edtech/4.webp',
-			'images/Gallery/Edtech/5.webp'
+			{ path: 'images/Gallery/Edtech/1.webp', scrollable: true },
+			{ path: 'images/Gallery/Edtech/2.webp', scrollable: true },
+			{ path: 'images/Gallery/Edtech/3.webp', scrollable: true },
+			{ path: 'images/Gallery/Edtech/4.webp', scrollable: true },
+			{ path: 'images/Gallery/Edtech/5.webp', scrollable: true }
 		]
 	},
 	{
-		img: 'images/Gallery/px-conversions (3)/8.webp',
+		img: 'images/Gallery/px-conversions (3)/8.webp',scrollable: true,
 		alt: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
 		title: 'Control "The Modern MVP Manager"',
 		desc: 'A comprehensive tool for managing MVP development, offering features like task tracking, team collaboration, and progress visualization.',
 		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
 		type: 'landing-page',
 		additionalImages: [
-			'/images/Gallery/px-conversions (3)/2.webp',
-			'/images/Gallery/px-conversions (3)/3.webp',
-			'/images/Gallery/px-conversions (3)/4.webp',
-			'/images/Gallery/px-conversions (3)/5.webp',
-			'/images/Gallery/px-conversions (3)/6.webp',
-			'/images/Gallery/px-conversions (3)/7.webp',
-			'/images/Gallery/px-conversions (3)/8.webp',
-			'/images/Gallery/px-conversions (3)/9.webp',
-			'/images/Gallery/px-conversions (3)/10.webp',
-			'/images/Gallery/px-conversions (3)/11.webp',
-			'/images/Gallery/px-conversions (3)/12.webp',
+			{ path: '/images/Gallery/px-conversions (3)/2.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/3.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/4.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/5.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/6.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/7.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/8.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/9.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/10.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/11.webp', scrollable: true },
+			{ path: '/images/Gallery/px-conversions (3)/12.webp', scrollable: true },
 		],
 	},
 	{
-		img: 'images/Gallery/Tinker1.webp',
+		img: "images/Gallery/Tinker1.webp",scrollable: true,
 		alt: 'Tinker Project - UI/UX design for Tinker application',
 		title: 'Tinker Project',
 		desc: 'website is likely dedicated to mental wellness, therapy, and personal development. Its primary goal seems to be to provide support, resources, and services to individuals navigating life\'s challenges.',
@@ -221,6 +222,23 @@ const galleryItems = [
 
 ];
 
+// Helper to normalize additionalImages (support string or {path, scrollable})
+function getAllImagesWithProps(item) {
+	const mainImg = { path: item.img.replace(/\\/g, '/'), scrollable: !!item.scrollable };
+	let allImages = [mainImg];
+	if (item.additionalImages && item.additionalImages.length > 0) {
+		allImages = [
+			mainImg,
+			...item.additionalImages.map(img =>
+				typeof img === 'string'
+					? { path: img, scrollable: false }
+					: { path: img.path, scrollable: !!img.scrollable }
+			)
+		];
+	}
+	return allImages;
+}
+
 const Gallery = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalImages, setModalImages] = useState([]);
@@ -231,13 +249,10 @@ const Gallery = () => {
   const [visibleCount, setVisibleCount] = useState(9);
   const observerRef = useRef();
   const modalRef = useRef();
+  const modalImageOuterRef = useRef();
 
   const openModal = (item, index = 0) => {
-    const mainImg = item.img.replace(/\\/g, '/');
-    let allImages = [mainImg];
-    if (item.additionalImages && item.additionalImages.length > 0) {
-      allImages = [mainImg, ...item.additionalImages];
-    }
+    const allImages = getAllImagesWithProps(item);
     setModalImages(allImages);
     setModalTitle(item.title);
     setModalDesc(item.desc);
@@ -288,7 +303,7 @@ const Gallery = () => {
     if (modalOpen) {
       modalImages.forEach(img => {
         const image = new Image();
-        image.src = img;
+        image.src = img.path;
       });
     }
   }, [modalOpen, modalImages]);
@@ -339,20 +354,55 @@ const Gallery = () => {
   // Add a property to each image to control fit mode (example: fitWidth: true)
   // You can add fitWidth: true to any gallery item or additionalImages as needed.
   // For demonstration, let's use fitWidth for landing-page types:
-  const getFitMode = (imgPath) => {
-    // Force fit-width for SaaS Website Landing Page and all landing-page types
+  const getFitMode = (imgObj) => {
+    const imgPath = imgObj.path;
     const item = galleryItems.find(
       item =>
         item.img.replace(/\\/g, '/') === imgPath ||
-        (item.additionalImages && item.additionalImages.includes(imgPath))
+        (item.additionalImages && item.additionalImages.some(ai => (typeof ai === 'string' ? ai : ai.path) === imgPath))
     );
-    // Force fit-width for SaaS Website Landing Page
     if (item?.title === 'SaaS Website Landing Page') return 'fit-width';
     return item?.type === 'landing-page' ? 'fit-width' : 'normal';
   };
 
+  // Helper to check if current image is scrollable
+  const isImageScrollable = (imgObj) => !!imgObj.scrollable;
+
   // Always show the button, but disable it if all cards are visible
   const allVisible = visibleCount >= galleryItems.length;
+
+  // Robust scroll reset using requestAnimationFrame loop
+  const forceScrollTop = () => {
+    let count = 0;
+    const maxTries = 20;
+    function scrollLoop() {
+      if (modalImageOuterRef.current) {
+        modalImageOuterRef.current.scrollTop = 0;
+        modalImageOuterRef.current.scrollTo({ top: 0 });
+      }
+      count++;
+      if (count < maxTries) {
+        requestAnimationFrame(scrollLoop);
+      }
+    }
+    scrollLoop();
+  };
+
+  const handleImageLoad = () => {
+  setIsLoading(false);
+  // Use requestAnimationFrame to ensure this runs after paint
+  requestAnimationFrame(() => {
+    if (modalImageOuterRef.current) {
+      modalImageOuterRef.current.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  });
+};
+
+  useEffect(() => {
+    if (modalOpen) {
+      forceScrollTop();
+    }
+  }, [modalOpen, currentImageIndex]);
 
   return (
     <section id="gallery" className="gallery-section" aria-labelledby="gallery-heading">
@@ -409,73 +459,43 @@ const Gallery = () => {
               </button>
               <button
                 className="nav-btn prev-btn preview-nav-btn"
-                onClick={() => {
-                  setCurrentImageIndex(prev =>
-                    prev === 0 ? modalImages.length - 1 : prev - 1
-                  );
-                  // Scroll to top when image changes
-                  document.querySelector('.preview-image-outer')?.scrollTo({ top: 0, behavior: 'auto' });
-                }}
+                onClick={() => navigateImage('prev')}
                 aria-label="Previous image"
               >
                 <FiChevronLeft size={40} />
               </button>
-              <div className="preview-image-outer">
-                <img
-                  className={
-                    getFitMode(modalImages[currentImageIndex]) === 'fit-width'
-                      ? 'preview-image-fit-width'
-                      : 'preview-image-normal'
-                  }
-                  src={modalImages[currentImageIndex]}
-                  alt={`Gallery image ${currentImageIndex + 1} of ${modalImages.length}`}
-                  style={{
-                    display: 'block',
-                    margin: '0 auto',
-                    objectPosition: 'top'
-                  }}
-                  onLoad={() => {
-                    // Always scroll to top when image loads
-                    document.querySelector('.preview-image-outer')?.scrollTo({ top: 0, behavior: 'auto' });
-                  }}
-                />
-                {/* Vertical slider */}
-                {/* Remove the vertical slider input completely */}
-                {/* <div className="vertical-slider">
-                  <input
-                    type="range"
-                    min="0"
-                    max="100"
-                    step="1"
-                    className="vertical-range"
+              <div
+                ref={modalImageOuterRef}
+                className={
+                  "preview-image-outer" +
+                  (isImageScrollable(modalImages[currentImageIndex]) ? " vertical-scrollbar" : "")
+                }
+                style={
+                  isImageScrollable(modalImages[currentImageIndex])
+                    ? { overflowY: 'auto', maxHeight: '100vh', height: '100vh' }
+                    : {}
+                }
+              >
+                <div className="preview-image-scroll-inner">
+                  <img
+                    className={
+                      getFitMode(modalImages[currentImageIndex]) === 'fit-width'
+                        ? 'preview-image-fit-width'
+                        : 'preview-image-normal'
+                    }
+                    src={modalImages[currentImageIndex].path}
+                    alt={`Gallery image ${currentImageIndex + 1} of ${modalImages.length}`}
                     style={{
-                      writingMode: 'vertical-lr',
-                      direction: 'rtl',
+                      display: 'block',
+                      margin: '0 auto'
                     }}
-                    value={(() => {
-                      const el = document.querySelector('.preview-image-outer');
-                      if (!el) return 0;
-                      return Math.round((el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100) || 0;
-                    })()}
-                    onChange={e => {
-                      const el = document.querySelector('.preview-image-outer');
-                      if (el) {
-                        const percent = Number(e.target.value) / 100;
-                        el.scrollTop = percent * (el.scrollHeight - el.clientHeight);
-                      }
-                    }}
+                    onLoad={handleImageLoad}
                   />
-                </div> */}
+                </div>
               </div>
               <button
                 className="nav-btn next-btn preview-nav-btn"
-                onClick={() => {
-                  setCurrentImageIndex(prev =>
-                    prev === modalImages.length - 1 ? 0 : prev + 1
-                  );
-                  // Scroll to top when image changes
-                  document.querySelector('.preview-image-outer')?.scrollTo({ top: 0, behavior: 'auto' });
-                }}
+                onClick={() => navigateImage('next')}
                 aria-label="Next image"
               >
                 <FiChevronRight size={40} />
@@ -852,7 +872,7 @@ const Gallery = () => {
           top: 0;
           left: 0;
           width: 100vw;
-          height: 100vh;
+          height: auto;
           background: #000;
           z-index: 2000;
           display: flex;
@@ -862,7 +882,7 @@ const Gallery = () => {
         }
         .preview-modal-content-fullscreen {
           width: 100vw;
-          height: 100vh;
+          height: auto;
           position: relative;
           display: flex;
           flex-direction: row;
@@ -874,98 +894,104 @@ const Gallery = () => {
         }
         .preview-image-outer {
           width: 100vw;
-          height: 100vh;
+          height: auto;
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           justify-content: center;
-          overflow-y: auto;
-          overflow-x: hidden;
-          position: relative;
-          scroll-behavior: smooth;
+          overflow: hidden; /* Prevent horizontal scroll */
         }
-        .preview-image-fit-width,
-        .preview-image-normal {
+        .preview-image-outer.vertical-scrollbar {
+          overflow-y: auto;
+          scroll-behavior: auto !important;
+          -webkit-overflow-scrolling: touch;
+          align-items: flex-start;
+        }
+        .preview-image-fit-width {
           width: 100vw !important;
-          min-width: 100vw !important;
-          max-width: 100vw !important;
+          min-width: 100% !important;
+          max-width: 100% !important;
           height: auto !important;
-          min-height: unset !important;
-          max-height: unset !important;
+          min-height: 100% !important;
+          max-height: 100% !important;
           object-fit: fill !important;
           display: block;
-          object-position: top !important;
         }
-        .vertical-slider {
-          position: absolute;
-          top: 0;
-          right: 0;
-          height: 100%;
-          width: 24px;
+        .preview-image-normal {
+          width: 100vw;
+          height: auto;
+          max-width: 100vw;
+          max-height: 100vh;
+          object-fit: contain;
+          display: block;
+        }
+        .preview-close-fullscreen {
+          position: fixed;
+          top: 32px;
+          right: 32px;
+          z-index: 2100;
+          background: rgba(0,0,0,0.5);
+          border: none;
+          color: #fff;
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
           display: flex;
-          align-items: stretch;
-          justify-content: flex-end;
-          z-index: 100;
-          pointer-events: none;
-        }
-        .vertical-range {
-          /* Remove -webkit-appearance: slider-vertical; */
-          writing-mode: vertical-lr;
-          direction: rtl;
-          width: 24px;
-          height: 100%;
-          margin: 0;
-          position: absolute;
-          right: 0;
-          top: 0;
-          pointer-events: auto;
-          background: transparent;
-        }
-        .vertical-range::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          background: #fff;
-          border: 2px solid #005fcc;
-          border-radius: 50%;
-          width: 18px;
-          height: 18px;
+          align-items: center;
+          justify-content: center;
           cursor: pointer;
+          font-size: 2rem;
+          transition: background 0.2s;
         }
-        .vertical-range::-webkit-slider-runnable-track {
-          background: #005fcc;
-          border-radius: 8px;
-          width: 6px;
-          height: 100%;
+        .preview-close-fullscreen:hover {
+          background: rgba(0,0,0,0.8);
         }
-        .vertical-range::-moz-range-thumb {
-          background: #fff;
-          border: 2px solid #005fcc;
+        .preview-nav-btn {
+          position: fixed;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0,0,0,0.5);
+          border: none;
+          color: #fff;
           border-radius: 50%;
-          width: 18px;
-          height: 18px;
+          width: 56px;
+          height: 56px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           cursor: pointer;
+          font-size: 2rem;
+          z-index: 2100;
+          transition: background 0.2s;
         }
-        .vertical-range::-moz-range-track {
-          background: #005fcc;
-          border-radius: 8px;
-          width: 6px;
-          height: 100%;
+        .preview-nav-btn:hover {
+          background: rgba(0,0,0,0.8);
         }
-        .vertical-range::-ms-thumb {
-          background: #fff;
-          border: 2px solid #005fcc;
-          border-radius: 50%;
-          width: 18px;
-          height: 18px;
-          cursor: pointer;
+        .prev-btn.preview-nav-btn {
+          left: 32px;
         }
-        .vertical-range::-ms-fill-lower,
-        .vertical-range::-ms-fill-upper {
-          background: #005fcc;
-          border-radius: 8px;
+        .next-btn.preview-nav-btn {
+          right: 32px;
         }
-        .vertical-range:focus {
-          outline: none;
+        @media (max-width: 768px) {
+          .preview-close-fullscreen {
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+          }
+          .preview-nav-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+          }
+          .prev-btn.preview-nav-btn {
+            left: 8px;
+          }
+          .next-btn.preview-nav-btn {
+            right: 8px;
+          }
         }
-        // ...existing code...
       `}</style>
     </section>
   );
