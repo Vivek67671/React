@@ -13,26 +13,41 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 import { MotionConfig } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 function App() {
   return (
-    <MotionConfig transition={{ type: "spring", stiffness: 120, damping: 18 }}>
-      <div className="App">
-        <Preloader />
-        <Header />
-        <Hero />
-        <AboutUs />
-        <Certifications />
-        <TrustedBrands />
-        <LatestProjects />
-        <Gallery />
-        <Services />
-        <Testimonials />
-        <Contact />
-        <Footer />
-        {/* Other components go here */}
-      </div>
-    </MotionConfig>
+    <>
+      <Helmet>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZVG3WZK5H9"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZVG3WZK5H9');
+          `}
+        </script>
+      </Helmet>
+      <MotionConfig transition={{ type: "spring", stiffness: 120, damping: 18 }}>
+        <div className="App">
+          <Preloader />
+          <Header />
+          <Hero />
+          <AboutUs />
+          <Certifications />
+          <TrustedBrands />
+          <LatestProjects />
+          <Gallery />
+          <Services />
+          <Testimonials />
+          <Contact />
+          <Footer />
+          {/* Other components go here */}
+        </div>
+      </MotionConfig>
+    </>
   );
 }
 
