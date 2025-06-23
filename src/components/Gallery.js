@@ -175,25 +175,33 @@ const galleryItems = [
 		]
 	},
 	{
-		img: 'images/Gallery/px-conversions (3)/8.webp',scrollable: true,
-		alt: 'Control "The Modern MVP Manager" - MVP management tool with task tracking and team collaboration',
-		title: 'Control "The Modern MVP Manager"',
-		desc: 'A comprehensive tool for managing MVP development, offering features like task tracking, team collaboration, and progress visualization.',
-		thumbnail: '/images/Gallery/px-conversions (3)/8.webp',
-		type: 'landing-page',
+		img: "images/Home Automation/2312312.webp", 
+		alt: 'Vivi is your personal home automation companion, designed to give you complete control of your smart home environment',
+		title: 'Home Automation IOS ANDROID APP',
+		desc: 'Vivi is your personal home automation companion, designed to give you complete control of your smart home environment.',
+		thumbnail: "images/Home Automation/2312312.webp",
 		additionalImages: [
-			{ path: '/images/Gallery/px-conversions (3)/2.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/3.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/4.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/5.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/6.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/7.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/8.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/9.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/10.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/11.webp', scrollable: true },
-			{ path: '/images/Gallery/px-conversions (3)/12.webp', scrollable: true },
-		],
+			'images/Home Automation/1.webp',
+			'images/Home Automation/2.webp',
+			'images/Home Automation/3.webp',
+			'images/Home Automation/4.webp',
+			'images/Home Automation/5.webp',
+			'images/Home Automation/6.webp',
+			'images/Home Automation/7.webp',
+			'images/Home Automation/8.webp',
+			'images/Home Automation/9.webp',
+	
+			'images/Home Automation/9 (1).webp',
+			'images/Home Automation/9 (2).webp',
+			'images/Home Automation/9 (3).webp',
+			'images/Home Automation/9 (4).webp',
+			'images/Home Automation/9 (5).webp',
+			'images/Home Automation/9.webp',
+			'images/Home Automation/10 (1).webp',
+			'images/Home Automation/10 (2).webp',
+			'images/Home Automation/10 (3).webp',
+			'images/Home Automation/10 (4).webp',
+		]
 	},
 	{
 		img: "images/Gallery/Tinker1.webp",scrollable: true,
@@ -203,13 +211,7 @@ const galleryItems = [
 		thumbnail: 'images/Gallery/Tinker.webp',	
 		type: 'landing-page',
 	},
-	{
-		img: 'images/Gallery/Dashboard Analytic.webp',
-		alt: 'Financial Analytics Dashboard - Enterprise data visualization platform',
-		title: 'Finance Dashboard',
-		desc: 'Enterprise-level analytics dashboard with comprehensive data visualization, reporting tools, and real-time monitoring.',
-		thumbnail: 'images\\Gallery\\Dashboard Analytic.webp'
-	},
+	
 	
 	{
 		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
