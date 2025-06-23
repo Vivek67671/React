@@ -87,9 +87,9 @@ const Header = () => {
           Home
         </a>
         <a href="#about-us" title="About" aria-label="Learn more about us" onClick={closeNav}>About</a>
-        <a href="#services" title="Services" aria-label="View our services" onClick={closeNav}>Services</a>
-        <a href="#latest-projects" title="Case Studies" aria-label="See our case studies" onClick={closeNav}>Case Studies</a>
         <a href="#gallery" title="Gallery" aria-label="View our gallery" onClick={closeNav}>Gallery</a>
+        <a href="#latest-projects" title="Case Studies" aria-label="See our case studies" onClick={closeNav}>Case Studies</a>
+          <a href="#services" title="Services" aria-label="View our services" onClick={closeNav}>Services</a>
         <a href="#contact-us" title="Contact" aria-label="Get in touch" onClick={closeNav}>Contact</a>
         <div className="dark-mode-container">
           <label className="switch" htmlFor="darkModeToggle" aria-labelledby="darkModeText">

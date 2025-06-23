@@ -156,7 +156,8 @@ const galleryItems = [
 			{ path: 'images/Gallery/Design Systems/3.webp', scrollable: true },
 			{ path: 'images/Gallery/Design Systems/4.webp', scrollable: true },
 			{ path: 'images/Gallery/Design Systems/5.webp', scrollable: true },
-			{ path: 'images/Gallery/Design Systems/6.webp', scrollable: true }
+			{ path: 'images/Gallery/Design Systems/6.webp', scrollable: true },
+			{ path: 'images/Gallery/Design Systems/Group 427320669.webp', scrollable: true }
 		]
 	},
 	{
