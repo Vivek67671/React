@@ -11,7 +11,7 @@ const Preloader = () => {
   if (loaded) return null;
 
   return (
-    <div className="preloader">
+    <div className="preloader-bg">
       <div className="preloader-content">
         <div className="logo-animation">
           <svg viewBox="0 0 200 200" width="200" height="200" aria-label="Grays-Scale Logo Preloader">
@@ -27,6 +27,40 @@ const Preloader = () => {
           </svg>
         </div>
       </div>
+      <style>{`
+        .preloader-bg {
+          position: fixed;
+          z-index: 9999;
+          inset: 0;
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          /* Animated gradient background */
+          background: linear-gradient(270deg, #1e3c72, #2a5298, #6dd5ed, #2193b0, #6e45e2, #ee9ca7, #ffdde1, #1e3c72);
+          background-size: 1600% 1600%;
+          animation: gradientMove 8s ease-in-out infinite;
+          transition: background 0.5s;
+        }
+        @keyframes gradientMove {
+          0% { background-position: 0% 50%; }
+          25% { background-position: 50% 100%; }
+          50% { background-position: 100% 50%; }
+          75% { background-position: 50% 0%; }
+          100% { background-position: 0% 50%; }
+        }
+        .preloader-spinner {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: spinnerFadeIn 1s;
+        }
+        @keyframes spinnerFadeIn {
+          from { opacity: 0; transform: scale(0.8);}
+          to { opacity: 1; transform: scale(1);}
+        }
+      `}</style>
     </div>
   );
 };

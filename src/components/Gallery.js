@@ -222,7 +222,7 @@ const galleryItems = [
 	
 	
 	{
-		img: "images/Gallery/PrecisionPlanners.png" ,scrollable: true,
+		img: "images/Gallery/PrecisionPlanners.png", scrollable: true,
 		alt: 'DeckPlanner Website – UI/UX Concept & Visual Recreation',
 		title: 'DeckPlanner Website – UI/UX Concept & Visual Recreation',
 		desc: 'This project is a UI/UX concept and visual recreation of the DeckPlanner church and event planning website. The goal was to study, recreate, and enhance an existing live experience platform that connects communities through worship events, special contributions, and group gatherings.',
@@ -230,11 +230,11 @@ const galleryItems = [
 		type: 'landing-page',
 	},
 	{
-		img: "images/Gallery/Fintrack/Dashboard V1 - Overview.webp",scrollable: true,
+		img: "images/Gallery/Fintrack/Dashboard V1 - Overview.webp", scrollable: true,
 		alt: "Fintrack – Finance Dashboard Web App UI",
 		title: "Fintrack – Finance Dashboard Web App UI",
 		desc: "A comprehensive finance dashboard UI for Fintrack, featuring responsive layouts, transaction management, wallet integration, notifications, settings, and analytics. Includes both desktop and mobile views.",
-		thumbnail: "images/Gallery/Fintrack/Dashboard V1 - Overview.webp", 
+		thumbnail: "images/Gallery/Fintrack/Dashboard V1 - Overview.webp", // Use the same image as 'img'
 		type: "landing-page",
 		additionalImages: [
 				{ path: "images/Gallery/Fintrack/1 (1).webp", scrollable: true },
@@ -404,12 +404,14 @@ const Gallery = () => {
       rootMargin: '50px 0px'
     });
 
+    // Observe only currently visible images
     document.querySelectorAll('.gallery-image-clean').forEach(img => {
       observerRef.current.observe(img);
     });
 
+    // Re-observe images when visibleCount changes (fix for Load More)
     return () => observerRef.current?.disconnect();
-  }, []);
+  }, [visibleCount]); // <-- add visibleCount as dependency
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyPress);
