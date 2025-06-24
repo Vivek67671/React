@@ -157,7 +157,8 @@ const galleryItems = [
 			{ path: 'images/Gallery/Design Systems/4.webp', scrollable: true },
 			{ path: 'images/Gallery/Design Systems/5.webp', scrollable: true },
 			{ path: 'images/Gallery/Design Systems/6.webp', scrollable: true },
-			{ path: 'images/Gallery/Design Systems/Group 427320669.webp', scrollable: true }
+			{ path: 'images/Gallery/Design Systems/Group 427320669.webp', scrollable: true },
+			{ path: "images/Gallery/Design Systems/Group 11-min.png", scrollable: true }
 		]
 	},
 	{
@@ -191,7 +192,6 @@ const galleryItems = [
 			'images/Home Automation/7.webp',
 			'images/Home Automation/8.webp',
 			'images/Home Automation/9.webp',
-	
 			'images/Home Automation/9 (1).webp',
 			'images/Home Automation/9 (2).webp',
 			'images/Home Automation/9 (3).webp',
@@ -202,6 +202,13 @@ const galleryItems = [
 			'images/Home Automation/10 (2).webp',
 			'images/Home Automation/10 (3).webp',
 			'images/Home Automation/10 (4).webp',
+			'images/Home Automation/11 (1).png',
+			'images/Home Automation/11 (2).png',
+			'images/Home Automation/11 (3).png',
+			'images/Home Automation/11 (4).png',
+			'images/Home Automation/11 (5).png',
+			'images/Home Automation/11 (6).png',
+			'images/Home Automation/11 (7).png'
 		]
 	},
 	{
@@ -215,11 +222,11 @@ const galleryItems = [
 	
 	
 	{
-		img: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
-		alt: 'Real Estate Landing Page - Modern property listing interface with search functionality',
-		title: 'Real Estate Landing Page',
-		desc: 'A website for a client where users can upload their properties and sell, buy, or rent them. The platform features a modern property listing interface with search functionality, making real estate transactions seamless and user-friendly.',
-		thumbnail: 'images\\Gallery\\original-a6c1f37ec14a924c2ee90f658f09d6a7.webp',
+		img: "images/Gallery/PrecisionPlanners.png" ,scrollable: true,
+		alt: 'DeckPlanner Website – UI/UX Concept & Visual Recreation',
+		title: 'DeckPlanner Website – UI/UX Concept & Visual Recreation',
+		desc: 'This project is a UI/UX concept and visual recreation of the DeckPlanner church and event planning website. The goal was to study, recreate, and enhance an existing live experience platform that connects communities through worship events, special contributions, and group gatherings.',
+		thumbnail: "images/Gallery/PrecisionPlaanners_1_1_1_80.webp",
 		type: 'landing-page',
 	},
 
