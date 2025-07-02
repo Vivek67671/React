@@ -302,6 +302,44 @@ const galleryItems = [
 
 		]
 	},
+	{
+		img: "images/Gallery/Desktop - 1.png",scrollable: true,
+		alt: "Odeist - AI Powered Social Media Discovery and Engagement",
+		title: "Odeist - AI Powered Social Media Discovery and Engagement",
+    desc: "Odeist AI is your specialist assistant for social media. We find high-intent discussions and help you craft intelligent replies that build your brand and drive growth.",
+		thumbnail: "images/Gallery/jsjahfkjsa.webp",
+		type: "landing-page",
+  additionalImages: [
+    { path: "images/Gallery/Desktop - 1.png", scrollable: true },
+  ]
+  },
+  {
+    img: "images/Gallery/V2.png", scrollable: true,
+    alt: "Tax Buddy US Tax Filing ",
+    title: "Tax Buddy US Tax Filing",
+    desc: "Our Assisted Individual Tax Preparation service ensures compliance, maximizes refunds, and provides expert guidance on FATCA, FBAR, deductions, and credits.",
+    thumbnail: "images/Gallery/V2-1.webp",
+    type: "landing-page",
+    additionalImages: [
+      { path: "images/Gallery/V1.png", scrollable: true },
+    ]
+  },
+	{
+		img: "images/Gallery/dummy3.webp",
+		alt: "Dummy Project 3",
+		title: "Dummy Project 3",
+		desc: "Sample description for dummy gallery card number three. Use this slot for your work.",
+		thumbnail: "images/Gallery/dummy3-thumb.webp",
+		type: "design",
+	},
+	{
+		img: "images/Gallery/dummy4.webp",
+		alt: "Dummy Project 4",
+		title: "Dummy Project 4",
+		desc: "Fourth dummy card. You can update this with your actual gallery content.",
+		thumbnail: "images/Gallery/dummy4-thumb.webp",
+		type: "landing-page",
+	},
 ];
 
 // Helper to normalize additionalImages (support string or {path, scrollable})
