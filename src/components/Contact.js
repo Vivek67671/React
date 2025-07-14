@@ -22,7 +22,7 @@ const contactLinks = [
 		aria: 'Download CV',
 	},
 	{
-		href: 'https://drive.google.com/file/d/1KAh6EgBt48YxOP4tc7goSEL-J2Y3aa8A/view?usp=drive_link',
+		href: 'https://drive.google.com/file/d/1kaYoSA26uPMUNoNAK2j2xhy1Jpd_3mb4/view?usp=drive_link',
 		icon: FaDownload,
 		label: 'Download Resume',
 		aria: 'Download CV',
