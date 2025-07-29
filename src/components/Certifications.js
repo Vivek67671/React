@@ -11,6 +11,27 @@ const Certifications = () => (
       <div className="certifications-grid">
         <div className="certification-card">
           <img 
+            src="images/Certifications/2313123.png"
+            alt="Microsoft Logo"
+            aria-label="Microsoft Logo"
+            width="36"
+            height="36"
+            style={{ marginRight: '8px', borderRadius: '8px', verticalAlign: 'middle' }}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="cert-details">
+            <h4>Career Essentials in Generative AI</h4>
+            <div className="cert-meta">
+              <span className="cert-issuer">Microsoft & LinkedIn</span>
+              <span className="cert-date">Issued July 2025</span>
+              <span className="cert-id">Credential ID: 1154a7b6cd19...</span>
+            </div>
+            <a href="https://www.linkedin.com/learning/certificates/1154a7b6cd19ad7d0c83bcab8a9153b1f70a0300fb43fb485752b5f1dfc44bf" className="cert-link" target="_blank" rel="noopener">Show Credential</a>
+          </div>
+        </div>
+        <div className="certification-card">
+          <img 
             src="images/Certifications/Google_2015_logo.svg.webp"
             alt="Google Logo - Google UX Design Professional Certification"
             aria-label="Google UX Design Professional Certificate"
@@ -110,12 +131,13 @@ const Certifications = () => (
           </div>
         </div>
         <div className="certification-card">
-          <img 
-            src="images/Certifications/2313123.png" 
-            alt="Human-Computer Interaction" 
-            aria-label="Data Analysis by Microsoft and LinkedIn"
-            width="80"
-            height="80"
+            <img 
+            src="images/Certifications/2313123.png"
+            alt="Microsoft Logo"
+            aria-label="Microsoft Logo"
+            width="36"
+            height="36"
+            style={{ marginRight: '8px', borderRadius: '8px', verticalAlign: 'middle' }}
             loading="lazy"
             decoding="async"
           />
@@ -127,6 +149,26 @@ const Certifications = () => (
               <span className="cert-id">Credential ID: XKCFK56NYMDP</span>
             </div>
             <a href="https://www.linkedin.com/learning/certificates/d9cc965263f02209ed591c10c6d9260486b7636b7cd42167f1d0a814f9bdb80e" className="cert-link" target="_blank" rel="noopener">Show Credential</a>
+          </div>
+        </div>
+        <div className="certification-card">
+          <img 
+            src="images/Certifications/1_XBjByL76rrguN7qEqd1KzA.webp"
+            alt="Atlassian & LinkedIn - Agile Project Management Professional Certificate"
+            aria-label="Atlassian & LinkedIn Agile Project Management Professional Certificate"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="cert-details">
+            <h4>Atlassian Agile Project Management Professional Certificate</h4>
+            <div className="cert-meta">
+              <span className="cert-issuer">Atlassian & LinkedIn</span>
+              <span className="cert-date">Issued June 2025</span>
+              <span className="cert-id">Credential ID: 2fc082276543fa4a570f04134b...</span>
+            </div>
+            <a href="#" className="cert-link" target="_blank" rel="noopener">Show Credential</a>
           </div>
         </div>
       </div>

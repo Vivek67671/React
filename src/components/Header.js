@@ -87,7 +87,6 @@ const Header = () => {
           Home
         </a>
         <a href="#about-us" title="About" aria-label="Learn more about us" onClick={closeNav}>About</a>
-        <a href="#ai-experience" title="AI Experience" aria-label="View my AI experience" onClick={closeNav}>AI Experience</a>
         <a href="#gallery" title="Gallery" aria-label="View our gallery" onClick={closeNav}>Gallery</a>
         <a href="#latest-projects" title="Case Studies" aria-label="See our case studies" onClick={closeNav}>Case Studies</a>
           <a href="#services" title="Services" aria-label="View our services" onClick={closeNav}>Services</a>

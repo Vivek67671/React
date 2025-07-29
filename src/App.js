@@ -38,10 +38,10 @@ function App() {
           <Hero />
           <AboutUs />
           <Certifications />
-          <TrustedBrands />
           <AIExperience />
-          <LatestProjects />
           <Gallery />
+          <TrustedBrands />
+          <LatestProjects />
           <Services />
           <Testimonials />
           <Contact />
