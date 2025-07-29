@@ -103,20 +103,82 @@ const AIExperience = () => {
 						'As a designer at the forefront of AI innovation, I specialize in creating intelligent user experiences that seamlessly integrate artificial intelligence. From AI-powered design tools to conversational interfaces, I help bridge the gap between cutting-edge technology and human-centered design.'
 					)}
 				</p>
-				<section className="ai-experience-intro-details">
-				  <h3 className="ai-experience-intro-title">
-					I leverage the latest AI and automation tools to accelerate design and development while ensuring top-quality user experiences:
-				  </h3>
-				  <ul className="ai-experience-intro-list">
-<li><b>GitHub Copilot + GPT + Claude</b> I use these AI coding assistants inside Visual Studio to rapidly generate React components, optimize code structure, and prototype interactive features — cutting development time from hours to minutes.</li>
-<li><b>Firebase</b> With Firebase, I can design, prototype, and launch functional web or mobile apps in minutes, complete with authentication, real-time databases, and hosting — ensuring both speed and scalability.</li>
-<li><b>MidJourney & Stable Diffusion</b> These tools help me create custom illustrations, icons, and concept visuals that align perfectly with a project’s branding and user experience goals.</li>
-<li><b>Runway & After Effects (AI-enhanced)</b> I enhance UI storytelling with AI-powered motion graphics, video assets, and interactive design elements for high-impact visuals.</li>
-<li><b>Uizard & Galileo AI</b> I transform ideas and sketches into ready-to-use UI designs instantly, enabling rapid prototyping and iteration for client presentations.</li>
-<li><b>Miro + FigJam AI Plugins</b> I streamline ideation, journey mapping, and brainstorming sessions with AI that helps cluster ideas, generate user personas, and analyze feedback.</li>
-<li><b>AI Usability Testing Tools</b> By simulating user interactions and analyzing heatmaps, I can validate designs quickly and refine usability before real-world testing.</li>
-<li><b>Accessibility Checkers (AI-driven)</b> I ensure my designs meet WCAG standards using AI-powered accessibility tools that catch issues early and suggest instant fixes.</li>
-				  </ul>
+				<section className="ai-tools-experience-section" style={{background:'#fafdff',borderRadius:16,boxShadow:'0 2px 12px 0 rgba(0,95,204,0.06)',padding:'2.2rem 1.5rem 2.1rem 1.5rem',margin:'0 0 2.5rem 0',border:'1px solid #e3eaf3'}}>
+				  <div style={{marginBottom:'1.2rem'}}>
+					<h3 className="ai-tools-experience-title" style={{marginBottom:8}}>
+					  My AI & Automation Toolkit
+					</h3>
+					<div style={{fontSize:'1.08rem',color:'#444',marginBottom:12}}>
+					  I leverage the latest AI and automation tools to accelerate design and development while ensuring top-quality user experiences. Here are some of my favorites:
+					</div>
+				  </div>
+				  <div style={{borderTop:'1px solid #e3eaf3',margin:'0 0 1.5rem 0'}}></div>
+				  <div className="ai-tools-experience-list" style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(270px,1fr))',gap:'1.3rem 2.2rem',padding:0,listStyle:'none',margin:0}}>
+					{/* Tool Card 1 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-code-branch"></i></span>
+					  <div>
+						<a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>GitHub Copilot + GPT + Claude</a>
+						<div className="ai-tool-desc">I use these AI coding assistants inside Visual Studio to rapidly generate React components, optimize code structure, and prototype interactive features — cutting development time from hours to minutes.</div>
+					  </div>
+					</div>
+					{/* Tool Card 2 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fab fa-google"></i></span>
+					  <div>
+						<a href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>Firebase</a>
+						<div className="ai-tool-desc">With Firebase, I can design, prototype, and launch functional web or mobile apps in minutes, complete with authentication, real-time databases, and hosting — ensuring both speed and scalability.</div>
+					  </div>
+					</div>
+					{/* Tool Card 3 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-palette"></i></span>
+					  <div>
+						<a href="https://www.midjourney.com/" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>MidJourney & Stable Diffusion</a>
+						<div className="ai-tool-desc">These tools help me create custom illustrations, icons, and concept visuals that align perfectly with a project’s branding and user experience goals.</div>
+					  </div>
+					</div>
+					{/* Tool Card 4 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-film"></i></span>
+					  <div>
+						<a href="https://runwayml.com/" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>Runway & After Effects (AI-enhanced)</a>
+						<div className="ai-tool-desc">I enhance UI storytelling with AI-powered motion graphics, video assets, and interactive design elements for high-impact visuals.</div>
+					  </div>
+					</div>
+					{/* Tool Card 5 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-bolt"></i></span>
+					  <div>
+						<a href="https://uizard.io/" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>Uizard & Galileo AI</a>
+						<div className="ai-tool-desc">I transform ideas and sketches into ready-to-use UI designs instantly, enabling rapid prototyping and iteration for client presentations.</div>
+					  </div>
+					</div>
+					{/* Tool Card 6 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-project-diagram"></i></span>
+					  <div>
+						<a href="https://miro.com/" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>Miro + FigJam AI Plugins</a>
+						<div className="ai-tool-desc">I streamline ideation, journey mapping, and brainstorming sessions with AI that helps cluster ideas, generate user personas, and analyze feedback.</div>
+					  </div>
+					</div>
+					{/* Tool Card 7 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-users"></i></span>
+					  <div>
+						<a href="https://www.usertesting.com/platform/ai" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>AI Usability Testing Tools</a>
+						<div className="ai-tool-desc">By simulating user interactions and analyzing heatmaps, I can validate designs quickly and refine usability before real-world testing.</div>
+					  </div>
+					</div>
+					{/* Tool Card 8 */}
+					<div className="ai-tool-card" style={{background:'#fff',borderRadius:12,boxShadow:'0 1px 4px rgba(0,0,0,0.04)',padding:'1.1rem 1.2rem',display:'flex',alignItems:'flex-start',gap:'1.1rem'}}>
+					  <span className="ai-tool-icon" style={{fontSize:'2.1rem',color:'#005fcc',marginTop:2}}><i className="fas fa-universal-access"></i></span>
+					  <div>
+						<a href="https://www.deque.com/axe/" target="_blank" rel="noopener noreferrer" className="ai-tool-title" style={{fontWeight:600,fontSize:'1.08rem',color:'#222',textDecoration:'none'}}>Accessibility Checkers (AI-driven)</a>
+						<div className="ai-tool-desc">I ensure my designs meet WCAG standards using AI-powered accessibility tools that catch issues early and suggest instant fixes.</div>
+					  </div>
+					</div>
+				  </div>
 				</section>
 				<div className="ai-experience-grid">
 					{aiExperienceData.map((experience, index) => (

@@ -1,4 +1,19 @@
-
+body.dark-mode .ai-tool-card {
+  background: #0b0c0e !important;
+  border-color: #232323 !important;
+}
+body.dark-mode .ai-tool-title {
+  color: #fff !important;
+}
+body.dark-mode .ai-tool-desc {
+  color: #d1d5db !important;
+}
+.ai-tools-experience-title {
+  color: #111 !important;
+}
+body.dark-mode .ai-tools-experience-title {
+  color: #111 !important;
+}
 
 /* AI Experience Intro Details Section */
 .ai-experience-intro-details {
