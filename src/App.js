@@ -6,6 +6,7 @@ import AboutUs from './components/AboutUs';
 import Certifications from './components/Certifications';
 import TrustedBrands from './components/TrustedBrands';
 import Services from './components/Services';
+import AIExperience from './components/AIExperience';
 import LatestProjects from './components/LatestProjects';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
@@ -38,13 +39,13 @@ function App() {
           <AboutUs />
           <Certifications />
           <TrustedBrands />
+          <AIExperience />
           <LatestProjects />
           <Gallery />
           <Services />
           <Testimonials />
           <Contact />
           <Footer />
-          {/* Other components go here */}
         </div>
       </MotionConfig>
     </>

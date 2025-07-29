@@ -1,3 +1,47 @@
+
+
+/* AI Experience Intro Details Section */
+.ai-experience-intro-details {
+  background: #f8f9fa;
+  border-radius: 14px;
+  margin: 0 0 2.5rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  padding: 2.2rem 24px 2.1rem 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ai-experience-intro-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.5px;
+}
+.ai-experience-intro-list {
+  list-style: disc inside;
+  color: #333;
+  font-size: 1.08rem;
+  margin: 0;
+  padding-left: 1.2em;
+}
+.ai-experience-intro-list li {
+  margin-bottom: 0.85em;
+  line-height: 1.7;
+}
+.ai-experience-intro-list li:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .ai-experience-intro-details {
+    padding: 1.2rem 0 1.1rem 0;
+    border-radius: 8px;
+  }
+  .ai-experience-intro-title {
+    font-size: 1.05rem;
+  }
+  .ai-experience-intro-list {
+    font-size: 0.98rem;
+  }
+}
 /* style.css */
 /* ==========================================================================
    Table of Contents:
@@ -82,6 +126,7 @@ body.dark-mode h6 {
 
 /* Apply top/bottom margins to specific section headings AFTER About Us */
 #trusted-brands-heading,
+#ai-experience-heading,
 #services-heading,
 #latest-projects-heading,
 #testimonials-heading,
@@ -2149,6 +2194,229 @@ body.dark-mode .cert-link:focus {
     0% { left: -100%; }
     50% { left: 100%; }
     100% { left: 100%; }
+}
+
+/* AI Experience Section Styles */
+#ai-experience {
+  padding: 2rem 0;
+}
+
+#ai-experience .container h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  width: 100%;
+  height: 3px;
+}
+
+/* Removed empty ruleset */
+
+body.dark-mode #ai-experience .container h2::after {
+  background-color: #ffffff;
+}
+
+.ai-experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.ai-experience-card {
+  background: #fff;
+  border: 3px solid #eeeeee;
+  border-radius: 5px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+  height: auto;
+  min-height: 600px;
+}
+
+.ai-experience-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 32px 0 rgba(0, 95, 204, 0.13);
+}
+
+
+.ai-experience-image-wrapper {
+  height: 200px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ai-experience-image {
+  width: 100%;
+  height: 100%;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  background: #fff;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.ai-experience-card:hover .ai-experience-image {
+  transform: scale(1.05);
+}
+
+.ai-experience-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.ai-experience-title {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.ai-experience-desc {
+  font-size: 1rem !important;
+  color: #000000;
+  margin: 1rem 0 !important;
+  line-height: 1.4;
+  font-weight: 200 !important;
+  word-spacing: -2px !important;
+}
+
+.ai-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-tag {
+  background: #005fcc;
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: #003399;
+  transform: translateY(-2px);
+}
+
+.ai-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.ai-tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0.8rem 0.5rem;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ai-tool-item:hover {
+  background: #005fcc;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 95, 204, 0.2);
+}
+
+.ai-tool-item i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #005fcc;
+  transition: color 0.3s ease;
+}
+
+.ai-tool-item:hover i {
+  color: #ffffff;
+}
+
+.tool-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.ai-tool-item:hover .tool-name {
+  color: #ffffff;
+}
+
+/* Dark Mode Styles for AI Experience */
+body.dark-mode .ai-experience-card {
+  background-color: #000000;
+  border-color: #535353;
+  color: #ffffff;
+}
+
+body.dark-mode .ai-experience-title {
+  color: #ffffff;
+}
+
+body.dark-mode .ai-experience-desc {
+  color: #eee;
+}
+
+body.dark-mode .tech-tag {
+  background: #66aaff;
+  color: #000000;
+}
+
+body.dark-mode .tech-tag:hover {
+  background: #3399ff;
+}
+
+body.dark-mode .ai-tool-item {
+  background: #1a1a1a;
+  border-color: #535353;
+  color: #ffffff;
+}
+
+body.dark-mode .ai-tool-item:hover {
+  background: #66aaff;
+  color: #000000;
+}
+
+body.dark-mode .ai-tool-item i {
+  color: #66aaff;
+}
+
+body.dark-mode .ai-tool-item:hover i {
+  color: #000000;
+}
+
+body.dark-mode .tool-name {
+  color: #eee;
+}
+
+body.dark-mode .ai-tool-item:hover .tool-name {
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .ai-experience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .ai-experience-content {
+    padding: 15px;
+  }
 }
 
 
