@@ -4,9 +4,9 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutUs from './components/AboutUs';
 import Certifications from './components/Certifications';
+import AIExperience from './components/AIExperience';
 import TrustedBrands from './components/TrustedBrands';
 import Services from './components/Services';
-import AIExperience from './components/AIExperience';
 import LatestProjects from './components/LatestProjects';
 import Gallery from './components/Gallery';
 import Testimonials from './components/Testimonials';
@@ -39,9 +39,9 @@ function App() {
           <AboutUs />
           <Certifications />
           <AIExperience />
-          <Gallery />
           <TrustedBrands />
           <LatestProjects />
+          <Gallery />
           <Services />
           <Testimonials />
           <Contact />

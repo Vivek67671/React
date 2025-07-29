@@ -171,6 +171,27 @@ const Certifications = () => (
             <a href="#" className="cert-link" target="_blank" rel="noopener">Show Credential</a>
           </div>
         </div>
+        <div className="certification-card">
+          <img 
+            src="images/Certifications/skajfkj.webp"
+            alt="LinkedIn Learning & GitHub Logo"
+            aria-label="LinkedIn Learning & GitHub Logo"
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+            style={{ borderRadius: '8px', background: '#fff', objectFit: 'contain' }}
+          />
+          <div className="cert-details">
+            <h4>Career Essentials in GitHub Professional Certificate</h4>
+            <div className="cert-meta">
+              <span className="cert-issuer">LinkedIn Learning & GitHub</span>
+              <span className="cert-date">Issued July 2025</span>
+              <span className="cert-id">Credential ID: 60f523e25aa4e7bba9e9fa6</span>
+            </div>
+            <a href="#" className="cert-link" target="_blank" rel="noopener">Show Credential</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

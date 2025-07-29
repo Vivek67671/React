@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 const aiExperienceData = [
   {
-	img: 'images/Ai/maxresdefault.jpg',
+	img: 'images/Ai/1_fZwsj6_6r3vyqrOumOGb0A.webp',
 	alt: 'AI-Powered Design Tools',
 	title: 'AI-Powered Design Tools',
 	desc: 'Leveraging cutting-edge AI tools for rapid prototyping, creative exploration, and professional design workflows.',
@@ -47,11 +47,11 @@ const aiExperienceData = [
 	  { name: 'Hugging Face', icon: 'fas fa-smile', url: 'https://huggingface.co/' }
 	]
 	},
-	{
-	img: 'images/Ai/78a0039d-8bb0-4e5c-aafa-37e77a1e3779_3096x1854.jpg',
-		alt: 'AI Design Automation',
-		title: 'AI Design Automation & Workflows',
-		desc: 'Implementing AI-driven design systems, automated content generation, and intelligent design workflows.',
+  {
+	img: 'images/Ai/06ee27b0-d4db-4547-8ed6-d43ade9851e4-cover.webp',
+	alt: 'AI Design Automation',
+	title: 'AI Design Automation & Workflows',
+	desc: 'Implementing AI-driven design systems, automated content generation, and intelligent design workflows.',
 	tools: [
 	  { name: 'Framer AI', icon: 'fas fa-cube', url: 'https://www.framer.com/ai/' },
 	  { name: 'Webflow AI', icon: 'fas fa-globe', url: 'https://webflow.com/ai' },
@@ -60,7 +60,7 @@ const aiExperienceData = [
 	  { name: 'Make.com', icon: 'fas fa-cogs', url: 'https://www.make.com/en/ai' },
 	  { name: 'Airtable AI', icon: 'fas fa-table', url: 'https://www.airtable.com/ai' }
 	]
-	},
+  },
   {
 	img: 'images/Ai/6502557c264c2fcc9e8509d5_Hotjar.svg',
 	alt: 'AI UX Research',
