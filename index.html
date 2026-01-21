@@ -61,6 +61,7 @@
         .text-gradient {
             background: linear-gradient(to right, #1d1d1f, #86868b);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -708,13 +709,14 @@
         </div>
     </footer>
 
-    </script>
-
     <!-- Footer with Domain -->
     <footer class="w-full py-6 flex justify-center items-center bg-white border-t border-zinc-200 mt-12">
         <span class="text-xs text-zinc-500">© 2026 Grayscl.com</span>
     </footer>
-</body>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
