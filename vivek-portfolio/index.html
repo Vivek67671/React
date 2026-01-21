@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek Kumar | Product Designer</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --apple-bg: #f5f5f7;
+            --apple-text: #1d1d1f;
+            --apple-link: #0066cc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: var(--apple-text);
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, var(--apple-bg) 100%);
+        }
+
+        .apple-card {
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
+        }
+        
+        .apple-card:hover {
+            transform: scale(1.01) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .btn-apple {
+            background: #1d1d1f;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 980px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-apple:hover {
+            background: #000;
+            transform: scale(1.02);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #1d1d1f, #86868b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cert-badge {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            border-color: var(--apple-link);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+        }
+
+        .ai-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .gallery-item {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            border-radius: 24px;
+            background: #f5f5f7;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            color: white;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Remove unused or redundant CSS below if not referenced in HTML or JS */
+        /* Example: If .ai-shimmer or .cert-badge is not used, comment or remove */
+        /* .ai-shimmer, .cert-badge, .cert-badge:hover, .shimmer, .reveal, .reveal.active, etc. */
+        /* Review and keep only what is used in the visible UI */
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-50 h-12 flex items-center justify-center">
+        <div class="max-w-screen-lg w-full px-6 flex justify-between items-center text-[12px] font-medium tracking-tight opacity-90">
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:opacity-60 transition-opacity font-bold text-sm tracking-tighter">VK</a>
+                <a href="#work" class="hidden md:block hover:opacity-60 transition-opacity">Work</a>
+                <a href="#gallery" class="hidden md:block hover:opacity-60 transition-opacity">Gallery</a>
+                <a href="#ai-expertise" class="hidden md:block hover:opacity-60 transition-opacity">AI</a>
+                <a href="#certifications" class="hidden md:block hover:opacity-60 transition-opacity">Certifications</a>
+            </div>
+            <div class="flex items-center">
+                <span class="flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-white border border-zinc-200">
+                    <span class="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse mr-2"></span>
+                    Open to new projects
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-48 pb-24 px-6 hero-gradient min-h-screen flex flex-col items-center justify-center text-center">
+        <h2 class="text-sm font-semibold tracking-widest uppercase mb-6 opacity-60 reveal">Product Designer</h2>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-gradient reveal max-w-4xl">
+            Hey, I’m Vivek Kumar.
+        </h1>
+        <p class="text-xl md:text-2xl font-normal max-w-3xl mb-12 opacity-60 reveal leading-relaxed">
+            I’m passionate about creating intuitive, user-centered digital experiences that solve real problems and drive business outcomes.
+        </p>
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center reveal">
+            <a href="#work" class="btn-apple text-lg">View Case Studies</a>
+            <a href="mailto:Vivek2601@hotmail.com" class="text-blue-600 hover:underline flex items-center group text-lg">
+                Let's chat 
+                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+        </div>
+        
+        <div class="mt-24 w-full max-w-5xl px-4 reveal">
+            <div class="rounded-[2.5rem] overflow-hidden shadow-2xl bg-zinc-100 aspect-[16/9] relative group border border-zinc-200">
+                <video 
+                    src="assets/Showreel 2024.webm" 
+                    controls 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline
+                    class="absolute inset-0 w-full h-full object-cover"
+                    style="border-radius: 2.5rem;"
+                ></video>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Expertise Section -->
+    <section id="ai-expertise" class="py-32 px-6 bg-white overflow-hidden">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="mb-20 reveal">
+                <span class="text-purple-600 font-bold text-xs tracking-widest uppercase mb-4 block">The Intelligent Era</span>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-8">AI Expertise.</h2>
+                <p class="text-xl opacity-60 leading-relaxed max-w-2xl">
+                    Bridging the gap between human intent and machine intelligence through transparency and thoughtful interaction patterns.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                <!-- LLM Integration -->
+                <div class="apple-card bg-zinc-900 text-white rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[400px] relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-purple-500/20 blur-[100px]"></div>
+                        <h4 class="text-3xl font-bold mb-6">LLM Integration</h4>
+                        <p class="text-lg opacity-60 leading-relaxed mb-8">
+                            Designing the "Interface of Language." I focus on low-latency streaming animations, contextual multi-modal inputs, and graceful error handling for LLM hallucinations.
+                        </p>
+                    </div>
+                    <div class="flex space-x-2 text-[10px] font-bold tracking-widest uppercase opacity-40">
+                        <span>Streaming UI</span>
+                        <span>•</span>
+                        <span>NLP UX</span>
+                    </div>
+                </div>
+                <!-- Agentic Flows -->
+                <div class="apple-card bg-[#f5f5f7] rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[400px]">
+                    <div>
+                        <h4 class="text-3xl font-bold mb-6">Agentic Flows</h4>
+                        <p class="text-lg opacity-60 leading-relaxed mb-8 text-zinc-700">
+                            Designing autonomy with control. I create "Human-in-the-loop" systems where AI agents execute complex tasks while providing users with clear checkpoints and observability.
+                        </p>
+                    </div>
+                    <div class="flex space-x-2 text-[10px] font-bold tracking-widest uppercase opacity-30">
+                        <span>HITL Design</span>
+                        <span>•</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+                <!-- AI Trust Systems -->
+                <div class="apple-card bg-[#f5f5f7] rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[400px]">
+                    <div>
+                        <h4 class="text-3xl font-bold mb-6">AI Trust Systems</h4>
+                        <p class="text-lg opacity-60 leading-relaxed mb-8 text-zinc-700">
+                            Transparency by design. Implementing confidence scores, citation sources, and explainability (XAI) features that build long-term user trust in digital products.
+                        </p>
+                    </div>
+                    <div class="flex space-x-2 text-[10px] font-bold tracking-widest uppercase opacity-30">
+                        <span>Safety UI</span>
+                        <span>•</span>
+                        <span>Explainability</span>
+                    </div>
+                </div>
+                <!-- Prompt Design -->
+                <div class="apple-card bg-zinc-100 rounded-[2.5rem] p-10 flex flex-col justify-between min-h-[400px] relative overflow-hidden">
+                    <div class="ai-shimmer absolute inset-0 opacity-10"></div>
+                    <div>
+                        <h4 class="text-3xl font-bold mb-6">Prompt Design</h4>
+                        <p class="text-lg opacity-60 leading-relaxed mb-8 text-zinc-700">
+                            The dialogue between human and machine. I build intuitive prompt libraries, auto-suggestions, and contextual shortcuts that remove the "blank page" friction.
+                        </p>
+                    </div>
+                    <div class="flex space-x-2 text-[10px] font-bold tracking-widest uppercase opacity-30">
+                        <span>Prompt Ops</span>
+                        <span>•</span>
+                        <span>Context Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="work" class="py-32 px-6 bg-[#fafafa]">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="mb-20 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Case Studies.</h2>
+                <p class="text-xl opacity-50">Deep dives into my design process and problem-solving.</p>
+            </div>
+
+            <div class="space-y-24" id="case-studies-list">
+                <!-- Case Study 4 (most recent) -->
+                <div class="reveal group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 apple-card bg-zinc-200 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-sm">
+                            <img src="assets/Case Study Sliders  Image Containers/case study 4.webp" alt="Budget Management Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
+                        </div>
+                        <div class="lg:col-span-5 px-4">
+                            <span class="text-green-600 font-bold text-xs tracking-widest uppercase mb-4 block">Cloud Budget • 2023</span>
+                            <h4 class="text-4xl font-bold mb-6 tracking-tight">Budget Management UX</h4>
+                            <p class="text-lg opacity-60 mb-8 leading-relaxed">
+                                Designing a seamless budget management experience for organizations using multiple cloud providers. Focused on tracking, allocating, and controlling cloud spend across platforms.
+                            </p>
+                            <div class="grid grid-cols-2 gap-8 mb-10">
+                                <div>
+                                    <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Role</h6>
+                                    <p class="text-sm font-medium">UX Designer</p>
+                                </div>
+                                <div>
+                                    <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Impact</h6>
+                                    <p class="text-sm font-medium">+13% MRR</p>
+                                </div>
+                            </div>
+                            <a href="case-study-4.html" class="btn-apple">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Case Study 3 -->
+                <div class="reveal group">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:flex-row-reverse">
+                        <div class="lg:col-span-5 px-4 order-2 lg:order-1">
+                            <span class="text-indigo-600 font-bold text-xs tracking-widest uppercase mb-4 block">SaaS Website • 2023</span>
+                            <h4 class="text-4xl font-bold mb-6 tracking-tight">SaaS Website Redesign</h4>
+                            <p class="text-lg opacity-60 mb-8 leading-relaxed">
+                                A complete redesign of a SaaS platform website to improve user engagement, modernize the brand, and drive conversions in a competitive B2B market.
+                            </p>
+                            <div class="grid grid-cols-2 gap-8 mb-10">
+                                <div>
+                                    <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Role</h6>
+                                    <p class="text-sm font-medium">UI/UX Designer</p>
+                                </div>
+                                <div>
+                                    <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Impact</h6>
+                                    <p class="text-sm font-medium">Improved Conversion</p>
+                                </div>
+                            </div>
+                            <a href="case-study-3.html" class="btn-apple">Read Case Study</a>
+                        </div>
+                        <div class="lg:col-span-7 apple-card bg-zinc-900 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-xl order-1 lg:order-2">
+                            <img src="assets/Case Study Sliders  Image Containers/case 3.webp" alt="SaaS Website Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
+                        </div>
+                    </div>
+                </div>
+                <!-- Hidden Case Study 2 (load more) -->
+                <div class="reveal group" id="case-study-2-block" style="display:none;">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-7 apple-card bg-zinc-200 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-sm">
+                            <img src="assets/Case Study Sliders  Image Containers/case 2.webp" alt="Food Delivery Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
+                        </div>
+                        <div class="lg:col-span-5 px-4">
+                            <span class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-4 block">Food Delivery • 2023</span>
+                            <h4 class="text-4xl font-bold mb-6 tracking-tight">Better Checkout Experience</h4>
+                            <p class="text-lg opacity-60 mb-8 leading-relaxed">
+                                A focused redesign of the checkout process to reduce cart abandonment and improve conversion rates for a food delivery platform.
+                            </p>
+                            <div class="grid grid-cols-2 gap-8 mb-10">
+                                <div>
+                                    <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Role</h6>
+                                    <p class="text-sm font-medium">Product Designer</p>
+                                </div>
+                                <div>
+                                    <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Impact</h6>
+                                    <p class="text-sm font-medium">+40% User Retention</p>
+                                </div>
+                            </div>
+                            <a href="case-study-2.html" class="btn-apple">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-12">
+                    <button id="view-more-cs" class="btn-apple" onclick="document.getElementById('case-study-2-block').style.display='block'; this.style.display='none';">View More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Gallery Section -->
+    <section id="gallery" class="py-32 px-6 bg-white">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 reveal">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Design Showcase.</h2>
+                    <p class="text-xl opacity-50">Visual explorations and component systems. Click to explore.</p>
+                </div>
+                <div class="mt-8 md:mt-0">
+                    <a href="#" class="text-blue-600 font-medium hover:underline flex items-center">
+                        View Dribbble
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M14 5l7 7-7 7M5 12h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="reveal gallery-item" onclick="openGallery('SaaS Designs')">
+                    <img src="assets/Design Systems/SaaS Designs/preview.jpg" alt="SaaS Designs" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Product</p>
+                            <p class="font-bold">SaaS Designs</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 2 -->
+                <div class="reveal gallery-item" onclick="openGallery('Web Designs')">
+                    <img src="assets/Design Systems/Web Designs/preview.jpg" alt="Web Designs" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Web</p>
+                            <p class="font-bold">Web Designs</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="reveal gallery-item" onclick="openGallery('Icon System')">
+                    <img src="assets/Design Systems/Icon System/preview.jpg" alt="Icon System" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Branding</p>
+                            <p class="font-bold">Icon System</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 4 -->
+                <div class="reveal gallery-item" onclick="openGallery('Dashboard')">
+                    <img src="assets/Design Systems/Dashboard/preview.jpg" alt="Dashboard" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Product</p>
+                            <p class="font-bold">Dashboard</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 5 -->
+                <div class="reveal gallery-item" onclick="openGallery('Type Study')">
+                    <img src="assets/Design Systems/Type Study/preview.jpg" alt="Type Study" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Visual</p>
+                            <p class="font-bold">Type Study</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 6 -->
+                <div class="reveal gallery-item" onclick="openGallery('Prototypes')">
+                    <img src="assets/Design Systems/Prototypes/preview.jpg" alt="Prototypes" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Interaction</p>
+                            <p class="font-bold">Prototypes</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 7 -->
+                <div class="reveal gallery-item" onclick="openGallery('Design Library')">
+                    <img src="assets/Design Systems/Design Library/1 (7).webp" alt="Design Library" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Systems</p>
+                            <p class="font-bold">Design Library</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Item 8 -->
+                <div class="reveal gallery-item" onclick="openGallery('Visionary Flow')">
+                    <img src="assets/Design Systems/Visionary Flow/preview.jpg" alt="Visionary Flow" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Spatial UI</p>
+                            <p class="font-bold">Visionary Flow</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 p-6 md:p-12">
+            <button onclick="closeLightbox()" class="absolute top-8 right-8 z-[110] p-2 bg-black/5 hover:bg-black/10 rounded-full transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <button onclick="prevImage()" class="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-[110] p-4 bg-black/5 hover:bg-black/10 rounded-full transition-colors hidden md:block">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="max-w-6xl w-full h-full flex flex-col md:flex-row items-center justify-center gap-12 lightbox-img-container">
+                <div class="w-full md:w-2/3 h-2/3 md:h-auto rounded-[2rem] overflow-hidden shadow-2xl bg-white">
+                    <img id="lightbox-main-img" src="" alt="Main Design" class="w-full h-full object-contain max-h-[70vh]">
+                </div>
+                <div class="w-full md:w-1/3 text-left">
+                    <span id="lightbox-category" class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-4 block"></span>
+                    <h3 id="lightbox-title" class="text-4xl font-bold mb-6 tracking-tight"></h3>
+                    <p id="lightbox-description" class="text-lg opacity-60 leading-relaxed mb-8"></p>
+                    <div class="flex items-center space-x-4">
+                        <button id="lightbox-case-study" class="bg-black text-white px-6 py-3 rounded-full font-medium text-sm hover:opacity-80 transition-opacity" style="display:none;">Full Case Study</button>
+                        <span id="lightbox-counter" class="text-xs font-bold opacity-30 tracking-widest"></span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="nextImage()" class="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-[110] p-4 bg-black/5 hover:bg-black/10 rounded-full transition-colors hidden md:block">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-32 px-6 bg-[#fafafa]">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight">What people say.</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="reveal apple-card bg-white border border-zinc-100 p-10 rounded-[2rem] flex flex-col">
+                    <div class="mb-8">
+                        <svg class="w-8 h-8 text-blue-500 opacity-20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14H17.017C15.9124 14 15.017 13.1046 15.017 12V10C15.017 8.89543 15.9124 8 17.017 8H19.017V6H14.017V4H20.017V12C20.017 14.2091 18.2261 16 16.017 16H15.017V21H14.017ZM4.017 21L4.017 18C4.017 16.8954 4.91243 16 6.017 16H9.017V14H7.017C5.91243 14 5.017 13.1046 5.017 12V10C5.017 8.89543 5.91243 8 7.017 8H9.017V6H4.017V4H10.017V12C10.017 14.2091 8.22612 16 6.017 16H5.017V21H4.017Z"/></svg>
+                    </div>
+                    <p class="text-lg font-medium leading-relaxed mb-10">
+                        "Vivek has a rare ability to balance deep accessibility standards with a clean, modern aesthetic. He didn't just design an app; he designed a strategy."
+                    </p>
+                    <div class="mt-auto flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-zinc-200 mr-4"></div>
+                        <div>
+                            <h6 class="font-bold text-sm">Sarah Jenkins</h6>
+                            <p class="text-[10px] opacity-40 uppercase font-bold tracking-widest">Design Lead, Finly</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="reveal apple-card bg-zinc-900 text-white p-10 rounded-[2rem] flex flex-col">
+                    <div class="mb-8">
+                         <svg class="w-8 h-8 text-white opacity-10" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14H17.017C15.9124 14 15.017 13.1046 15.017 12V10C15.017 8.89543 15.9124 8 17.017 8H19.017V6H14.017V4H20.017V12C20.017 14.2091 18.2261 16 16.017 16H15.017V21H14.017ZM4.017 21L4.017 18C4.017 16.8954 4.91243 16 6.017 16H9.017V14H7.017C5.91243 14 5.017 13.1046 5.017 12V10C5.017 8.89543 5.91243 8 7.017 8H9.017V6H4.017V4H10.017V12C10.017 14.2091 8.22612 16 6.017 16H5.017V21H4.017Z"/></svg>
+                    </div>
+                    <p class="text-lg font-medium leading-relaxed mb-10">
+                        "One of the few designers who truly understands the technical constraints of AI. Vivek’s 'Agentic Flows' framework changed how our users interact with data."
+                    </p>
+                    <div class="mt-auto flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-zinc-800 mr-4"></div>
+                        <div>
+                            <h6 class="font-bold text-sm">Marcus Thorne</h6>
+                            <p class="text-[10px] opacity-40 uppercase font-bold tracking-widest">CTO, Aether AI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="reveal apple-card bg-white border border-zinc-100 p-10 rounded-[2rem] flex flex-col">
+                    <div class="mb-8">
+                         <svg class="w-8 h-8 text-blue-500 opacity-20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017V14H17.017C15.9124 14 15.017 13.1046 15.017 12V10C15.017 8.89543 15.9124 8 17.017 8H19.017V6H14.017V4H20.017V12C20.017 14.2091 18.2261 16 16.017 16H15.017V21H14.017ZM4.017 21L4.017 18C4.017 16.8954 4.91243 16 6.017 16H9.017V14H7.017C5.91243 14 5.017 13.1046 5.017 12V10C5.017 8.89543 5.91243 8 7.017 8H9.017V6H4.017V4H10.017V12C10.017 14.2091 8.22612 16 6.017 16H5.017V21H4.017Z"/></svg>
+                    </div>
+                    <p class="text-lg font-medium leading-relaxed mb-10">
+                        "Precision engineering meets uncompromising design. Vivek’s commitment to WCAG standards is industry-leading."
+                    </p>
+                    <div class="mt-auto flex items-center">
+                        <div class="w-10 h-10 rounded-full bg-zinc-200 mr-4"></div>
+                        <div>
+                            <h6 class="font-bold text-sm">Elena Rodriguez</h6>
+                            <p class="text-[10px] opacity-40 uppercase font-bold tracking-widest">Product Manager, Healthly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-32 px-6 bg-[#f5f5f7]">
+        <div class="max-w-screen-xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-4">Credentials & Certifications.</h2>
+                <p class="text-lg opacity-50">Verified expertise in design systems and accessibility.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Career Essentials in Generative AI -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">M</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Career Essentials in Generative AI</h5>
+                        <p class="text-xs opacity-50 mt-1">Microsoft & LinkedIn</p>
+                        <p class="text-xs opacity-50 mt-1">Issued July 2025</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 1154a7b6cd19...</span>
+                </div>
+                <!-- Google UX Design Professional Certificate -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 100ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">G</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Google UX Design Professional Certificate</h5>
+                        <p class="text-xs opacity-50 mt-1">Google (Coursera)</p>
+                        <p class="text-xs opacity-50 mt-1">Issued May 2024</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: NFQK4NZTWCCT</span>
+                </div>
+                <!-- Start the UX Design Process: Empathize, Define, and Ideate -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 200ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">G</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Start the UX Design Process: Empathize, Define, and Ideate</h5>
+                        <p class="text-xs opacity-50 mt-1">Google (Coursera)</p>
+                        <p class="text-xs opacity-50 mt-1">Issued May 2024</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: SFL7JUQT8E76</span>
+                </div>
+                <!-- Visual Elements of User Interface Design -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 300ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">C</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Visual Elements of User Interface Design</h5>
+                        <p class="text-xs opacity-50 mt-1">California Institute of the Arts</p>
+                        <p class="text-xs opacity-50 mt-1">Issued June 2024</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: X8CFKVUNYMDP</span>
+                </div>
+                <!-- ADVANCED C++ -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 400ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">C</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">ADVANCED C++</h5>
+                        <p class="text-xs opacity-50 mt-1">NIIT Limited</p>
+                        <p class="text-xs opacity-50 mt-1">Issued Oct 2022</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 16APZZZZZ3322</span>
+                </div>
+                <!-- Work with Components in Figma -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 500ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">F</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Work with Components in Figma</h5>
+                        <p class="text-xs opacity-50 mt-1">Coursera Project Network</p>
+                        <p class="text-xs opacity-50 mt-1">Issued June 2024</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: X8CFKVUNYMDP</span>
+                </div>
+                <!-- Data Analysis by Microsoft -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 600ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">M</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Data Analysis by Microsoft</h5>
+                        <p class="text-xs opacity-50 mt-1">Microsoft</p>
+                        <p class="text-xs opacity-50 mt-1">Issued June 2025</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: XKCFK56NYMDP</span>
+                </div>
+                <!-- Atlassian Agile Project Management Professional Certificate -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 700ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">A</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Atlassian Agile Project Management Professional Certificate</h5>
+                        <p class="text-xs opacity-50 mt-1">Atlassian & LinkedIn</p>
+                        <p class="text-xs opacity-50 mt-1">Issued June 2025</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 2fc082276543fa4a570f04134b...</span>
+                </div>
+                <!-- Career Essentials in GitHub Professional Certificate -->
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 800ms">
+                    <div>
+                        <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
+                            <span class="text-xs font-bold opacity-30">G</span>
+                        </div>
+                        <h5 class="font-bold text-lg leading-tight">Career Essentials in GitHub Professional Certificate</h5>
+                        <p class="text-xs opacity-50 mt-1">LinkedIn Learning & GitHub</p>
+                        <p class="text-xs opacity-50 mt-1">Issued July 2025</p>
+                    </div>
+                    <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 60f523e25aa4e7bba9e9fa6</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect Now Section -->
+    <section id="connect" class="py-40 px-6 text-center reveal">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Let's build something inclusive.</h3>
+            <p class="text-xl md:text-2xl opacity-50 mb-12 leading-relaxed">I’m always open to discussing new products, design systems, or accessibility challenges.</p>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="mailto:Vivek2601@hotmail.com" class="btn-apple text-xl px-12 py-5 shadow-2xl hover:shadow-black/20 active:scale-95 w-full md:w-auto">
+                    Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/vivek-kumar-463a19244/" target="_blank" rel="noopener" class="bg-white border border-zinc-200 text-xl px-12 py-5 rounded-full font-medium hover:bg-zinc-50 transition-colors w-full md:w-auto">
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#f5f5f7] pt-24 pb-12 px-6">
+        <div class="max-w-screen-lg mx-auto">
+            <div class="pt-8 border-t border-zinc-300 text-[11px] opacity-40 font-medium">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="flex flex-col md:flex-row md:items-center">
+                        <p class="mr-6 font-bold text-zinc-900 opacity-100">Vivek Kumar</p>
+                        <p class="mr-6">Copyright © 2024. Handcrafted with precision.</p>
+                        <div class="flex space-x-4 mt-2 md:mt-0">
+                            <a href="#" class="hover:underline">Privacy</a>
+                            <a href="#" class="hover:underline">Cookies</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse"></div>
+                        <p>Available for new projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        let scrollTimeout;
+        window.addEventListener("scroll", () => {
+            if (scrollTimeout) return;
+            scrollTimeout = setTimeout(() => {
+                reveal();
+                scrollTimeout = null;
+            }, 10);
+        });
+        
+        window.onload = reveal;
+
+        // Lightbox data
+        const galleryData = [
+            {
+                img: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Mobile UI",
+                title: "Music Player",
+                description: "An exploration of glassmorphism and spatial audio controls within a mobile environment. Focus on high-contrast interaction points.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Branding",
+                title: "Icon System",
+                description: "A custom icon system designed for clarity and scalability across platforms.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Product",
+                title: "Dashboard",
+                description: "A SaaS dashboard UI with a focus on data density and accessibility.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Visual",
+                title: "Type Study",
+                description: "Experimental typography and layout explorations for digital products.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1522542550221-31fd19255a7a?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Interaction",
+                title: "Prototypes",
+                description: "Gesture-based prototypes for next-gen mobile interactions.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Systems",
+                title: "Design Library",
+                description: "A robust design system library for rapid product development.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1544117518-2b044b5a3983?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "WatchOS",
+                title: "Health App",
+                description: "Wearable health monitoring UI with real-time feedback.",
+                caseStudy: "#"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=600&h=600&auto=format&fit=crop",
+                category: "Spatial UI",
+                title: "Visionary Flow",
+                description: "Spatial interface concepts for AR/VR environments.",
+                caseStudy: "#"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(idx) {
+            currentIndex = idx;
+            updateLightbox();
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        }
+
+        // Gallery folder-based logic
+const galleryFolders = {
+    'SaaS Designs': 'assets/Design Systems/SaaS Designs/',
+    'Web Designs': 'assets/Design Systems/Web Designs/',
+    'Icon System': 'assets/Design Systems/Icon System/',
+    'Dashboard': 'assets/Design Systems/Dashboard/',
+    'Type Study': 'assets/Design Systems/Type Study/',
+    'Prototypes': 'assets/Design Systems/Prototypes/',
+    'Design Library': 'assets/Design Systems/Design Library/',
+    'Visionary Flow': 'assets/Design Systems/Visionary Flow/'
+};
+
+let galleryImages = [];
+let galleryFolder = '';
+let galleryIndex = 0;
+
+async function openGallery(folder) {
+    galleryFolder = folder;
+    galleryImages = await fetchImagesFromFolder(galleryFolders[folder]);
+    galleryIndex = 0;
+    showGalleryImage();
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+}
+
+function showGalleryImage() {
+    if (galleryImages.length === 0) {
+        document.getElementById('lightbox-main-img').src = '';
+        document.getElementById('lightbox-main-img').alt = 'No images found';
+        document.getElementById('lightbox-category').textContent = galleryFolder;
+        document.getElementById('lightbox-title').textContent = 'No images';
+        document.getElementById('lightbox-description').textContent = '';
+        document.getElementById('lightbox-counter').textContent = '';
+        document.getElementById('lightbox-case-study').style.display = 'none';
+        return;
+    }
+    document.getElementById('lightbox-main-img').src = galleryImages[galleryIndex];
+    document.getElementById('lightbox-main-img').alt = galleryFolder + ' Design';
+    document.getElementById('lightbox-category').textContent = galleryFolder;
+    document.getElementById('lightbox-title').textContent = 'Design ' + (galleryIndex + 1);
+    document.getElementById('lightbox-description').textContent = '';
+    document.getElementById('lightbox-counter').textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
+    document.getElementById('lightbox-case-study').style.display = 'none';
+}
+
+function nextImage() {
+    if (galleryImages.length) {
+        galleryIndex = (galleryIndex + 1) % galleryImages.length;
+        showGalleryImage();
+    } else {
+        currentIndex = (currentIndex + 1) % galleryData.length;
+        updateLightbox();
+    }
+}
+
+function prevImage() {
+    if (galleryImages.length) {
+        galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+        showGalleryImage();
+    } else {
+        currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+        updateLightbox();
+    }
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+    document.getElementById('lightbox').classList.remove('flex');
+    galleryImages = [];
+    galleryFolder = '';
+}
+
+// Automate image loading from folder
+async function fetchImagesFromFolder(folderPath) {
+    // This function requires server-side support to list files in a directory
+    // For static hosting, you must generate a JSON file listing images in each folder
+    // Example: assets/Design Systems/SaaS Designs/images.json
+    try {
+        const response = await fetch(folderPath + 'images.json');
+        if (!response.ok) return [];
+        const files = await response.json();
+        return files.map(f => folderPath + f);
+    } catch (e) {
+        return [];
+    }
+}
+        function updateLightbox() {
+            const data = galleryData[currentIndex];
+            document.getElementById('lightbox-main-img').src = data.img;
+            document.getElementById('lightbox-main-img').alt = data.title;
+            document.getElementById('lightbox-category').textContent = data.category;
+            document.getElementById('lightbox-title').textContent = data.title;
+            document.getElementById('lightbox-description').textContent = data.description;
+            document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + galleryData.length;
+            const btn = document.getElementById('lightbox-case-study');
+            if (data.caseStudy && data.caseStudy !== "#") {
+                btn.style.display = '';
+                btn.onclick = () => window.open(data.caseStudy, '_blank');
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        // Optional: Close modal on ESC
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+    </script>
+</body>
+</html>
