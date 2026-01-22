@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivek Kumar | Product Designer</title>
+    <meta name="description" content="Portfolio of Vivek Kumar, a Product Designer specializing in AI, UX/UI, and Design Systems.">
+    <meta property="og:title" content="Vivek Kumar | Product Designer">
+    <meta property="og:description" content="Designing intuitive, user-centered digital experiences.">
+    <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22black%22/></svg>">
     <script src="https://cdn.tailwindcss.com" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -164,6 +168,12 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform-origin: top;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -195,7 +205,19 @@
                     </span>
                     <span class="text-[11px] font-bold tracking-wide">Open to Projects</span>
                 </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden ml-4 p-2 text-zinc-800 hover:opacity-60">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
             </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="absolute top-12 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-zinc-200 p-6 flex-col space-y-4 hidden md:hidden shadow-xl">
+            <a href="#work" class="block text-lg font-medium text-zinc-800" onclick="toggleMobileMenu()">Work</a>
+            <a href="#services" class="block text-lg font-medium text-zinc-800" onclick="toggleMobileMenu()">Services</a>
+            <a href="#gallery" class="block text-lg font-medium text-zinc-800" onclick="toggleMobileMenu()">Gallery</a>
+            <a href="#ai-expertise" class="block text-lg font-medium text-zinc-800" onclick="toggleMobileMenu()">AI</a>
+            <a href="#certifications" class="block text-lg font-medium text-zinc-800" onclick="toggleMobileMenu()">Certifications</a>
         </div>
     </nav>
 
@@ -915,6 +937,17 @@
                 reveal();
             }
         });
+
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', toggleMobileMenu);
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        }
 
         // Lightbox data
         const galleryData = [
