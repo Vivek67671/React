@@ -9,172 +9,9 @@
     <meta property="og:description" content="Designing intuitive, user-centered digital experiences.">
     <meta property="og:type" content="website">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22black%22/></svg>">
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --apple-bg: #f5f5f7;
-            --apple-text: #1d1d1f;
-            --apple-link: #0066cc;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-            color: var(--apple-text);
-            overflow-x: hidden;
-        }
-
-        .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .hero-gradient {
-            background: linear-gradient(180deg, #ffffff 0%, var(--apple-bg) 100%);
-        }
-
-        .apple-card {
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.6s ease;
-        }
-        
-        .apple-card:hover {
-            transform: scale(1.01) translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-        }
-
-        .btn-apple {
-            background: #1d1d1f;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 980px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .btn-apple:hover {
-            background: #000;
-            transform: scale(1.02);
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #1d1d1f, #86868b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .cert-badge {
-            background: #fff;
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-
-        .cert-badge:hover {
-            border-color: var(--apple-link);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
-        }
-
-        .ai-shimmer {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        .gallery-item {
-            aspect-ratio: 1/1;
-            overflow: hidden;
-            border-radius: 24px;
-            background: #f5f5f7;
-            position: relative;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.4) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            align-items: flex-end;
-            padding: 24px;
-            color: white;
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        /* Remove unused or redundant CSS below if not referenced in HTML or JS */
-        /* Example: If .ai-shimmer or .cert-badge is not used, comment or remove */
-        /* .ai-shimmer, .cert-badge, .cert-badge:hover, .shimmer, .reveal, .reveal.active, etc. */
-        /* Review and keep only what is used in the visible UI */
-
-        /* Loading Spinner */
-        #loader {
-            position: fixed;
-            inset: 0;
-            background-color: #ffffff;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-        }
-
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            border-top-color: #1d1d1f;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Mobile Menu Transition */
-        #mobile-menu {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform-origin: top;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="antialiased">
     <!-- Loading Screen -->
@@ -223,14 +60,14 @@
 
     <!-- Hero Section -->
     <section class="pt-48 pb-24 px-6 hero-gradient min-h-screen flex flex-col items-center justify-center text-center">
-        <h2 class="text-sm font-semibold tracking-widest uppercase mb-6 opacity-60 reveal" style="transition-delay: 100ms;">Product Designer</h2>
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-gradient reveal max-w-4xl" style="transition-delay: 200ms;">
+        <h2 class="text-sm font-semibold tracking-widest uppercase mb-6 opacity-60 reveal">Product Designer</h2>
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-8 text-gradient reveal max-w-4xl">
             Hey, I’m Vivek Kumar.
         </h1>
-        <p class="text-xl md:text-2xl font-normal max-w-3xl mb-12 opacity-60 reveal leading-relaxed" style="transition-delay: 300ms;">
+        <p class="text-xl md:text-2xl font-normal max-w-3xl mb-12 opacity-60 reveal leading-relaxed">
             I’m passionate about creating intuitive, user-centered digital experiences that solve real problems and drive business outcomes.
         </p>
-        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center reveal" style="transition-delay: 400ms;">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center reveal">
             <a href="#work" class="btn-apple text-lg">View Case Studies</a>
             <a href="mailto:Vivek2601@hotmail.com" class="text-blue-600 hover:underline flex items-center group text-lg">
                 Let's chat 
@@ -238,7 +75,7 @@
             </a>
         </div>
         
-        <div class="mt-24 w-full max-w-5xl px-4 reveal" style="transition-delay: 500ms;">
+        <div class="mt-24 w-full max-w-5xl px-4 reveal">
             <div class="rounded-[2.5rem] overflow-hidden shadow-2xl bg-zinc-100 aspect-[16/9] relative group border border-zinc-200">
                 <video 
                     src="assets/Showreel 2024.webm" 
@@ -339,7 +176,7 @@
                 <div class="reveal group">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 apple-card bg-zinc-200 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-sm">
-                            <img src="assets/Case Study Sliders  Image Containers/case study 4.webp" alt="Budget Management Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
+                            <img src="assets/Case Study Sliders  Image Containers/case study 4.webp" alt="Budget Management Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                         </div>
                         <div class="lg:col-span-5 px-4">
                             <span class="text-green-600 font-bold text-xs tracking-widest uppercase mb-4 block">Cloud Budget • 2023</span>
@@ -383,7 +220,7 @@
                             <a href="case-study-3.html" class="btn-apple">Read Case Study</a>
                         </div>
                         <div class="lg:col-span-7 apple-card bg-zinc-900 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-xl order-1 lg:order-2">
-                            <img src="assets/Case Study Sliders  Image Containers/case 3.webp" alt="SaaS Website Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
+                            <img src="assets/Case Study Sliders  Image Containers/case 3.webp" alt="SaaS Website Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -391,7 +228,7 @@
                 <div class="reveal group" id="case-study-2-block" style="display:none;">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 apple-card bg-zinc-200 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-sm">
-                            <img src="assets/Case Study Sliders  Image Containers/case 2.webp" alt="Food Delivery Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
+                            <img src="assets/Case Study Sliders  Image Containers/case 2.webp" alt="Food Delivery Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                         </div>
                         <div class="lg:col-span-5 px-4">
                             <span class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-4 block">Food Delivery • 2023</span>
@@ -767,7 +604,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 1154a7b6cd19...</span>
                 </div>
                 <!-- Google UX Design Professional Certificate -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 100ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">G</span>
@@ -779,7 +616,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: NFQK4NZTWCCT</span>
                 </div>
                 <!-- Start the UX Design Process: Empathize, Define, and Ideate -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 200ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">G</span>
@@ -791,7 +628,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: SFL7JUQT8E76</span>
                 </div>
                 <!-- Visual Elements of User Interface Design -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 300ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">C</span>
@@ -803,7 +640,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: X8CFKVUNYMDP</span>
                 </div>
                 <!-- ADVANCED C++ -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 400ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">C</span>
@@ -815,7 +652,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 16APZZZZZ3322</span>
                 </div>
                 <!-- Work with Components in Figma -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 500ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">F</span>
@@ -827,7 +664,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: X8CFKVUNYMDP</span>
                 </div>
                 <!-- Data Analysis by Microsoft -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 600ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">M</span>
@@ -839,7 +676,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: XKCFK56NYMDP</span>
                 </div>
                 <!-- Atlassian Agile Project Management Professional Certificate -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 700ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">A</span>
@@ -851,7 +688,7 @@
                     <span class="text-[10px] font-bold opacity-30 uppercase">Credential ID: 2fc082276543fa4a570f04134b...</span>
                 </div>
                 <!-- Career Essentials in GitHub Professional Certificate -->
-                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56" style="transition-delay: 800ms">
+                <div class="reveal cert-badge p-8 rounded-3xl flex flex-col justify-between h-56">
                     <div>
                         <div class="w-10 h-10 bg-zinc-100 rounded-lg mb-4 flex items-center justify-center">
                             <span class="text-xs font-bold opacity-30">G</span>
@@ -905,233 +742,6 @@
         </div>
     </footer>
 
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
-            }
-        }
-
-        let scrollTimeout;
-        window.addEventListener("scroll", () => {
-            if (scrollTimeout) return;
-            scrollTimeout = setTimeout(() => {
-                reveal();
-                scrollTimeout = null;
-            }, 10);
-        });
-        
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            if (loader) {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-                setTimeout(reveal, 500);
-            } else {
-                reveal();
-            }
-        });
-
-        // Mobile Menu Logic
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileBtn.addEventListener('click', toggleMobileMenu);
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        }
-
-        // Lightbox data
-        const galleryData = [
-            {
-                img: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Mobile UI",
-                title: "Music Player",
-                description: "An exploration of glassmorphism and spatial audio controls within a mobile environment. Focus on high-contrast interaction points.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Branding",
-                title: "Icon System",
-                description: "A custom icon system designed for clarity and scalability across platforms.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Product",
-                title: "Dashboard",
-                description: "A SaaS dashboard UI with a focus on data density and accessibility.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Visual",
-                title: "Type Study",
-                description: "Experimental typography and layout explorations for digital products.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1522542550221-31fd19255a7a?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Interaction",
-                title: "Prototypes",
-                description: "Gesture-based prototypes for next-gen mobile interactions.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Systems",
-                title: "Design Library",
-                description: "A robust design system library for rapid product development.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1544117518-2b044b5a3983?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "WatchOS",
-                title: "Health App",
-                description: "Wearable health monitoring UI with real-time feedback.",
-                caseStudy: "#"
-            },
-            {
-                img: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=600&h=600&auto=format&fit=crop",
-                category: "Spatial UI",
-                title: "Visionary Flow",
-                description: "Spatial interface concepts for AR/VR environments.",
-                caseStudy: "#"
-            }
-        ];
-
-        let currentIndex = 0;
-
-        function openLightbox(idx) {
-            currentIndex = idx;
-            updateLightbox();
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-        }
-
-        // Gallery folder-based logic
-const galleryFolders = {
-    'SaaS Designs': 'assets/Design Systems/SaaS Designs/',
-    'Web Designs': 'assets/Design Systems/Web Designs/',
-    'Icon System': 'assets/Design Systems/Icon System/',
-    'Dashboard': 'assets/Design Systems/Dashboard/',
-    'Type Study': 'assets/Design Systems/Type Study/',
-    'Prototypes': 'assets/Design Systems/Prototypes/',
-    'Design Library': 'assets/Design Systems/Design Library/',
-    'Visionary Flow': 'assets/Design Systems/Visionary Flow/'
-};
-
-let galleryImages = [];
-let galleryFolder = '';
-let galleryIndex = 0;
-
-async function openGallery(folder) {
-    galleryFolder = folder;
-    galleryImages = await fetchImagesFromFolder(galleryFolders[folder]);
-    galleryIndex = 0;
-    showGalleryImage();
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('hidden');
-    lightbox.classList.add('flex');
-}
-
-function showGalleryImage() {
-    if (galleryImages.length === 0) {
-        document.getElementById('lightbox-main-img').src = '';
-        document.getElementById('lightbox-main-img').alt = 'No images found';
-        document.getElementById('lightbox-category').textContent = galleryFolder;
-        document.getElementById('lightbox-title').textContent = 'No images';
-        document.getElementById('lightbox-description').textContent = '';
-        document.getElementById('lightbox-counter').textContent = '';
-        document.getElementById('lightbox-case-study').style.display = 'none';
-        return;
-    }
-    document.getElementById('lightbox-main-img').src = galleryImages[galleryIndex];
-    document.getElementById('lightbox-main-img').alt = galleryFolder + ' Design';
-    document.getElementById('lightbox-category').textContent = galleryFolder;
-    document.getElementById('lightbox-title').textContent = 'Design ' + (galleryIndex + 1);
-    document.getElementById('lightbox-description').textContent = '';
-    document.getElementById('lightbox-counter').textContent = (galleryIndex + 1) + ' / ' + galleryImages.length;
-    document.getElementById('lightbox-case-study').style.display = 'none';
-}
-
-function nextImage() {
-    if (galleryImages.length) {
-        galleryIndex = (galleryIndex + 1) % galleryImages.length;
-        showGalleryImage();
-    } else {
-        currentIndex = (currentIndex + 1) % galleryData.length;
-        updateLightbox();
-    }
-}
-
-function prevImage() {
-    if (galleryImages.length) {
-        galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
-        showGalleryImage();
-    } else {
-        currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-        updateLightbox();
-    }
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').classList.add('hidden');
-    document.getElementById('lightbox').classList.remove('flex');
-    galleryImages = [];
-    galleryFolder = '';
-}
-
-// Automate image loading from folder
-async function fetchImagesFromFolder(folderPath) {
-    // This function requires server-side support to list files in a directory
-    // For static hosting, you must generate a JSON file listing images in each folder
-    // Example: assets/Design Systems/SaaS Designs/images.json
-    try {
-        const response = await fetch(folderPath + 'images.json');
-        if (!response.ok) return [];
-        const files = await response.json();
-        return files.map(f => folderPath + f);
-    } catch (e) {
-        return [];
-    }
-}
-        function updateLightbox() {
-            const data = galleryData[currentIndex];
-            document.getElementById('lightbox-main-img').src = data.img;
-            document.getElementById('lightbox-main-img').alt = data.title;
-            document.getElementById('lightbox-category').textContent = data.category;
-            document.getElementById('lightbox-title').textContent = data.title;
-            document.getElementById('lightbox-description').textContent = data.description;
-            document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + galleryData.length;
-            const btn = document.getElementById('lightbox-case-study');
-            if (data.caseStudy && data.caseStudy !== "#") {
-                btn.style.display = '';
-                btn.onclick = () => window.open(data.caseStudy, '_blank');
-            } else {
-                btn.style.display = 'none';
-            }
-        }
-
-        // Optional: Close modal on ESC
-        document.addEventListener('keydown', function(e) {
-            const lightbox = document.getElementById('lightbox');
-            if (!lightbox.classList.contains('hidden')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowRight') nextImage();
-                if (e.key === 'ArrowLeft') prevImage();
-            }
-        });
-    </script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
