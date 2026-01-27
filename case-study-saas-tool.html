@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: TaskFlow SaaS Platform</title>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; color: #1d1d1f; margin: 0; padding: 0; line-height: 1.6; }
+        main { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); padding: 40px 40px 60px; }
+        h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.01em; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #444; }
+        p { margin-bottom: 1.5rem; color: #424245; font-size: 1.05rem; }
+        ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #424245; }
+        li { margin-bottom: 0.5rem; }
+        .meta-tag { display: inline-block; background: #fff7ed; color: #c2410c; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .img-placeholder { background: #f5f5f7; color: #86868b; border: 1px solid #e5e5e5; border-radius: 16px; height: 300px; display: flex; align-items: center; justify-content: center; margin: 32px 0; font-weight: 500; }
+        .quote { border-left: 4px solid #f97316; padding-left: 20px; font-style: italic; color: #555; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+    <main>
+        <span class="meta-tag">B2B SaaS • Product Design</span>
+        <h1>TaskFlow: Reducing Cognitive Load in Enterprise Project Management</h1>
+        
+        <section>
+            <h2>The Challenge</h2>
+            <p>TaskFlow is a powerful project management tool used by enterprise teams. However, power users were reporting "dashboard fatigue." The interface was cluttered with data, making it difficult to answer the simple question: <em>"What do I need to do today?"</em></p>
+            <p><strong>My Role:</strong> Lead Product Designer (End-to-End)</p>
+            <div class="img-placeholder">[Before & After: Dashboard UI Comparison]</div>
+        </section>
+
+        <section>
+            <h2>Discovery & User Thinking</h2>
+            <p>I started by conducting "over-the-shoulder" observation sessions with 8 project managers. I noticed a pattern: users were opening 5+ tabs just to cross-reference task statuses.</p>
+            <div class="quote">
+                "I spend more time managing the tool than managing my project." — Senior PM, FinTech Client
+            </div>
+            <p><strong>Key Insight:</strong> The problem wasn't a lack of features, but a lack of <em>context</em>. Data was siloed in different views (Gantt, Kanban, List).</p>
+        </section>
+
+        <section>
+            <h2>UX Strategy: Contextual Density</h2>
+            <p>My design strategy focused on <strong>Progressive Disclosure</strong>. I redesigned the Information Architecture to surface critical data first, allowing users to drill down only when necessary.</p>
+            <ul>
+                <li><strong>Unified View:</strong> Created a "Master Table" that combined status, assignee, and timeline in one view.</li>
+                <li><strong>Smart Filters:</strong> Introduced natural language filtering (e.g., "Show me high priority tasks due this week").</li>
+                <li><strong>Focus Mode:</strong> A toggle that hides navigation and sidebars for deep work sessions.</li>
+            </ul>
+            <div class="img-placeholder">[Wireframes: Information Architecture & Navigation]</div>
+        </section>
+
+        <section>
+            <h2>UI Execution & Data Visualization</h2>
+            <p>Designing for data density is tricky. I used a strict 4px grid system and subtle color coding to create hierarchy without overwhelming the eye.</p>
+            <h3>The "Health" Indicator</h3>
+            <p>Instead of just showing dates, I introduced a computed "Health" metric (On Track, At Risk, Delayed) visualized by a simple traffic light system. This reduced the cognitive load of calculating delays manually.</p>
+            <div class="img-placeholder">[High Fidelity: Data Table & Health Indicators]</div>
+        </section>
+
+        <section>
+            <h2>Accessibility (A11y)</h2>
+            <p>Enterprise tools must be accessible. I ensured the new design was WCAG 2.1 AA compliant:</p>
+            <ul>
+                <li><strong>Keyboard Navigation:</strong> Implemented `J` and `K` shortcuts for traversing rows, similar to Gmail.</li>
+                <li><strong>Screen Readers:</strong> Ensured all data tables had proper `scope` attributes and ARIA labels.</li>
+                <li><strong>Color Independence:</strong> Statuses rely on both color AND icons (e.g., a warning triangle for "At Risk") so colorblind users aren't left out.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Impact</h2>
+            <p>Post-launch analytics (Mixpanel) revealed:</p>
+            <ul>
+                <li><strong>25% Increase</strong> in Daily Active Users (DAU) for the new Dashboard.</li>
+                <li><strong>15% Reduction</strong> in time-to-task completion.</li>
+                <li><strong>NPS Score</strong> rose from 32 to 48 within 3 months.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

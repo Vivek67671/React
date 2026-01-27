@@ -1,1 +1,79 @@
-<!-- case-study-health.html placeholder. Add your code here. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: VitalMonitor Health App</title>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #fafafa; color: #1d1d1f; margin: 0; padding: 0; line-height: 1.6; }
+        main { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 24px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); padding: 40px 40px 60px; }
+        h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        h2 { font-size: 1.5rem; font-weight: 600; margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.01em; }
+        h3 { font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #444; }
+        p { margin-bottom: 1.5rem; color: #424245; font-size: 1.05rem; }
+        ul { margin-bottom: 1.5rem; padding-left: 1.5rem; color: #424245; }
+        li { margin-bottom: 0.5rem; }
+        .meta-tag { display: inline-block; background: #ccfbf1; color: #0f766e; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+        .img-placeholder { background: #f5f5f7; color: #86868b; border: 1px solid #e5e5e5; border-radius: 16px; height: 300px; display: flex; align-items: center; justify-content: center; margin: 32px 0; font-weight: 500; }
+        .quote { border-left: 4px solid #0d9488; padding-left: 20px; font-style: italic; color: #555; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+    <main>
+        <span class="meta-tag">Health Tech • Accessibility</span>
+        <h1>VitalMonitor: Designing for Trust & Seniors</h1>
+        <section>
+            <h2>The Challenge</h2>
+            <p>VitalMonitor is an app for elderly patients to track chronic conditions. The existing market solutions were "clinical" and cold, often confusing users with small text and complex navigation. Our goal was to build an app that a 75-year-old with low tech literacy could use confidently.</p>
+            <p><strong>My Role:</strong> Senior Product Designer</p>
+            <div class="img-placeholder">[Persona: Martha, 72, Low Vision]</div>
+        </section>
+
+        <section>
+            <h2>Empathy & Research</h2>
+            <p>I conducted user testing with 15 participants over the age of 65. The findings were eye-opening:</p>
+            <ul>
+                <li><strong>Tremors:</strong> Standard buttons were too small to tap accurately.</li>
+                <li><strong>Confusion:</strong> Icons like "Hamburger Menus" or "Gear Icons" were meaningless to them.</li>
+                <li><strong>Anxiety:</strong> Users were terrified of "deleting something by accident."</li>
+            </ul>
+            <div class="quote">
+                "I don't want to break it. I just want to tell the doctor my blood pressure." — User Test Participant
+            </div>
+        </section>
+
+        <section>
+            <h2>Design Solution: Radical Simplicity</h2>
+            <h3>1. Accessibility First (WCAG AAA)</h3>
+            <p>I made accessibility the baseline, not an afterthought:</p>
+            <ul>
+                <li><strong>Typography:</strong> Used 'Inter' with a base size of 18px (scaled up from standard 16px) and high contrast (ratio 7:1).</li>
+                <li><strong>Touch Targets:</strong> All interactive elements were at least 60x60px (exceeding the 48px standard).</li>
+                <li><strong>Navigation:</strong> Replaced abstract icons with clear text labels (e.g., "Home", "My Health", "Settings").</li>
+            </ul>
+
+            <h3>2. The "Magic Link" Onboarding</h3>
+            <p>Passwords are a major friction point. I designed a biometric login flow (FaceID/TouchID) and a "Magic Link" email system, eliminating the need for complex passwords.</p>
+            <div class="img-placeholder">[UI Flow: Simplified Onboarding]</div>
+        </section>
+
+        <section>
+            <h2>Visual Design & Feedback</h2>
+            <p>Seniors often struggle to know if they've successfully tapped a button. I implemented:</p>
+            <ul>
+                <li><strong>Haptic Feedback:</strong> A gentle vibration upon successful data entry.</li>
+                <li><strong>Neumorphic Depth:</strong> Subtle shadows to make buttons look "pressable" and distinct from flat text.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Impact</h2>
+            <ul>
+                <li><strong>Adoption:</strong> 85% successful onboarding rate for users >70 years old.</li>
+                <li><strong>Trust:</strong> Daily logging adherence increased by 40%.</li>
+                <li><strong>Rating:</strong> 4.8/5 stars on the App Store, with reviews praising the "easy to read" design.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

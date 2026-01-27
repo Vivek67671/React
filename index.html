@@ -67,7 +67,44 @@
         <p class="text-xl md:text-2xl font-normal max-w-3xl mb-12 opacity-60 reveal leading-relaxed" style="transition-delay: 300ms;">
             I’m passionate about creating intuitive, user-centered digital experiences that solve real problems and drive business outcomes.
         </p>
-        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center reveal" style="transition-delay: 400ms;">
+        
+        <!-- AI Search Bar -->
+        <div class="w-full max-w-2xl mb-12 reveal" style="transition-delay: 400ms;">
+            <div class="relative group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative bg-white rounded-full leading-none flex items-top justify-start space-x-6 shadow-xl ring-1 ring-gray-900/5">
+                    <div class="flex-1">
+                        <form id="ai-search-form" class="relative flex items-center p-2">
+                            <div class="pl-4 text-black">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            </div>
+                            <input type="text" id="ai-search-input" placeholder="Ask my AI assistant about my skills, projects, or contact info..." class="w-full p-4 text-gray-800 placeholder-gray-400 bg-transparent border-none focus:ring-0 focus:outline-none text-xm font-normal" autocomplete="on">
+                            <button type="submit" class="p-3 rounded-full bg-zinc-900 text-white hover:bg-zinc-700 transition-colors shadow-lg">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- AI Response Area -->
+            <div id="ai-response" class="hidden mt-4 mx-2 p-6 bg-white/90 backdrop-blur-xl rounded-2xl border border-zinc-200 text-left shadow-2xl ring-1 ring-black/5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-black/5 blur-[50px] rounded-full pointer-events-none"></div>
+                <div class="flex items-start space-x-4 relative z-10">
+                    <div class="flex-shrink-0 w-8 h-8 rounded-full bg-black flex items-center justify-center text-white shadow-md">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-bold text-black mb-1 uppercase tracking-wider">AI Assistant</p>
+                        <p class="text-black leading-relaxed text-lg" id="ai-response-text"></p>
+                    </div>
+                    <button onclick="document.getElementById('ai-response').classList.add('hidden')" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center reveal" style="transition-delay: 500ms;">
             <a href="#work" class="btn-apple text-lg">View Case Studies</a>
             <a href="mailto:Vivek2601@hotmail.com" class="text-blue-600 hover:underline flex items-center group text-lg">
                 Let's chat 
@@ -75,7 +112,7 @@
             </a>
         </div>
         
-        <div class="mt-24 w-full max-w-5xl px-4 reveal" style="transition-delay: 500ms;">
+        <div class="mt-24 w-full max-w-5xl px-4 reveal" style="transition-delay: 600ms;">
             <div class="rounded-[2.5rem] overflow-hidden shadow-2xl bg-zinc-100 aspect-[16/9] relative group border border-zinc-200">
                 <video 
                     src="assets/Showreel 2024.webm" 
@@ -225,7 +262,9 @@
                     </div>
                 </div>
                 <!-- Hidden Case Study 2 (load more) -->
-                <div class="reveal group" id="case-study-2-block" style="display:none;">
+                <div id="case-study-2-block" style="display:none;" class="space-y-24">
+                    <!-- Existing Hidden Case Study (Food Delivery) -->
+                    <div class="reveal group">
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                         <div class="lg:col-span-7 apple-card bg-zinc-200 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-sm">
                             <img src="assets/Case Study Sliders  Image Containers/case 2.webp" alt="Food Delivery Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';">
@@ -247,6 +286,88 @@
                                 </div>
                             </div>
                             <a href="case-study-2.html" class="btn-apple">Read Case Study</a>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- New Case Study: Design System -->
+                    <div class="reveal group">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:flex-row-reverse">
+                            <div class="lg:col-span-5 px-4 order-2 lg:order-1">
+                                <span class="text-purple-600 font-bold text-xs tracking-widest uppercase mb-4 block">Design System • 2024</span>
+                                <h4 class="text-4xl font-bold mb-6 tracking-tight">Nexus Design System</h4>
+                                <p class="text-lg opacity-60 mb-8 leading-relaxed">
+                                    Building a scalable design language and component library to unify 5 enterprise products. Focused on governance, token architecture, and developer velocity.
+                                </p>
+                                <div class="grid grid-cols-2 gap-8 mb-10">
+                                    <div>
+                                        <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Role</h6>
+                                        <p class="text-sm font-medium">Lead Designer</p>
+                                    </div>
+                                    <div>
+                                        <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Impact</h6>
+                                        <p class="text-sm font-medium">40% Faster Dev</p>
+                                    </div>
+                                </div>
+                                <a href="case-study-design-system.html" class="btn-apple">Read Case Study</a>
+                            </div>
+                            <div class="lg:col-span-7 apple-card bg-zinc-100 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-xl order-1 lg:order-2">
+                                <img src="assets/Design Systems/Design Library/1 (7).webp" alt="Design System Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Case Study: SaaS Tool -->
+                    <div class="reveal group">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                            <div class="lg:col-span-7 apple-card bg-zinc-900 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-sm">
+                                <img src="assets/Design Systems/Dashboard/preview.jpg" alt="SaaS Tool Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                            </div>
+                            <div class="lg:col-span-5 px-4">
+                                <span class="text-orange-500 font-bold text-xs tracking-widest uppercase mb-4 block">SaaS Product • 2023</span>
+                                <h4 class="text-4xl font-bold mb-6 tracking-tight">TaskFlow SaaS Platform</h4>
+                                <p class="text-lg opacity-60 mb-8 leading-relaxed">
+                                    Redesigning a complex B2B project management tool. Streamlined workflows, improved data visualization, and reduced time-on-task for power users.
+                                </p>
+                                <div class="grid grid-cols-2 gap-8 mb-10">
+                                    <div>
+                                        <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Role</h6>
+                                        <p class="text-sm font-medium">Product Designer</p>
+                                    </div>
+                                    <div>
+                                        <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Impact</h6>
+                                        <p class="text-sm font-medium">+25% DAU</p>
+                                    </div>
+                                </div>
+                                <a href="case-study-saas-tool.html" class="btn-apple">Read Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Case Study: Health Tech -->
+                    <div class="reveal group">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:flex-row-reverse">
+                            <div class="lg:col-span-5 px-4 order-2 lg:order-1">
+                                <span class="text-teal-600 font-bold text-xs tracking-widest uppercase mb-4 block">Health Tech • 2023</span>
+                                <h4 class="text-4xl font-bold mb-6 tracking-tight">VitalMonitor App</h4>
+                                <p class="text-lg opacity-60 mb-8 leading-relaxed">
+                                    A mobile app for remote patient monitoring. Designed with a strict focus on WCAG AAA accessibility standards for elderly users.
+                                </p>
+                                <div class="grid grid-cols-2 gap-8 mb-10">
+                                    <div>
+                                        <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Role</h6>
+                                        <p class="text-sm font-medium">Senior Designer</p>
+                                    </div>
+                                    <div>
+                                        <h6 class="text-[10px] font-bold uppercase opacity-40 mb-1">Impact</h6>
+                                        <p class="text-sm font-medium">4.8 App Rating</p>
+                                    </div>
+                                </div>
+                                <a href="case-study-health.html" class="btn-apple">Read Case Study</a>
+                            </div>
+                            <div class="lg:col-span-7 apple-card bg-zinc-50 rounded-[2.5rem] overflow-hidden aspect-[16/10] relative shadow-xl order-1 lg:order-2">
+                                <img src="assets/Design Systems/WatchOS/preview.jpg" alt="Health App Visual" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                            </div>
                         </div>
                     </div>
                 </div>
