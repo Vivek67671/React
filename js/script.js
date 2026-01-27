@@ -354,12 +354,12 @@ function closeLightbox() {
             const searchInput = document.getElementById('ai-search-input');
             if (searchInput) {
                 const placeholders = [
-                    "Ask about my 8+ years of experience...",
-                    "What tools do I use? (Figma, AI, Low-code)",
-                    "Show me my certifications...",
-                    "How do I contact you?",
-                    "Tell me about my projects...",
-                    "Ask about my work at Sapience LLC..."
+                    "Ask about Vivek's 8+ years of experience...",
+                    "What tools does he use? (Figma, AI, Low-code)",
+                    "Show me his certifications...",
+                    "How do I contact him?",
+                    "Tell me about his projects...",
+                    "Ask about his work at Sapience LLC..."
                 ];
                 
                 let currentPhraseIndex = 0;
