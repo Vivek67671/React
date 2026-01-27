@@ -35,7 +35,9 @@
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         
-        mobileBtn.addEventListener('click', toggleMobileMenu);
+        if (mobileBtn) {
+            mobileBtn.addEventListener('click', toggleMobileMenu);
+        }
 
         function toggleMobileMenu() {
             mobileMenu.classList.toggle('hidden');
@@ -159,12 +161,26 @@ function closeLightbox() {
         if (aiSearchForm) {
             aiSearchForm.addEventListener('submit', (e) => {
                 e.preventDefault();
+                console.log("AI Search submitted");
                 const input = document.getElementById('ai-search-input');
+                const submitBtn = aiSearchForm.querySelector('button[type="submit"]');
                 const responseBox = document.getElementById('ai-response');
                 const responseText = document.getElementById('ai-response-text');
                 const query = input.value.trim().toLowerCase();
                 
                 if (!query) return;
+
+                // Prevent multiple submissions
+                input.disabled = true;
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+                const enableInput = () => {
+                    input.disabled = false;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    input.focus();
+                };
 
                 if (responseBox.classList.contains('hidden')) {
                     responseBox.classList.remove('hidden');
@@ -251,7 +267,10 @@ function closeLightbox() {
                     let charIndex = 0;
 
                     function type() {
-                        if (partIndex >= parts.length) return;
+                        if (partIndex >= parts.length) {
+                            enableInput();
+                            return;
+                        }
                         const part = parts[partIndex];
                         
                         if (part.startsWith('<') && part.endsWith('>')) {
