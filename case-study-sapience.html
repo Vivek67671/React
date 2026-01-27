@@ -25,10 +25,51 @@
         .meta-tag { display: inline-block; background: #e0e7ff; color: #3730a3; padding: 4px 12px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
         .img-placeholder { background: #f5f5f7; color: #86868b; border: 1px solid #e5e5e5; border-radius: 16px; height: 300px; display: flex; align-items: center; justify-content: center; margin: 32px 0; font-weight: 500; }
         .quote { border-left: 4px solid #4f46e5; padding-left: 20px; font-style: italic; color: #555; margin: 2rem 0; }
+        .back-to-work-btn {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            z-index: 100;
+            background: #1d1d1f;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 99px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .back-to-work-btn:hover {
+            background: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .back-to-work-btn svg {
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-right: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .back-to-work-btn {
+                top: 16px;
+                left: 16px;
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
     <main>
+        <a href="index.html#work" class="back-to-work-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Back to Case Studies
+        </a>
         <span class="meta-tag">EdTech • AI UX • Systems</span>
         <h1>Designing a Scalable AI-Enabled Education Marketplace</h1>
         
@@ -38,7 +79,7 @@
             <strong>Scope:</strong> Marketplace · Mobile App · SaaS CRM · Design System · AI UX<br>
             <strong>Company:</strong> The Sapience LLC</p>
             <p>Sapience One is an end-to-end education services platform designed to connect parents and learners with verified tutors, coaches, and specialists, while also enabling tutors and internal teams to manage sessions, performance, and operations at scale.</p>
-            <div class="img-placeholder">[Sapience Ecosystem Overview]</div>
+            <img src="assets/Case_Studies/Sapience Case/Screenshot 2026-01-27 151116.webp" alt="Sapience Ecosystem Overview" style="width:100%; height:auto; border-radius: 16px; margin: 32px 0; border: 1px solid #e5e5e5;">
         </section>
 
         <section>
@@ -64,18 +105,22 @@
             
             <h3>Marketplace Experience</h3>
             <p>To solve the discovery challenge, we designed modular tutor cards with strong visual hierarchy emphasizing expertise and reviews. Filters were designed with progressive disclosure to avoid overwhelming parents.</p>
-            <div class="img-placeholder">[Marketplace Discovery UI]</div>
+            <img src="assets/Case_Studies/Sapience Case/1213.jpg" alt="Sapience Marketplace Discovery UI" style="width:100%; height:auto; border-radius: 16px; margin: 32px 0; border: 1px solid #e5e5e5;">
+
 
             <h3>Sapience One App</h3>
             <p>For the learner/parent app, we focused on minimizing cognitive load. We used calendar-based mental models for scheduling and clear micro-interactions to reinforce critical actions like booking and payments.</p>
-            <div class="img-placeholder">[Mobile App Booking Flow]</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0;">
+                <img src="assets/Case_Studies/Sapience Case/21 (2).webp" alt="Sapience App Screen 2" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid #e5e5e5;">
+                <img src="assets/Case_Studies/Sapience Case/21 (1).webp" alt="Sapience App Screen 1" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid #e5e5e5;">
+            </div>
         </section>
 
         <section>
             <h2>Tutor & Admin Experience</h2>
             <p><strong>Tutor App:</strong> Simplified onboarding with clear progress indicators and a dashboard focused on earnings and upcoming sessions.</p>
             <p><strong>CRM & Admin Dashboard:</strong> We reduced context switching by introducing role-based dashboards and using data visualization instead of raw tables for monitoring platform health.</p>
-            <div class="img-placeholder">[Admin Dashboard & CRM]</div>
+            <img src="assets/Case_Studies/Sapience Case/Screenshot 2026-01-27 151829.webp" alt="Sapience Admin Dashboard and CRM" style="width:100%; height:auto; border-radius: 16px; margin: 32px 0; border: 1px solid #e5e5e5;">
         </section>
 
         <section>
@@ -85,6 +130,15 @@
                 <li><strong>Personalized Suggestions:</strong> Tutor recommendations come with explanations (e.g., "Matches your schedule").</li>
                 <li><strong>Admin Insights:</strong> AI flags potential issues but leaves the final resolution to the human admin.</li>
             </ul>
+        </section>
+
+        <section>
+            <h2>Session Recaps</h2>
+            <p>To enhance the learning experience and provide valuable insights for both parents and tutors, we designed a comprehensive session recap feature. This includes key takeaways, progress tracking, and actionable next steps, fostering continuous improvement and transparency.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0;">
+                <img src="assets/Case_Studies/Sapience Case/98798798798 (3).webp" alt="Sapience Session Recap Screen 1" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid #e5e5e5;">
+                <img src="assets/Case_Studies/Sapience Case/98798798798 (5).webp" alt="Sapience Session Recap Screen 2" style="width: 100%; height: auto; border-radius: 16px; border: 1px solid #e5e5e5;">
+            </div>
         </section>
 
         <section>
