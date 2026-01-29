@@ -587,7 +587,7 @@
             </div>
             <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <!-- Gallery Item 1 -->
-                <div class="reveal gallery-item" onclick="openGallery('SaaS Designs')">
+                <div class="reveal gallery-item" onclick="openLightbox(0)">
                     <img src="assets/Design Systems/SaaS Designs/preview.jpg" alt="SaaS Designs" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -597,7 +597,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 2 -->
-                <div class="reveal gallery-item" onclick="openGallery('Web Designs')">
+                <div class="reveal gallery-item" onclick="openLightbox(1)">
                     <img src="assets/Design Systems/Web Designs/preview.jpg" alt="Web Designs" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -607,7 +607,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 3 -->
-                <div class="reveal gallery-item" onclick="openGallery('Icon System')">
+                <div class="reveal gallery-item" onclick="openLightbox(2)">
                     <img src="assets/Design Systems/Icon System/preview.jpg" alt="Icon System" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -617,7 +617,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 4 -->
-                <div class="reveal gallery-item" onclick="openGallery('Dashboard')">
+                <div class="reveal gallery-item" onclick="openLightbox(3)">
                     <img src="assets/Design Systems/Dashboard/preview.jpg" alt="Dashboard" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -627,7 +627,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 5 -->
-                <div class="reveal gallery-item" onclick="openGallery('Type Study')">
+                <div class="reveal gallery-item" onclick="openLightbox(4)">
                     <img src="assets/Design Systems/Type Study/preview.jpg" alt="Type Study" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -637,7 +637,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 6 -->
-                <div class="reveal gallery-item" onclick="openGallery('Prototypes')">
+                <div class="reveal gallery-item" onclick="openLightbox(5)">
                     <img src="assets/Design Systems/Prototypes/preview.jpg" alt="Prototypes" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -647,7 +647,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 7 -->
-                <div class="reveal gallery-item" onclick="openGallery('Design Library')">
+                <div class="reveal gallery-item" onclick="openLightbox(6)">
                     <img src="assets/Design Systems/Design Library/1 (7).webp" alt="Design Library" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -657,7 +657,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 8 -->
-                <div class="reveal gallery-item" onclick="openGallery('Visionary Flow')">
+                <div class="reveal gallery-item" onclick="openLightbox(7)">
                     <img src="assets/Design Systems/Visionary Flow/preview.jpg" alt="Visionary Flow" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -666,33 +666,49 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Lightbox Modal -->
-        <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 p-6 md:p-12">
-            <button onclick="closeLightbox()" class="absolute top-8 right-8 z-[110] p-2 bg-black/5 hover:bg-black/10 rounded-full transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
-            <button onclick="prevImage()" class="absolute left-4 md:left-12 top-1/2 -translate-y-1/2 z-[110] p-4 bg-black/5 hover:bg-black/10 rounded-full transition-colors hidden md:block">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            </button>
-            <div class="max-w-6xl w-full h-full flex flex-col md:flex-row items-center justify-center gap-12 lightbox-img-container">
-                <div class="w-full md:w-2/3 h-2/3 md:h-auto rounded-[2rem] overflow-hidden shadow-2xl bg-white">
-                    <img id="lightbox-main-img" src="" alt="Main Design" class="w-full h-full object-contain max-h-[70vh]">
-                </div>
-                <div class="w-full md:w-1/3 text-left">
-                    <span id="lightbox-category" class="text-blue-600 font-bold text-xs tracking-widest uppercase mb-4 block"></span>
-                    <h3 id="lightbox-title" class="text-4xl font-bold mb-6 tracking-tight"></h3>
-                    <p id="lightbox-description" class="text-lg opacity-60 leading-relaxed mb-8"></p>
-                    <div class="flex items-center space-x-4">
-                        <button id="lightbox-case-study" class="bg-black text-white px-6 py-3 rounded-full font-medium text-sm hover:opacity-80 transition-opacity" style="display:none;">Full Case Study</button>
-                        <span id="lightbox-counter" class="text-xs font-bold opacity-30 tracking-widest"></span>
+                <!-- Gallery Item 9 -->
+                <div class="reveal gallery-item" onclick="openLightbox(8)">
+                    <img src="assets/Gallery/Tinker.webp" alt="Website UI" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">UI Design</p>
+                            <p class="font-bold">Website UI</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button onclick="nextImage()" class="absolute right-4 md:right-12 top-1/2 -translate-y-1/2 z-[110] p-4 bg-black/5 hover:bg-black/10 rounded-full transition-colors hidden md:block">
+        </div>
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95">
+            <button onclick="closeLightbox()" class="fixed top-6 right-6 z-[110] p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors backdrop-blur-md">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <!-- Project Navigation Buttons -->
+            <button onclick="prevImage()" class="fixed left-6 top-1/2 -translate-y-1/2 z-[110] p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors hidden md:block backdrop-blur-md group" title="Previous Image">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button onclick="nextImage()" class="fixed right-6 top-1/2 -translate-y-1/2 z-[110] p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors hidden md:block backdrop-blur-md group" title="Next Image">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
+            
+            <!-- Info Overlay (Fixed Top Left) -->
+            <div class="fixed top-6 left-6 md:left-24 z-[105] text-white pointer-events-none max-w-xl drop-shadow-lg">
+                <span id="lightbox-category" class="text-blue-400 font-bold text-xs tracking-widest uppercase mb-2 block"></span>
+                <h3 id="lightbox-title" class="text-2xl md:text-3xl font-bold mb-2 tracking-tight"></h3>
+                <p id="lightbox-description" class="text-sm opacity-80 leading-relaxed hidden md:block"></p>
+            </div>
+
+            <!-- Horizontal Scroll Container -->
+            <div id="lightbox-images-container" class="flex w-full h-full overflow-x-auto snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Images will be injected here as slides -->
+            </div>
+
+            <!-- Bottom Controls -->
+            <div class="fixed bottom-6 left-0 w-full flex justify-center items-center space-x-4 text-white z-[110] pointer-events-none">
+                <button id="lightbox-case-study" class="pointer-events-auto bg-white text-black px-6 py-3 rounded-full font-medium text-sm hover:opacity-90 transition-opacity" style="display:none;">Full Case Study</button>
+                <span id="lightbox-counter" class="text-xs font-bold opacity-50 tracking-widest bg-black/50 px-3 py-1 rounded-full backdrop-blur-md"></span>
+            </div>
         </div>
     </section>
 

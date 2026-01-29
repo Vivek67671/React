@@ -10,5 +10,7 @@
 			"path": "../project-atlas/public/images"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "New Portfolio"
+	}
 }

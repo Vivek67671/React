@@ -101,49 +101,186 @@
                 title: "Visionary Flow",
                 description: "Spatial interface concepts and glassmorphism for AR/VR environments.",
                 caseStudy: "#"
+            },
+            {
+                img: "assets/Gallery/Tinker.webp",
+                category: "UI Design",
+                title: "Website UI",
+                description: "Modern website interface design focusing on visual hierarchy and user engagement.",
+                caseStudy: "#",
+                images: [
+                    "assets/Gallery/Tinker1.webp",
+                    "assets/Gallery/V2.png",
+                    "assets/Gallery/PrecisionPlanners.png",
+                    "assets/Gallery/Desktop (1).png",
+                    "assets/Gallery/Desktop - 1.png"
+                ]
             }
         ];
 
         let currentIndex = 0;
+        let currentImageIndex = 0; // Index of the image within the current project
 
-        function openLightbox(idx) {
-            currentIndex = idx;
-            updateLightbox();
+        function openLightbox(projectIndex) {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
+            lightbox.classList.add('block');
+            document.body.style.overflow = 'hidden'; // Disable background scrolling
+            
+            updateLightbox(projectIndex, 0);
         }
 
-function nextImage() {
-            currentIndex = (currentIndex + 1) % galleryData.length;
-            updateLightbox();
-}
+        // Ensure global access for HTML onclick events
+        window.openLightbox = openLightbox;
+        window.closeLightbox = closeLightbox;
+        window.nextImage = nextImage;
+        window.prevImage = prevImage;
 
-function prevImage() {
-            currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-            updateLightbox();
-}
-
-function closeLightbox() {
-    document.getElementById('lightbox').classList.add('hidden');
-    document.getElementById('lightbox').classList.remove('flex');
-}
-
-        function updateLightbox() {
+        function nextImage() {
             const data = galleryData[currentIndex];
-            document.getElementById('lightbox-main-img').src = data.img;
-            document.getElementById('lightbox-main-img').alt = data.title;
-            document.getElementById('lightbox-category').textContent = data.category;
-            document.getElementById('lightbox-title').textContent = data.title;
-            document.getElementById('lightbox-description').textContent = data.description;
-            document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + galleryData.length;
-            const btn = document.getElementById('lightbox-case-study');
-            if (data.caseStudy && data.caseStudy !== "#") {
-                btn.style.display = '';
-                btn.onclick = () => window.open(data.caseStudy, '_blank');
-            } else {
-                btn.style.display = 'none';
+            const allImages = [data.img, ...(data.images || [])];
+            
+            if (currentImageIndex < allImages.length - 1) {
+                // Move to the next image within the same project
+                updateLightbox(currentIndex, currentImageIndex + 1);
+            } else if (currentIndex < galleryData.length - 1) {
+                // Move to the first image of the next project
+                updateLightbox(currentIndex + 1, 0);
             }
+        }
+
+        function prevImage() {
+            if (currentImageIndex > 0) {
+                // Move to the previous image within the same project
+                updateLightbox(currentIndex, currentImageIndex - 1);
+            } else if (currentIndex > 0) {
+                // Move to the last image of the previous project
+                const prevProjectIndex = currentIndex - 1;
+                const prevData = galleryData[prevProjectIndex];
+                const prevAllImages = [prevData.img, ...(prevData.images || [])];
+                updateLightbox(prevProjectIndex, prevAllImages.length - 1);
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('block');
+            document.body.style.overflow = ''; // Re-enable background scrolling
+        }
+
+        // New helper function to update UI elements like counter and button states
+        function updateLightboxUI() {
+            const data = galleryData[currentIndex];
+            const allImages = [data.img, ...(data.images || [])];
+
+            // Update counter
+            const counterEl = document.getElementById('lightbox-counter');
+            if (allImages.length > 1) {
+                counterEl.textContent = `Project ${currentIndex + 1}/${galleryData.length} • Image ${currentImageIndex + 1}/${allImages.length}`;
+            } else {
+                counterEl.textContent = `Project ${currentIndex + 1} / ${galleryData.length}`;
+            }
+
+            // Update button states (disabled at ends of entire gallery)
+            const prevBtn = document.querySelector('button[onclick="prevImage()"]');
+            const nextBtn = document.querySelector('button[onclick="nextImage()"]');
+            
+            const isFirstProject = currentIndex === 0;
+            const isFirstImage = currentImageIndex === 0;
+            prevBtn.disabled = isFirstProject && isFirstImage;
+            
+            const isLastProject = currentIndex === galleryData.length - 1;
+            const isLastImage = currentImageIndex === allImages.length - 1;
+            nextBtn.disabled = isLastProject && isLastImage;
+            
+            prevBtn.classList.toggle('opacity-20', prevBtn.disabled);
+            prevBtn.classList.toggle('cursor-not-allowed', prevBtn.disabled);
+            nextBtn.classList.toggle('opacity-20', nextBtn.disabled);
+            nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
+        }
+
+        function updateLightbox(projectIndex, imageIndex) {
+            currentIndex = projectIndex;
+            currentImageIndex = imageIndex;
+            
+            const data = galleryData[currentIndex];
+            const allImages = [data.img, ...(data.images || [])];
+            const src = allImages[currentImageIndex];
+
+            const container = document.getElementById('lightbox-images-container');
+            container.innerHTML = ''; // Clear previous slide
+
+            // Create a single slide for the current image
+            const slide = document.createElement('div');
+            slide.className = 'min-w-full h-full overflow-y-auto snap-center flex justify-center items-start pt-20 pb-20 px-4 md:px-8 relative no-scrollbar';
+
+            const MIN_SPINNER_TIME = 400; // ms
+            const startTime = performance.now();
+
+            // Create and show the spinner immediately.
+            const spinner = document.createElement('div');
+            spinner.className = 'lightbox-spinner';
+            spinner.innerHTML = `
+                <div class="lightbox-spinner-inner">
+                    <svg class="lightbox-spinner-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </div>
+            `;
+            slide.appendChild(spinner);
+
+            // Image
+            const img = document.createElement('img');
+            img.className = 'w-full h-auto self-start opacity-0 transition-opacity duration-300 relative z-10';
+            img.alt = `${data.title} - Image ${imageIndex + 1}`;
+            slide.appendChild(img);
+
+            const onImageLoad = () => {
+                const endTime = performance.now();
+                const duration = endTime - startTime;
+
+                const hideSpinner = () => {
+                    img.classList.remove('opacity-0');
+                    if (spinner.parentNode) {
+                        spinner.remove();
+                    }
+                };
+
+                if (duration < MIN_SPINNER_TIME) {
+                    setTimeout(hideSpinner, MIN_SPINNER_TIME - duration);
+                } else {
+                    hideSpinner();
+                }
+            };
+
+            img.onload = onImageLoad;
+            img.onerror = onImageLoad;
+            img.src = src;
+
+            if (img.complete) {
+                onImageLoad();
+            }
+            
+            container.appendChild(slide);
+
+            // Defer non-critical UI updates to let the spinner animation render smoothly.
+            setTimeout(() => {
+                document.getElementById('lightbox-category').textContent = data.category;
+                document.getElementById('lightbox-title').textContent = data.title;
+                document.getElementById('lightbox-description').textContent = data.description;
+                
+                updateLightboxUI(); 
+    
+                const btn = document.getElementById('lightbox-case-study');
+                if (data.caseStudy && data.caseStudy !== "#") {
+                    btn.style.display = '';
+                    btn.onclick = () => window.open(data.caseStudy, '_blank');
+                } else {
+                    btn.style.display = 'none';
+                }
+            }, 0);
         }
 
         // Optional: Close modal on ESC
