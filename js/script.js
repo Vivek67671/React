@@ -139,7 +139,13 @@
                 category: "Branding",
                 title: "Icon System",
                 description: "A cohesive icon set designed for clarity at small sizes and scalability across platforms.",
-                caseStudy: "#"
+                caseStudy: "#",
+                images: [
+                    "assets/Recording 2026-01-29 165033.webm",
+                    "assets/Screenshot 2026-01-29 165157.png",
+                    "assets/Recording 2026-01-29 165131.webm",
+                    "assets/Recording 2026-01-29 165300.webm"
+                ]
             },
             {
                 img: "assets/Gallery/px-conversions (3)/6.webp",
@@ -381,8 +387,21 @@
             `;
             slide.appendChild(spinner);
 
-            // Image
-            const img = document.createElement('img');
+            // Determine media type
+            const isVideo = src.toLowerCase().endsWith('.webm') || src.toLowerCase().endsWith('.mp4');
+            let mediaEl;
+
+            if (isVideo) {
+                mediaEl = document.createElement('video');
+                mediaEl.controls = true;
+                mediaEl.autoplay = true;
+                mediaEl.loop = true;
+                mediaEl.muted = true;
+                mediaEl.playsInline = true;
+            } else {
+                mediaEl = document.createElement('img');
+                mediaEl.alt = `${data.title} - Image ${imageIndex + 1}`;
+            }
             
             // Check if this project is flagged as mobile or if the image filename suggests a mobile screen
             const isMobileImage = (data.isMobile && imageIndex !== 0) || 
@@ -393,20 +412,19 @@
             if (isMobileImage) {
                 slide.classList.remove('items-start');
                 slide.classList.add('items-center'); // Center vertically
-                img.className = 'w-auto max-w-full md:max-w-[400px] h-auto max-h-[85vh] object-contain shadow-2xl rounded-2xl opacity-0 transition-opacity duration-300 relative z-10';
+                mediaEl.className = 'w-auto max-w-full md:max-w-[400px] h-auto max-h-[85vh] object-contain shadow-2xl rounded-2xl opacity-0 transition-opacity duration-300 relative z-10';
             } else {
-                img.className = 'w-full h-auto self-start opacity-0 transition-opacity duration-300 relative z-10';
+                mediaEl.className = 'w-full h-auto self-start opacity-0 transition-opacity duration-300 relative z-10';
             }
             
-            img.alt = `${data.title} - Image ${imageIndex + 1}`;
-            slide.appendChild(img);
+            slide.appendChild(mediaEl);
 
-            const onImageLoad = () => {
+            const onMediaLoad = () => {
                 const endTime = performance.now();
                 const duration = endTime - startTime;
 
                 const hideSpinner = () => {
-                    img.classList.remove('opacity-0');
+                    mediaEl.classList.remove('opacity-0');
                     if (spinner.parentNode) {
                         spinner.remove();
                     }
@@ -419,12 +437,17 @@
                 }
             };
 
-            img.onload = onImageLoad;
-            img.onerror = onImageLoad;
-            img.src = src;
-
-            if (img.complete) {
-                onImageLoad();
+            if (isVideo) {
+                mediaEl.onloadeddata = onMediaLoad;
+                mediaEl.onerror = onMediaLoad;
+                mediaEl.src = src;
+            } else {
+                mediaEl.onload = onMediaLoad;
+                mediaEl.onerror = onMediaLoad;
+                mediaEl.src = src;
+                if (mediaEl.complete) {
+                    onMediaLoad();
+                }
             }
             
             container.appendChild(slide);
