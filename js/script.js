@@ -42,23 +42,97 @@
         function toggleMobileMenu() {
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
+            mobileBtn.setAttribute('aria-expanded', !mobileMenu.classList.contains('hidden'));
         }
 
         // Lightbox data
         const galleryData = [
             {
-                img: "assets/Design Systems/SaaS Designs/preview.jpg",
+                img: "assets/Gallery/Sales NAlytics/Circle_Administration.webp",
                 category: "Product",
                 title: "SaaS Designs",
                 description: "Scalable interface patterns and layouts designed for enterprise software applications.",
-                caseStudy: "#"
+                caseStudy: "#",
+                images: [
+                    "assets/Gallery/Sales NAlytics/Circle_Administration.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Candidates.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Company.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Funds Listing.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Messages.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Overview.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Performance.webp",
+                    "assets/Gallery/Sales NAlytics/Circle_Product List.webp"
+                ]
             },
             {
-                img: "assets/Design Systems/Web Designs/preview.jpg",
-                category: "Web",
-                title: "Web Designs",
-                description: "Modern, responsive web layouts focusing on conversion and brand storytelling.",
-                caseStudy: "#"
+                img: "assets/Gallery/Fintrack/Dashboard V2 - Overview.webp",
+                category: "Fintech",
+                title: "Fintech Solution",
+                description: "Secure and intuitive financial technology interfaces designed for trust and clarity.",
+                caseStudy: "case-study-fintech.html",
+                images: [
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - menu.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Notification Page.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Notification Pop-up.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Receive.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Statistics.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transaction - Delete Transaction.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transaction - Details Transaction.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transaction - Export Done.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transaction.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transaction-1.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transaction-2.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 Responsive - Transfer.webp",
+                    "assets/Gallery/Fintrack/Dashboard V2 - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V2 Responsive - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V3 - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V3 Responsive - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V4 - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V4 Responsive - Overview.webp",
+                    "assets/Gallery/Fintrack/Help & Center.webp",
+                    "assets/Gallery/Fintrack/Settings - Help & Center Responsive.webp",
+                    "assets/Gallery/Fintrack/Settings - Personal info Responsive.webp",
+                    "assets/Gallery/Fintrack/Settings - Personal Info.webp",
+                    "assets/Gallery/Fintrack/Settings - Preference.webp",
+                    "assets/Gallery/Fintrack/Settings - Preferences Responsive.webp",
+                    "assets/Gallery/Fintrack/Settings - Security Responsive.webp",
+                    "assets/Gallery/Fintrack/Settings - Security.webp",
+                    "assets/Gallery/Fintrack/Wallet Responsive - Edit Details Card.webp",
+                    "assets/Gallery/Fintrack/Wallet Responsive.webp",
+                    "assets/Gallery/Fintrack/Wallet Responsive-1.webp",
+                    "assets/Gallery/Fintrack/Wallets -  Details Card.webp",
+                    "assets/Gallery/Fintrack/Wallets - Add new Card.webp",
+                    "assets/Gallery/Fintrack/Wallets.webp",
+                    "assets/Gallery/Fintrack/1 (1).webp",
+                    "assets/Gallery/Fintrack/1 (2).webp",
+                    "assets/Gallery/Fintrack/1 (3).webp",
+                    "assets/Gallery/Fintrack/1(4).webp",
+                    "assets/Gallery/Fintrack/2 (1).webp",
+                    "assets/Gallery/Fintrack/2 (2).webp",
+                    "assets/Gallery/Fintrack/2 (3).webp",
+                    "assets/Gallery/Fintrack/2 (4).webp",
+                    "assets/Gallery/Fintrack/3 (1).webp",
+                    "assets/Gallery/Fintrack/3 (2).webp",
+                    "assets/Gallery/Fintrack/3 (3).webp",
+                    "assets/Gallery/Fintrack/3 (4).webp",
+                    "assets/Gallery/Fintrack/3 (5).webp",
+                    "assets/Gallery/Fintrack/3 (6).webp",
+                    "assets/Gallery/Fintrack/3().webp",
+                    "assets/Gallery/Fintrack/3(7).webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Notification Page.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Notification Pop-up.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Overview.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Receive money.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Statistics.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transaction - Delete Transaction.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transaction - Details Transaction.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transaction - Export Date.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transaction - Export Done.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transaction - Filter.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transaction.webp",
+                    "assets/Gallery/Fintrack/Dashboard V1 - Transfer.webp"
+                ]
             },
             {
                 img: "assets/Design Systems/Icon System/preview.jpg",
@@ -68,11 +142,25 @@
                 caseStudy: "#"
             },
             {
-                img: "assets/Design Systems/Dashboard/preview.jpg",
+                img: "assets/Gallery/px-conversions (3)/6.webp",
                 category: "Product",
-                title: "Analytics Dashboard",
+                title: "Control Saas Tool",
                 description: "A SaaS dashboard UI with a focus on data density, accessibility, and actionable insights.",
-                caseStudy: "#"
+                caseStudy: "#",
+                images: [
+                    "assets/Gallery/px-conversions (3)/1.webp",
+                    "assets/Gallery/px-conversions (3)/2.webp",
+                    "assets/Gallery/px-conversions (3)/3.webp",
+                    "assets/Gallery/px-conversions (3)/4.webp",
+                    "assets/Gallery/px-conversions (3)/5.webp",
+                    "assets/Gallery/px-conversions (3)/6.webp",
+                    "assets/Gallery/px-conversions (3)/7.webp",
+                    "assets/Gallery/px-conversions (3)/8.webp",
+                    "assets/Gallery/px-conversions (3)/9.webp",
+                    "assets/Gallery/px-conversions (3)/10.webp",
+                    "assets/Gallery/px-conversions (3)/11.webp",
+                    "assets/Gallery/px-conversions (3)/12.webp"
+                ]
             },
             {
                 img: "assets/Design Systems/Type Study/preview.jpg",
@@ -83,17 +171,79 @@
             },
             {
                 img: "assets/Design Systems/Prototypes/preview.jpg",
-                category: "Interaction",
-                title: "Micro-Interactions",
-                description: "Gesture-based prototypes and motion design for next-gen mobile interactions.",
-                caseStudy: "#"
+                category: "Mobile App",
+                title: "Parking Mobile app",
+                description: "A comprehensive mobile application solution for parking management and reservations.",
+                caseStudy: "#",
+                isMobile: true, // Flag to trigger mobile-specific display style
+                images: [
+                    "assets/Gallery/px-conversions (1)/1.webp",
+                    "assets/Gallery/px-conversions (1)/2.webp",
+                    "assets/Gallery/px-conversions (1)/3.webp",
+                    "assets/Gallery/px-conversions (1)/4.webp",
+                    "assets/Gallery/px-conversions (1)/5.webp",
+                    "assets/Gallery/px-conversions (1)/6.webp",
+                    "assets/Gallery/px-conversions (1)/7.webp",
+                    "assets/Gallery/px-conversions (1)/8.webp",
+                    "assets/Gallery/px-conversions (1)/9.webp",
+                    "assets/Gallery/px-conversions (1)/10.webp",
+                    "assets/Gallery/px-conversions (1)/11.webp",
+                    "assets/Gallery/px-conversions (1)/12.webp",
+                    "assets/Gallery/px-conversions (1)/13.webp",
+                    "assets/Gallery/px-conversions (1)/14.webp",
+                    "assets/Gallery/px-conversions (1)/15.webp",
+                    "assets/Gallery/px-conversions (1)/16.webp",
+                    "assets/Gallery/px-conversions (1)/17.webp",
+                    "assets/Gallery/px-conversions (1)/18.webp",
+                    "assets/Gallery/px-conversions (1)/19.webp",
+                    "assets/Gallery/px-conversions (1)/20.webp",
+                    "assets/Gallery/px-conversions (1)/21.webp",
+                    "assets/Gallery/px-conversions (1)/22.webp",
+                    "assets/Gallery/px-conversions (1)/23.webp",
+                    "assets/Gallery/px-conversions (1)/24.webp",
+                    "assets/Gallery/px-conversions (1)/25.webp",
+                    "assets/Gallery/px-conversions (1)/26.webp",
+                    "assets/Gallery/px-conversions (1)/27.webp",
+                    "assets/Gallery/px-conversions (1)/28.webp",
+                    "assets/Gallery/px-conversions (1)/29.webp",
+                    "assets/Gallery/px-conversions (1)/30.webp",
+                    "assets/Gallery/px-conversions (1)/31.webp",
+                    "assets/Gallery/px-conversions (1)/32.webp",
+                    "assets/Gallery/px-conversions (1)/33.webp",
+                    "assets/Gallery/px-conversions (1)/34.webp",
+                    "assets/Gallery/px-conversions (1)/35.webp",
+                    "assets/Gallery/px-conversions (1)/36.webp",
+                    "assets/Gallery/px-conversions (1)/37.webp",
+                    "assets/Gallery/px-conversions (1)/38.webp",
+                    "assets/Gallery/px-conversions (1)/39.webp",
+                    "assets/Gallery/px-conversions (1)/40.webp",
+                    "assets/Gallery/px-conversions (1)/41.webp",
+                    "assets/Gallery/px-conversions (1)/42.webp",
+                    "assets/Gallery/px-conversions (1)/43.webp",
+                    "assets/Gallery/px-conversions (1)/44.webp",
+                    "assets/Gallery/px-conversions (1)/45.webp",
+                    "assets/Gallery/px-conversions (1)/46.webp",
+                    "assets/Gallery/px-conversions (1)/47.webp",
+                    "assets/Gallery/px-conversions (1)/48.webp"
+                ]
             },
             {
                 img: "assets/Design Systems/Design Library/1 (7).webp",
                 category: "Systems",
                 title: "Design Library",
                 description: "A robust design system library containing components, variants, and documentation.",
-                caseStudy: "#"
+                caseStudy: "#",
+                images: [
+                    "assets/Gallery/Design Systems/1.webp",
+                    "assets/Gallery/Design Systems/2.webp",
+                    "assets/Gallery/Design Systems/3.webp",
+                    "assets/Gallery/Design Systems/4.webp",
+                    "assets/Gallery/Design Systems/5.webp",
+                    "assets/Gallery/Design Systems/6.webp",
+                    "assets/Gallery/Design Systems/66027bee045be7df083e39c0_6528c58fab8f44dc6a3cd132_benefits_of_a_good_design_system.jpeg",
+                    "assets/Gallery/Design Systems/Group 11-min.png",
+                    "assets/Gallery/Design Systems/Group 427320669.webp"
+                ]
             },
             {
                 img: "assets/Design Systems/Visionary Flow/preview.jpg",
@@ -233,7 +383,21 @@
 
             // Image
             const img = document.createElement('img');
-            img.className = 'w-full h-auto self-start opacity-0 transition-opacity duration-300 relative z-10';
+            
+            // Check if this project is flagged as mobile or if the image filename suggests a mobile screen
+            const isMobileImage = (data.isMobile && imageIndex !== 0) || 
+                                  src.toLowerCase().includes('responsive') || 
+                                  src.toLowerCase().includes('mobile') || 
+                                  src.toLowerCase().includes('phone');
+
+            if (isMobileImage) {
+                slide.classList.remove('items-start');
+                slide.classList.add('items-center'); // Center vertically
+                img.className = 'w-auto max-w-full md:max-w-[400px] h-auto max-h-[85vh] object-contain shadow-2xl rounded-2xl opacity-0 transition-opacity duration-300 relative z-10';
+            } else {
+                img.className = 'w-full h-auto self-start opacity-0 transition-opacity duration-300 relative z-10';
+            }
+            
             img.alt = `${data.title} - Image ${imageIndex + 1}`;
             slide.appendChild(img);
 
@@ -337,6 +501,7 @@
 
                 // Gemini API Logic
                 // Security: Key is split to prevent automated scraping.
+                // WARNING: Exposing API keys in client-side code is a security risk. Consider moving this to a backend proxy.
                 const _kPart1 = "AIzaSyDNUA9RC8042m11";
                 const _kPart2 = "ImrBm2Tals-hWp1kbRQ";
                 const apiKey = _kPart1 + _kPart2;
@@ -437,7 +602,7 @@
                     
                     if (q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('hire') || q.includes('reach') || q.includes('location')) {
                         answer = "You can reach Vivek at <a href='mailto:vivek2601@hotmail.com' class='text-blue-600 underline font-medium'>vivek2601@hotmail.com</a> or <strong>+91 7017204483</strong>. He is based in Noida, India and open to new opportunities.<br><br><a href='#connect' class='inline-flex items-center px-3 py-1 bg-zinc-100 hover:bg-zinc-200 rounded-full text-xs font-medium text-zinc-900 transition-colors no-underline'>Go to Contact ↓</a>";
-                    } else if (q.includes('experience') || q.includes('experiance') || q.includes('years') || q.includes('history') || q.includes('job') || q.includes('role') || q.includes('background')) {
+                    } else if (q.includes('experience') || q.includes('experience') || q.includes('years') || q.includes('history') || q.includes('job') || q.includes('role') || q.includes('background')) {
                         answer = "Vivek has <strong>8+ years of experience</strong>. Currently, he is the <strong>Lead UI/UX Designer at The Sapience LLC</strong>. Previously, he was a Senior Designer at <strong>Design Diversity Pvt Ltd</strong> and <strong>Mapppee Hub</strong>.<br><br><a href='#work' class='inline-flex items-center px-3 py-1 bg-zinc-100 hover:bg-zinc-200 rounded-full text-xs font-medium text-zinc-900 transition-colors no-underline'>View Work History ↓</a>";
                     } else if (q.includes('sapience') || q.includes('current') || q.includes('tutor') || q.includes('marketplace') || q.includes('crm')) {
                         answer = "At <strong>The Sapience LLC</strong>, Vivek leads the <strong>Tutor App Ecosystem</strong>. Key projects:<br>• <strong>Mobile Tutor App:</strong> Reduced onboarding time by 40%.<br>• <strong>Marketplace:</strong> Improved conversion via modular design.<br>• <strong>CRM Portal:</strong> Enhanced admin efficiency with data viz.<br>• <strong>AI Personalization:</strong> Integrated smart suggestions with confidence indicators.<br><br><a href='#work' class='inline-flex items-center px-3 py-1 bg-zinc-100 hover:bg-zinc-200 rounded-full text-xs font-medium text-zinc-900 transition-colors no-underline'>View Case Studies ↓</a>";

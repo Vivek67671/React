@@ -52,7 +52,7 @@
                     <span class="text-[11px] font-bold tracking-wide">Open to Projects</span>
                 </a>
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden ml-4 p-2 text-zinc-800 hover:opacity-60">
+                <button id="mobile-menu-btn" class="md:hidden ml-4 p-2 text-zinc-800 hover:opacity-60" aria-label="Toggle mobile menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
             </div>
@@ -587,8 +587,8 @@
             </div>
             <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <!-- Gallery Item 1 -->
-                <div class="reveal gallery-item" onclick="openLightbox(0)">
-                    <img src="assets/Design Systems/SaaS Designs/preview.jpg" alt="SaaS Designs" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(0)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(0); }">
+                    <img src="assets/Gallery/Sales NAlytics/Circle_Administration.webp" alt="SaaS Designs" style="object-fit:cover;object-position:left top;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
                             <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Product</p>
@@ -597,17 +597,17 @@
                     </div>
                 </div>
                 <!-- Gallery Item 2 -->
-                <div class="reveal gallery-item" onclick="openLightbox(1)">
-                    <img src="assets/Design Systems/Web Designs/preview.jpg" alt="Web Designs" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(1)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(1); }">
+                    <img src="assets/Gallery/Fintrack/Dashboard V2 - Overview.webp" alt="Fintech Solution" style="object-fit:cover;object-position:left top;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
-                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Web</p>
-                            <p class="font-bold">Web Designs</p>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Fintech</p>
+                            <p class="font-bold">Fintech Solution</p>
                         </div>
                     </div>
                 </div>
                 <!-- Gallery Item 3 -->
-                <div class="reveal gallery-item" onclick="openLightbox(2)">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(2)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(2); }">
                     <img src="assets/Design Systems/Icon System/preview.jpg" alt="Icon System" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -617,17 +617,17 @@
                     </div>
                 </div>
                 <!-- Gallery Item 4 -->
-                <div class="reveal gallery-item" onclick="openLightbox(3)">
-                    <img src="assets/Design Systems/Dashboard/preview.jpg" alt="Dashboard" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(3)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(3); }">
+                    <img src="assets/Gallery/px-conversions (3)/6.webp" alt="Control Saas Tool" style="object-fit:cover;object-position:left top;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
                             <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Product</p>
-                            <p class="font-bold">Dashboard</p>
+                            <p class="font-bold">Control Saas Tool</p>
                         </div>
                     </div>
                 </div>
                 <!-- Gallery Item 5 -->
-                <div class="reveal gallery-item" onclick="openLightbox(4)">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(4)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(4); }">
                     <img src="assets/Design Systems/Type Study/preview.jpg" alt="Type Study" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -637,17 +637,17 @@
                     </div>
                 </div>
                 <!-- Gallery Item 6 -->
-                <div class="reveal gallery-item" onclick="openLightbox(5)">
-                    <img src="assets/Design Systems/Prototypes/preview.jpg" alt="Prototypes" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(5)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(5); }">
+                    <img src="assets/Gallery/Desktop - 1.webp" alt="Parking Mobile app" style="object-fit:cover;object-position:left top;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
-                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Interaction</p>
-                            <p class="font-bold">Prototypes</p>
+                            <p class="text-[10px] uppercase font-bold tracking-widest opacity-70">Mobile App</p>
+                            <p class="font-bold">Parking Mobile app</p>
                         </div>
                     </div>
                 </div>
                 <!-- Gallery Item 7 -->
-                <div class="reveal gallery-item" onclick="openLightbox(6)">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(6)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(6); }">
                     <img src="assets/Design Systems/Design Library/1 (7).webp" alt="Design Library" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -657,7 +657,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 8 -->
-                <div class="reveal gallery-item" onclick="openLightbox(7)">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(7)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(7); }">
                     <img src="assets/Design Systems/Visionary Flow/preview.jpg" alt="Visionary Flow" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -667,7 +667,7 @@
                     </div>
                 </div>
                 <!-- Gallery Item 9 -->
-                <div class="reveal gallery-item" onclick="openLightbox(8)">
+                <div class="reveal gallery-item" role="button" tabindex="0" onclick="openLightbox(8)" onkeydown="if(event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openLightbox(8); }">
                     <img src="assets/Gallery/Tinker.webp" alt="Website UI" style="object-fit:cover;width:100%;height:100%;background:#f5f5f7;" onerror="this.onerror=null;this.src='assets/placeholder-thumb.svg';" loading="lazy">
                     <div class="gallery-overlay">
                         <div>
@@ -700,7 +700,7 @@
             </div>
 
             <!-- Horizontal Scroll Container -->
-            <div id="lightbox-images-container" class="flex w-full h-full overflow-x-auto snap-x snap-mandatory" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <div id="lightbox-images-container" class="flex w-full h-full" style="scrollbar-width: none; -ms-overflow-style: none;">
                 <!-- Images will be injected here as slides -->
             </div>
 
